@@ -64,30 +64,167 @@
 
   			</div>
   		</div>
-
-  		
 	</nav>
 
-	<div class="container" >
-
-		<section class="hero">
-			<div class="hero-body">
-				<div class="container">
-					<h1 class="title">Recomendados para ti</h1>
-					<h2 class="subtitle">Creemos que los podrías necesitar</h2>
-				</div>
+	<section class="hero is-primary is-bold">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">Recomendados para ti</h1>
+				<h2 class="subtitle">Creemos que los podrías necesitar</h2>
 			</div>
-		</section>
+		</div>
+	</section>
 
+	<br>
+
+	<div class="columns container is-fluid"">
+
+		<div class="column is-one-quarter">
+			<div class="card">
+			  <div class="card-image">
+			    <figure class="image is-4by3">
+			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    </figure>
+			  </div>
+			  <div class="card-content">
+			    <div class="media">
+			      <div class="media-left">
+			        <figure class="image is-48x48">
+			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			        </figure>
+			      </div>
+			      <div class="media-content">
+			        <p class="title is-4">John Smith</p>
+			        <p class="subtitle is-6">@johnsmith</p>
+			      </div>
+			    </div>
+
+			    <div class="content">
+			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+			      <a href="#">#css</a> <a href="#">#responsive</a>
+			      <br>
+			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+				<div class="column is-one-quarter">
+			<div class="card">
+			  <div class="card-image">
+			    <figure class="image is-4by3">
+			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    </figure>
+			  </div>
+			  <div class="card-content">
+			    <div class="media">
+			      <div class="media-left">
+			        <figure class="image is-48x48">
+			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			        </figure>
+			      </div>
+			      <div class="media-content">
+			        <p class="title is-4">John Smith</p>
+			        <p class="subtitle is-6">@johnsmith</p>
+			      </div>
+			    </div>
+
+			    <div class="content">
+			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+			      <a href="#">#css</a> <a href="#">#responsive</a>
+			      <br>
+			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+				<div class="column is-one-quarter">
+			<div class="card">
+			  <div class="card-image">
+			    <figure class="image is-4by3">
+			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    </figure>
+			  </div>
+			  <div class="card-content">
+			    <div class="media">
+			      <div class="media-left">
+			        <figure class="image is-48x48">
+			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			        </figure>
+			      </div>
+			      <div class="media-content">
+			        <p class="title is-4">John Smith</p>
+			        <p class="subtitle is-6">@johnsmith</p>
+			      </div>
+			    </div>
+
+			    <div class="content">
+			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+			      <a href="#">#css</a> <a href="#">#responsive</a>
+			      <br>
+			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    </div>
+			  </div>
+			</div>
+		</div>
+
+				<div class="column is-one-quarter">
+			<div class="card">
+			  <div class="card-image">
+			    <figure class="image is-4by3">
+			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    </figure>
+			  </div>
+			  <div class="card-content">
+			    <div class="media">
+			      <div class="media-left">
+			        <figure class="image is-48x48">
+			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			        </figure>
+			      </div>
+			      <div class="media-content">
+			        <p class="title is-4">John Smith</p>
+			        <p class="subtitle is-6">@johnsmith</p>
+			      </div>
+			    </div>
+
+			    <div class="content">
+			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+			      <a href="#">#css</a> <a href="#">#responsive</a>
+			      <br>
+			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    </div>
+			  </div>
+			</div>
+		</div>
 	</div>
 
 
-	<div id="aplicacion">
-	
-   		@yield('body')
-
+	<div class="tabs">
+		<ul>
+			<li class="is-active"><a>Pictures</a></li>
+			<li><a>Music</a></li>
+			<li><a>Videos</a></li>
+			<li><a>Documents</a></li>
+		</ul>
 	</div>
-   
+
+	<section class="hero is-success is-bold">
+		<div class="hero-body">
+			<div class="container">
+				<h1 class="title">Los mejores del mes</h1>
+				<h2 class="subtitle">Nuestros mejores trabajadores a tu servicio</h2>
+			</div>
+		</div>
+	</section>
+
+
+	@yield('body')   
 
 
 
