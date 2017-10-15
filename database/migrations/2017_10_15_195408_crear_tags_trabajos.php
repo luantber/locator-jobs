@@ -57,6 +57,31 @@ class CrearTagsTrabajos extends Migration
                 'updated_at' => date('Y-m-d h:i:s')
            )
         );
+
+        DB::table('tag_trabajo')->insert(
+            array(
+                'tag_id'=> '1',
+                'trabajo_id'=>'3'
+            )
+        );
+        DB::table('tag_trabajo')->insert(
+            array(
+                'tag_id'=> '1',
+                'trabajo_id'=>'1'
+            )
+        );
+        DB::table('tag_trabajo')->insert(
+            array(
+                'tag_id'=> '2',
+                'trabajo_id'=>'2'
+            )
+        );
+        DB::table('tag_trabajo')->insert(
+            array(
+                'tag_id'=> '3',
+                'trabajo_id'=>'3'
+            )
+        );
     }
 
     /**

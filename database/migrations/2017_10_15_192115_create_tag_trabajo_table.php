@@ -14,14 +14,14 @@ class CreateTagTrabajoTable extends Migration
     public function up()
     {
         Schema::create('tag_trabajo', function (Blueprint $table) {
-            $table->increments('id');
+            //$table->increments('id');
 
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
 
             $table->integer('trabajo_id')->unsigned();
             $table->foreign('trabajo_id')->references('id')->on('trabajos');
-            $table->timestamps();
+            //$table->timestamps();
         });
     }
 
