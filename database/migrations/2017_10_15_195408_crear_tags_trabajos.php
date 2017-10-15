@@ -35,7 +35,7 @@ class CrearTagsTrabajos extends Migration
                 'updated_at' => date('Y-m-d h:i:s')
            )
         );
-
+/*
         DB::table('trabajos')->insert(
            array(
                 'nombre'=> 'Dental',
@@ -81,7 +81,7 @@ class CrearTagsTrabajos extends Migration
                 'tag_id'=> '3',
                 'trabajo_id'=>'3'
             )
-        );
+        );*/
     }
 
     /**

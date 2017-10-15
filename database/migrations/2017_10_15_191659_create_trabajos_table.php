@@ -16,6 +16,10 @@ class CreateTrabajosTable extends Migration
         Schema::create('trabajos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('ubicacion');
+            $table->string('descripcion');
+            $table->integer('trabajador_id')->unsigned();
+            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
             $table->timestamps();
         });
     }
