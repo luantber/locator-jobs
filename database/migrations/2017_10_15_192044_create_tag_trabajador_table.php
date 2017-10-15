@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TagTrabajoTable extends Migration
+class CreateTagTrabajadorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -19,8 +19,10 @@ class TagTrabajoTable extends Migration
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
 
-            $table->integer('trabajo_id')->unsigned();
-            $table->foreign('trabajo_id')->references('id')->on('trabajos');
+            $table->integer('trabajador_id')->unsigned();
+            $table->foreign('trabajador_id')->references('id')->on('trabajadors');
+
+
             $table->timestamps();
         });
     }
