@@ -26,6 +26,7 @@ class TagController extends Controller
     public function create()
     {
         $hola = 0;
+        $jajsjsjs = 1;
     }
 
     /**
