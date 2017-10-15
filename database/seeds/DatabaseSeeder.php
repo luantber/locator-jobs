@@ -65,8 +65,18 @@ class DatabaseSeeder extends Seeder
         		]);
         }
 
-        for ($i=1; $i <3 ; $i++) { 
-        	DB::table()
+        for ($i=1; $i <4 ; $i++) { 
+        	DB::table('tag_trabajador')->insert([
+        		'tag_id' => $i,
+        		'trabajador_id' => $i,
+        		]);
+        }
+
+        for ($i=1; $i <4 ; $i++) { 
+        	DB::table('tag_trabajo')->insert([
+        		'tag_id' => $i,
+        		'trabajo_id' => $i,
+        		]);
         }
 /*
         */
