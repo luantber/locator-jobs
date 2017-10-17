@@ -48,7 +48,7 @@
   					Iniciar Sesión
   				</a>
 
-  				<!--
+  				
   				<div class="navbar-item has-dropdown">
 					<a class="navbar-link">
 						Iniciar Sesión
@@ -60,150 +60,266 @@
 						</a>
 					</div>
 				</div>
-				-->
+				
 
   			</div>
   		</div>
 	</nav>
-
+	
+	
 	<section class="hero is-primary is-bold">
-		<div class="hero-body">
+		<div class="hero-body" style="padding: 2rem 1.5rem;">
 			<div class="container">
 				<h1 class="title">Recomendados para ti</h1>
 				<h2 class="subtitle">Creemos que los podrías necesitar</h2>
 			</div>
 		</div>
 	</section>
+	
+	
+<div class="section">
+	<div class="columns is-mobile" >
 
-	<br>
-
-	<div class="columns container is-fluid"">
-
-		<div class="column is-one-quarter">
+		<div class="column">
 			<div class="card">
 			  <div class="card-image">
-			    <figure class="image is-4by3">
-			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    <figure class="image is-16by9">
+			      <img src="img/gasfiteria1.jpg" alt="Placeholder image">
 			    </figure>
 			  </div>
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-left">
 			        <figure class="image is-48x48">
-			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			          <img src="img/mox.jpg" alt="Placeholder image">
 			        </figure>
 			      </div>
 			      <div class="media-content">
-			        <p class="title is-4">John Smith</p>
-			        <p class="subtitle is-6">@johnsmith</p>
+			        <p class="title is-5 ">Gasfiteros Pepito</p>
+			        <p class="subtitle is-6"><strong>S/. 45.00 </strong></p>
 			      </div>
 			    </div>
 
-			    <div class="content">
-			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-			      <a href="#">#css</a> <a href="#">#responsive</a>
-			      <br>
-			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    <div class="content is-small is-success">
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris. </p>
+
+			    	<nav class="level">
+			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Estrellas</p>
+
+	      							<p class="has-text-danger">
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      							</p>
+	   							 </div>
+  			    			</div>
+
+  			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Calificaciones</p>
+	      							<p> <strong>7</strong></p>
+	   							 </div>
+  			    			</div>		
+			    	</nav>
+
+			    	<div class="tags">
+				    	<span class="tag is-rounded">Drywall</span>
+				    	<span class="tag is-rounded">Construcción</span>
+				    	<span class="tag is-rounded">Prefabricado</span>
+				    
+			    	</div>
+
 			    </div>
+
+
 			  </div>
 			</div>
 		</div>
 
-				<div class="column is-one-quarter">
+		<div class="column">
 			<div class="card">
 			  <div class="card-image">
-			    <figure class="image is-4by3">
-			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    <figure class="image is-16by9">
+			      <img src="img/drywall.jpg" alt="Placeholder image">
 			    </figure>
 			  </div>
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-left">
 			        <figure class="image is-48x48">
-			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			          <img src="img/freddy.jpg" alt="Placeholder image">
 			        </figure>
 			      </div>
 			      <div class="media-content">
-			        <p class="title is-4">John Smith</p>
-			        <p class="subtitle is-6">@johnsmith</p>
+			        <p class="title is-5 ">La Solución SAC</p>
+			        <p class="subtitle is-6"><strong>S/. 89.00 </strong></p>
 			      </div>
 			    </div>
 
-			    <div class="content">
-			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-			      <a href="#">#css</a> <a href="#">#responsive</a>
-			      <br>
-			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    <div class="content is-small is-success">
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris. </p>
+
+			    	<nav class="level">
+			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Estrellas</p>
+
+	      							<p class="has-text-danger">
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      							</p>
+	   							 </div>
+  			    			</div>
+
+  			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Calificaciones</p>
+	      							<p> <strong>12</strong></p>
+	   							 </div>
+  			    			</div>		
+			    	</nav>
+
+			    	<div class="tags">
+				    	<span class="tag is-rounded">Drywall</span>
+				    	<span class="tag is-rounded">Construcción</span>
+				    	<span class="tag is-rounded">Prefabricado</span>
+				    
+			    	</div>
+
 			    </div>
+
+
 			  </div>
 			</div>
 		</div>
 
-				<div class="column is-one-quarter">
+		<div class="column">
 			<div class="card">
 			  <div class="card-image">
-			    <figure class="image is-4by3">
-			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    <figure class="image is-16by9">
+			      <img src="img/dentista.jpg" alt="Placeholder image">
 			    </figure>
 			  </div>
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-left">
 			        <figure class="image is-48x48">
-			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			          <img src="img/ernesto.jpg" alt="Placeholder image">
 			        </figure>
 			      </div>
 			      <div class="media-content">
-			        <p class="title is-4">John Smith</p>
-			        <p class="subtitle is-6">@johnsmith</p>
+			        <p class="title is-5 ">Sonrisas</p>
+			        <p class="subtitle is-6"><strong>S/. 125.00 </strong></p>
 			      </div>
 			    </div>
 
-			    <div class="content">
-			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-			      <a href="#">#css</a> <a href="#">#responsive</a>
-			      <br>
-			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    <div class="content is-small is-success">
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris. </p>
+
+			    	<nav class="level">
+			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Estrellas</p>
+
+	      							<p class="has-text-danger">
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      							</p>
+	   							 </div>
+  			    			</div>
+
+  			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Calificaciones</p>
+	      							<p> <strong>12</strong></p>
+	   							 </div>
+  			    			</div>		
+			    	</nav>
+
+			    	<div class="tags">
+				    	<span class="tag is-rounded">Drywall</span>
+				    	<span class="tag is-rounded">Construcción</span>
+				    	<span class="tag is-rounded">Prefabricado</span>
+				    
+			    	</div>
+
 			    </div>
+
+
 			  </div>
 			</div>
 		</div>
 
-				<div class="column is-one-quarter">
+		<div class="column">
 			<div class="card">
 			  <div class="card-image">
-			    <figure class="image is-4by3">
-			      <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+			    <figure class="image is-16by9">
+			      <img src="img/mecanico.jpg" alt="Placeholder image">
 			    </figure>
 			  </div>
 			  <div class="card-content">
 			    <div class="media">
 			      <div class="media-left">
 			        <figure class="image is-48x48">
-			          <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+			          <img src="img/german.jpg" alt="Placeholder image">
 			        </figure>
 			      </div>
 			      <div class="media-content">
-			        <p class="title is-4">John Smith</p>
-			        <p class="subtitle is-6">@johnsmith</p>
+			        <p class="title is-5 ">Mecanico Auto</p>
+			        <p class="subtitle is-6"><strong>S/. 89.00 </strong></p>
 			      </div>
 			    </div>
 
-			    <div class="content">
-			      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-			      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-			      <a href="#">#css</a> <a href="#">#responsive</a>
-			      <br>
-			      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+			    <div class="content is-small is-success">
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.Phasellus nec iaculis mauris. </p>
+
+			    	<nav class="level">
+			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Estrellas</p>
+
+	      							<p class="has-text-danger">
+	      								
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      								<i class="fa fa-star" aria-hidden="true"></i>
+	      							</p>
+	   							 </div>
+  			    			</div>
+
+  			    			<div class="level-item has-text-centered">
+			    				<div>
+	   							    <p class="heading">Calificaciones</p>
+	      							<p> <strong>5</strong></p>
+	   							 </div>
+  			    			</div>		
+			    	</nav>
+
+			    	<div class="tags">
+				    	<span class="tag is-rounded">Drywall</span>
+				    	<span class="tag is-rounded">Construcción</span>
+				    	<span class="tag is-rounded">Prefabricado</span>
+				    
+			    	</div>
+
 			    </div>
+
+
 			  </div>
 			</div>
 		</div>
+		
 	</div>
-
+</div>
 
 	<div class="tabs">
 		<ul>
@@ -224,6 +340,7 @@
 	</section>
 
 
+
 	@yield('body')   
 
 
@@ -233,3 +350,4 @@
   <script src="jsa/main.js"></script>
 </body>
 </html>
+
