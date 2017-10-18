@@ -1,7 +1,12 @@
-new Vue({
+var app =  new Vue({
   el: '#aplicacion',
   data: {
-  	login: "modal"
+  	login: "modal",
+  	user:{
+  		email: '',
+  		password: '',
+  		
+  	}
   },
   methods:{
   	iniciar: function(){
@@ -9,6 +14,11 @@ new Vue({
   	},
   	cerrarLogin: function(){
   		this.login = 'modal'
+  	},
+  	logear: function(token){
+
+		$.post( "test.php", { email: this.user.email , password: this.user.password , _token : token } );
+
   	}
   }
 })

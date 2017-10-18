@@ -11,12 +11,17 @@
 |
 */
 
+use Illuminate\Http\Request;
 
 Route::get('/',function(){
 	return view('index');
 });
 Route::get('/loogin',function(){
 	return view('login');
+});
+
+Route::post('login2',function(Request $request){
+	dd($request->email);
 });
 
 Auth::routes();

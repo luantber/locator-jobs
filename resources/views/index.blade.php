@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="css/fonts-awesome.min.css">
 
     <link rel="stylesheet" href="css/bulma.css">
@@ -22,11 +22,15 @@
 	<div class="modal-background"></div>
 	<div class="modal-content">
 		<div class="box">
+
+			<form method="post" action="login">
 			<i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
+			{{ csrf_field() }}
 			<h1 class="title is-size-4">Inicia sesión para continuar</h1>
+
 			<div class="field">
 				<p class="control has-icons-right">
-					<input class="input is-medium" type="email" placeholder="Email">
+					<input class="input is-medium" v-model="user.email" type="email" placeholder="Email" name="email">
 					
 					<span class="icon is-small is-right">
 						<i class="fa fa-envelope"></i>
@@ -36,7 +40,7 @@
 
 			<div class="field">
 				<p class="control has-icons-right">
-					<input class="input is-medium" type="password" placeholder="Password">
+					<input class="input is-medium" type="password" v-model="user.password" placeholder="Password" name="password">
 					<span class="icon is-small is-right">
 						<i class="fa fa-lock"></i>
 					</span>
@@ -55,19 +59,23 @@
   				</div>
   			</nav>
 
+  			
   			<div class="columns" style="margin-top: -1.5rem;">
   				<div class="column is-primary" style="padding: 0.65rem;" >
-					<div class="notification is-primary has-text-weight-bold has-text-centered">
+					<div v-on:click="logear('{{ csrf_token() }}')" class="notification is-primary has-text-weight-bold has-text-centered">
 						Iniciar Sesión
 					</div>
   				</div>
 			</div>
 
+
 			<div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
+				<input type="submit" value="Incia Sesion 2 ">
 				<div class="column">
 				¿Olvidaste tu contraseña?	
 				</div>
 			</div>
+			</form>
 
 			<p>No tienes cuenta ? <a href="">Regístrate</a></p>
 
@@ -112,8 +120,8 @@ FIN LOGIN
   				
 
 
-  				
-  				<div class="navbar-item has-dropdown">
+  				@if(!Auth::check())
+  				<div class="navbar-item ">
 					<a v-on:click="iniciar" class="navbar-link">
 						Iniciar Sesión
 					</a>
@@ -124,6 +132,25 @@ FIN LOGIN
 						</a>
 					</div>
 				</div>
+				@else
+				<div class="navbar-item has-dropdown is-active">
+					<a class="navbar-link">
+						{{ Auth::user()->nombre }}
+					</a>
+
+					<div class="navbar-dropdown">
+						<a class="navbar-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+					</div>
+				</div>
+				@endif
 				
   			</div>
   		</div>
