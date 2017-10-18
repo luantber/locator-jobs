@@ -1,25 +1,14 @@
-Vue.component('barra-busqueda',{
-	data:function(){
-		return {
-			texto: ""
-		};
-	},
-
-	template: `
-	
-	`
-});
-
-Vue.component('barra-navegacion', {
-  template: `
-  
-  `
-});
-
-
-
-
 new Vue({
   el: '#aplicacion',
-
+  data: {
+  	login: "modal"
+  },
+  methods:{
+  	iniciar: function(){
+  		this.login = 'modal is-active'
+  	},
+  	cerrarLogin: function(){
+  		this.login = 'modal'
+  	}
+  }
 })

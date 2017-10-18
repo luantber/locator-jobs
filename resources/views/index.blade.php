@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/fonts-awesome.min.css">
 
     <link rel="stylesheet" href="css/bulma.css">
 
@@ -12,7 +12,73 @@
 
 </head>
 <body>
+	<div id="aplicacion">
 
+<!--INICIO LOGIN
+-->
+
+
+<div class="modal" v-bind:class="login">
+	<div class="modal-background"></div>
+	<div class="modal-content">
+		<div class="box">
+			<i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
+			<h1 class="title is-size-4">Inicia sesión para continuar</h1>
+			<div class="field">
+				<p class="control has-icons-right">
+					<input class="input is-medium" type="email" placeholder="Email">
+					
+					<span class="icon is-small is-right">
+						<i class="fa fa-envelope"></i>
+					</span>
+				</p>
+			</div>
+
+			<div class="field">
+				<p class="control has-icons-right">
+					<input class="input is-medium" type="password" placeholder="Password">
+					<span class="icon is-small is-right">
+						<i class="fa fa-lock"></i>
+					</span>
+				</p>
+			</div>
+
+  			<nav class="level">
+  				<div class="level-left">
+					<label class="checkbox">
+					<input type="checkbox">
+					Recuerdame
+					</label>
+  				</div>
+  				<div class="level-right">
+  					<a href="">Mostrar Contraseña</a>
+  				</div>
+  			</nav>
+
+  			<div class="columns" style="margin-top: -1.5rem;">
+  				<div class="column is-primary" style="padding: 0.65rem;" >
+					<div class="notification is-primary has-text-weight-bold has-text-centered">
+						Iniciar Sesión
+					</div>
+  				</div>
+			</div>
+
+			<div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
+				<div class="column">
+				¿Olvidaste tu contraseña?	
+				</div>
+			</div>
+
+			<p>No tienes cuenta ? <a href="">Regístrate</a></p>
+
+		</div>
+	</div>
+	
+</div>
+
+<!--
+FIN LOGIN
+-->
 	<nav class="navbar is-light" >
 		<div class="navbar-brand ">
 			<div class="navbar-item">
@@ -44,13 +110,11 @@
   					Registrarse
   				</a>
   				
-  				<a href="" class="navbar-item">
-  					Iniciar Sesión
-  				</a>
+
 
   				
   				<div class="navbar-item has-dropdown">
-					<a class="navbar-link">
+					<a v-on:click="iniciar" class="navbar-link">
 						Iniciar Sesión
 					</a>
 
@@ -61,7 +125,6 @@
 					</div>
 				</div>
 				
-
   			</div>
   		</div>
 	</nav>
@@ -340,14 +403,14 @@
 	</section>
 
 
-
+</div>
 	@yield('body')   
-
-
 
   <script type="text/javascript" src="js/vue.js"></script>
 
   <script src="jsa/main.js"></script>
+
+
 </body>
 </html>
 
