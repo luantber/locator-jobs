@@ -11,11 +11,13 @@
 |
 */
 
-use Illuminate\Http\Request;
+Route::get('login/google', 'Auth\SocialLoginController@redirectToProvider');
+Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
 Route::get('/',function(){
 	return view('index');
 });
+
 Route::get('/loogin',function(){
 	return view('login');
 });
