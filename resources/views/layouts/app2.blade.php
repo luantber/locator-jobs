@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="css/fonts-awesome.min.css">
+
+    <link rel="stylesheet" href="css/bulma.css">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+
+  <div class="modal" v-bind:class="login">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+
+        <form method="post" action="login">
+        <i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
+        {{ csrf_field() }}
+        <h1 class="title is-size-4">Inicia sesión para continuar</h1>
+
+        <div class="field">
+          <p class="control has-icons-right">
+            <input class="input is-medium" v-model="user.email" type="email" placeholder="Email" name="email">
+
+            <span class="icon is-small is-right">
+              <i class="fa fa-envelope"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-right">
+            <input class="input is-medium" type="password" v-model="user.password" placeholder="Password" name="password">
+            <span class="icon is-small is-right">
+              <i class="fa fa-lock"></i>
+            </span>
+          </p>
+        </div>
+
+          <nav class="level">
+            <div class="level-left">
+            <label class="checkbox">
+            <input type="checkbox">
+            Recuerdame
+            </label>
+            </div>
+            <div class="level-right">
+              <a href="">Mostrar Contraseña</a>
+            </div>
+          </nav>
+
+
+          <div class="columns" style="margin-top: -1.5rem;">
+            <div class="column is-primary" style="padding: 0.65rem;" >
+            <div v-on:click="logear('{{ csrf_token() }}')" class="notification is-primary has-text-weight-bold has-text-centered">
+              Iniciar Sesión
+            </div>
+            </div>
+        </div>
+
+
+        <div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
+          <input type="submit" value="Incia Sesion 2 ">
+          <div class="column">
+          ¿Olvidaste tu contraseña?
+          </div>
+        </div>
+        </form>
+
+        <p>No tienes cuenta ? <a href="">Regístrate</a></p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!--
+  FIN LOGIN
+  -->
+    <nav class="navbar is-light" >
+      <div class="navbar-brand ">
+        <div class="navbar-item">
+            <img src="img/logo.png" style="max-height: 2.5rem">
+        </div>
+        </div>
+
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <div class="navbar-item">
+              <div class="control has-icons-left">
+                <input class="input is-medium" type="text" placeholder="Buscar trabajos">
+                <span class="icon is-small is-left">
+                  <i class="fa fa-suitcase" aria-hidden="true"></i>
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="navbar-end">
+
+            <a class="navbar-item">
+              Publicar Trabajo
+            </a>
+
+            <a href="" class="navbar-item">
+              Registrarse
+            </a>
+
+
+
+            @if(!Auth::check())
+            <div class="navbar-item ">
+            <a v-on:click="iniciar" class="navbar-link">
+              Iniciar Sesión
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                Overview
+              </a>
+            </div>
+          </div>
+          @else
+          <div class="navbar-item has-dropdown is-active">
+            <a class="navbar-link">
+              {{ Auth::user()->nombre }}
+            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                              Logout
+                          </a>
+
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              {{ csrf_field() }}
+                          </form>
+            </div>
+          </div>
+          @endif
+
+          </div>
+        </div>
+    </nav>
+
+    @yield('content')
+
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+</body>
+</html>

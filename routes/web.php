@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('login/google', 'Auth\SocialLoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
@@ -27,5 +26,5 @@ Route::post('login2',function(Request $request){
 });
 
 Auth::routes();
-
+Route::post('/register2','RegisterController@create2');
 Route::get('/home', 'HomeController@index')->name('home');
