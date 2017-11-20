@@ -20,6 +20,7 @@
 
   <div id="aplicacion">
 
+<!-- LOGIN -->
   <div class="modal" v-bind:class="login">
     <div class="modal-background"></div>
     <div class="modal-content">
@@ -72,7 +73,7 @@
 
 
         <div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
-          <input type="submit" value="Incia Sesion 2 ">
+          <input class="notification is-primary has-text-weight-bold has-text-centered" type="submit" value="Incia Sesion 2 ">
           <div class="column">
           ¿Olvidaste tu contraseña?
           </div>
