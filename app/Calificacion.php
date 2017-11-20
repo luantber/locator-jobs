@@ -14,5 +14,8 @@ class Calificacion extends Model
   public function trabajo()
   {
     return $this->belongsTo('App\Trabajo');
+
+
+    
   }
 }

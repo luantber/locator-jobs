@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use Socialite;
 
 class SocialLoginController extends Controller
@@ -25,6 +28,8 @@ class SocialLoginController extends Controller
     {
         $user = Socialite::driver('google')->user();
         dd($user);
+        //Auth::login($user, true);
         // $user->token;
+        //return redirect('/');
     }
 }
