@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Trabajo;
+use App\User;
 use Illuminate\Http\Request;
 
 class TrabajoController extends Controller
@@ -15,6 +16,7 @@ class TrabajoController extends Controller
     public function index()
     {
         //
+
     }
 
     /**

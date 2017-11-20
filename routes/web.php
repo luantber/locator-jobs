@@ -13,6 +13,8 @@
 Route::get('login/google', 'Auth\SocialLoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
+Route::get('asdf','TrabajoController@index');
+
 Route::get('/',function(){
 	return view('index');
 });

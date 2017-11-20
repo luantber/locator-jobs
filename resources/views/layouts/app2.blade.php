@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="js/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="css/fonts-awesome.min.css">
 
     <link rel="stylesheet" href="css/bulma.css">
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+	<title>@yield('titulo')</title>
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
+
 <body>
+
+  <div id="aplicacion">
 
   <div class="modal" v-bind:class="login">
     <div class="modal-background"></div>
@@ -157,11 +153,12 @@
           </div>
         </div>
     </nav>
+  </div>
+
+<script type="text/javascript" src="js/vue.js"></script>
+<script src="jsa/main.js"></script>
 
     @yield('content')
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    
 </body>
 </html>

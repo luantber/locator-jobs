@@ -1,162 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <link rel="stylesheet" href="css/fonts-awesome.min.css">
+@extends('layouts.app2')
 
-    <link rel="stylesheet" href="css/bulma.css">
+@section('content')
 
-	<title>@yield('titulo')</title>
-
-</head>
-<body>
-	<div id="aplicacion">
-
-<!--INICIO LOGIN
--->
-
-
-<div class="modal" v-bind:class="login">
-	<div class="modal-background"></div>
-	<div class="modal-content">
-		<div class="box">
-
-			<form method="post" action="login">
-			<i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
-			{{ csrf_field() }}
-			<h1 class="title is-size-4">Inicia sesión para continuar</h1>
-
-			<div class="field">
-				<p class="control has-icons-right">
-					<input class="input is-medium" v-model="user.email" type="email" placeholder="Email" name="email">
-					
-					<span class="icon is-small is-right">
-						<i class="fa fa-envelope"></i>
-					</span>
-				</p>
-			</div>
-
-			<div class="field">
-				<p class="control has-icons-right">
-					<input class="input is-medium" type="password" v-model="user.password" placeholder="Password" name="password">
-					<span class="icon is-small is-right">
-						<i class="fa fa-lock"></i>
-					</span>
-				</p>
-			</div>
-
-  			<nav class="level">
-  				<div class="level-left">
-					<label class="checkbox">
-					<input type="checkbox">
-					Recuerdame
-					</label>
-  				</div>
-  				<div class="level-right">
-  					<a href="">Mostrar Contraseña</a>
-  				</div>
-  			</nav>
-
-  			
-  			<div class="columns" style="margin-top: -1.5rem;">
-  				<div class="column is-primary" style="padding: 0.65rem;" >
-					<div v-on:click="logear('{{ csrf_token() }}')" class="notification is-primary has-text-weight-bold has-text-centered">
-						Iniciar Sesión
-					</div>
-  				</div>
-			</div>
-
-
-			<div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
-				<input type="submit" value="Incia Sesion 2 ">
-				<div class="column">
-				¿Olvidaste tu contraseña?	
-				</div>
-			</div>
-			</form>
-
-			<p>No tienes cuenta ? <a href="">Regístrate</a></p>
-
-		</div>
-	</div>
-	
-</div>
-
-<!--
-FIN LOGIN
--->
-	<nav class="navbar is-light" >
-		<div class="navbar-brand ">
-			<div class="navbar-item">
-					<img src="img/logo.png" style="max-height: 2.5rem">
-			</div>
-  		</div>
-
-  		<div class="navbar-menu">
-  			<div class="navbar-start">
-  				<div class="navbar-item">
-  					<div class="control has-icons-left">
-	  					<input class="input is-medium" type="text" placeholder="Buscar trabajos">
-	  					<span class="icon is-small is-left">
-						    <i class="fa fa-suitcase" aria-hidden="true"></i>
-	    				</span>
-	  				</div>
-  					
-  				</div>
-  			</div>
-
-
-  			<div class="navbar-end">
-
-  				<a class="navbar-item">
-  					Publicar Trabajo
-  				</a>
-
-  				<a href="" class="navbar-item">
-  					Registrarse
-  				</a>
-  				
-
-
-  				@if(!Auth::check())
-  				<div class="navbar-item ">
-					<a v-on:click="iniciar" class="navbar-link">
-						Iniciar Sesión
-					</a>
-
-					<div class="navbar-dropdown">
-						<a class="navbar-item">
-							Overview
-						</a>
-					</div>
-				</div>
-				@else
-				<div class="navbar-item has-dropdown is-active">
-					<a class="navbar-link">
-						{{ Auth::user()->nombre }}
-					</a>
-
-					<div class="navbar-dropdown">
-						<a class="navbar-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                            Logout
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-					</div>
-				</div>
-				@endif
-				
-  			</div>
-  		</div>
-	</nav>
-	
-	
 	<section class="hero is-primary is-bold">
 		<div class="hero-body" style="padding: 2rem 1.5rem;">
 			<div class="container">
@@ -165,8 +10,8 @@ FIN LOGIN
 			</div>
 		</div>
 	</section>
-	
-	
+
+
 <div class="section">
 	<div class="columns is-mobile" >
 
@@ -211,14 +56,14 @@ FIN LOGIN
 	   							    <p class="heading">Calificaciones</p>
 	      							<p> <strong>7</strong></p>
 	   							 </div>
-  			    			</div>		
+  			    			</div>
 			    	</nav>
 
 			    	<div class="tags">
 				    	<span class="tag is-rounded">Drywall</span>
 				    	<span class="tag is-rounded">Construcción</span>
 				    	<span class="tag is-rounded">Prefabricado</span>
-				    
+
 			    	</div>
 
 			    </div>
@@ -271,14 +116,14 @@ FIN LOGIN
 	   							    <p class="heading">Calificaciones</p>
 	      							<p> <strong>12</strong></p>
 	   							 </div>
-  			    			</div>		
+  			    			</div>
 			    	</nav>
 
 			    	<div class="tags">
 				    	<span class="tag is-rounded">Drywall</span>
 				    	<span class="tag is-rounded">Construcción</span>
 				    	<span class="tag is-rounded">Prefabricado</span>
-				    
+
 			    	</div>
 
 			    </div>
@@ -331,14 +176,14 @@ FIN LOGIN
 	   							    <p class="heading">Calificaciones</p>
 	      							<p> <strong>12</strong></p>
 	   							 </div>
-  			    			</div>		
+  			    			</div>
 			    	</nav>
 
 			    	<div class="tags">
 				    	<span class="tag is-rounded">Drywall</span>
 				    	<span class="tag is-rounded">Construcción</span>
 				    	<span class="tag is-rounded">Prefabricado</span>
-				    
+
 			    	</div>
 
 			    </div>
@@ -377,7 +222,7 @@ FIN LOGIN
 	   							    <p class="heading">Estrellas</p>
 
 	      							<p class="has-text-danger">
-	      								
+
 	      								<i class="fa fa-star" aria-hidden="true"></i>
 	      								<i class="fa fa-star" aria-hidden="true"></i>
 	      								<i class="fa fa-star" aria-hidden="true"></i>
@@ -391,14 +236,14 @@ FIN LOGIN
 	   							    <p class="heading">Calificaciones</p>
 	      							<p> <strong>5</strong></p>
 	   							 </div>
-  			    			</div>		
+  			    			</div>
 			    	</nav>
 
 			    	<div class="tags">
 				    	<span class="tag is-rounded">Drywall</span>
 				    	<span class="tag is-rounded">Construcción</span>
 				    	<span class="tag is-rounded">Prefabricado</span>
-				    
+
 			    	</div>
 
 			    </div>
@@ -407,7 +252,7 @@ FIN LOGIN
 			  </div>
 			</div>
 		</div>
-		
+
 	</div>
 </div>
 
@@ -429,15 +274,4 @@ FIN LOGIN
 		</div>
 	</section>
 
-
-</div>
-	@yield('body')   
-
-  <script type="text/javascript" src="js/vue.js"></script>
-
-  <script src="jsa/main.js"></script>
-
-
-</body>
-</html>
-
+@endsection
