@@ -26,5 +26,5 @@ Route::post('login2',function(Request $request){
 });
 
 Auth::routes();
-Route::post('/register2','RegisterController@create2');
+//Route::post('/register2','RegisterController@create2');
 Route::get('/home', 'HomeController@index')->name('home');
