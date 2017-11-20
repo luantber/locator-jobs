@@ -92,7 +92,7 @@
     <nav class="navbar is-light" >
       <div class="navbar-brand ">
         <div class="navbar-item">
-            <img src="img/logo.png" style="max-height: 2.5rem">
+            <img src="{{asset('img/logo.png')}}" style="max-height: 2.5rem">
         </div>
         </div>
 
@@ -159,10 +159,10 @@
     </nav>
   </div>
 
-<script type="text/javascript" src="js/vue.js"></script>
-<script src="jsa/main.js"></script>
+<script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
+<script src="{{asset('jsa/main.js')}}"></script>
 
     @yield('content')
-    
+
 </body>
 </html>
