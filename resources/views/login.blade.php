@@ -7,11 +7,11 @@
 	<div class="modal-content">
 		<div class="box">
 			<i class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true">X</i>
-			<h1 class="title is-size-4">Inicia sesión para continuar</h1>
+			<h1 class="title is-size-4">Inicia sesión para continuaasdasdar</h1>
 			<div class="field">
 				<p class="control has-icons-right">
 					<input class="input is-medium" type="email" placeholder="Email">
-					
+
 					<span class="icon is-small is-right">
 						<i class="fa fa-envelope"></i>
 					</span>
@@ -49,7 +49,7 @@
 
 			<div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
 				<div class="column">
-				¿Olvidaste tu contraseña?	
+				¿Olvidaste tu contraseña?
 				</div>
 			</div>
 
@@ -57,7 +57,7 @@
 
 		</div>
 	</div>
-	
+
 </div>
 
 

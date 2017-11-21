@@ -15,8 +15,7 @@ class TrabajoController extends Controller
      */
     public function index()
     {
-        //
-
+        return "Hello";
     }
 
     /**
@@ -24,10 +23,10 @@ class TrabajoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+     public function create()
+     {
+
+     }
 
     /**
      * Store a newly created resource in storage.
@@ -38,6 +37,14 @@ class TrabajoController extends Controller
     public function store(Request $request)
     {
         //
+        //return dd($request);
+        $trabajo= new Trabajo;
+        $trabajo->nombre=$request->nombre;
+        $trabajo->ubicacion=$request->ubicacion;
+        $trabajo->descripcion=$request->descripcion;
+        $trabajo->trabajador_id=1;
+        $trabajo->save();
+        return redirect("/")
     }
 
     /**
@@ -48,7 +55,7 @@ class TrabajoController extends Controller
      */
     public function show(Trabajo $trabajo)
     {
-        //
+        return view('Trabajos.mostrar',['trabajo'=>$trabajo]);
     }
 
     /**

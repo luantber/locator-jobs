@@ -15,4 +15,8 @@ class Trabajador extends Model
     {
       return $this->belongsToMany('App\Tag');
     }
+    public function trabajos()
+    {
+      return $this->hasMany('App\Trabajo');
+    }
 }

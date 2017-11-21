@@ -63,7 +63,7 @@
             <div class="level-right">
               <a href="">Mostrar Contraseña</a>
             </div>
-          </nav>
+          </nav>log
 
 
           <div class="columns" style="margin-top: -1.5rem;">
@@ -102,6 +102,65 @@
   <!--
   FIN LOGIN
   -->
+
+<!--INICIO CREAR_TRABAJO-->
+	<div id="crear_tra" >
+		<div class="modal" v-bind:class="crear">
+		  <div class="modal-background"></div>
+		  <div class="modal-card">
+		    <header class="modal-card-head">
+		      <p class="modal-card-title">Crear Trabajo</p>
+		      <button class="delete" aria-label="close" v-on:click="cerrar_tra"></button>
+		    </header>
+		    <section class="modal-card-body">
+		      <!-- Content ... -->
+					<div class="box">
+
+						<form method="post" id="form2" action="trabajos">
+						{{ csrf_field() }}
+
+						<div class="field">
+							<p class="control has-icons-right">
+								<input class="input is-medium" v-model="trabajo.nombre" type="text" placeholder="Nombre" name="nombre">
+
+								<span class="icon is-small is-right">
+									<i class="fa fa-user"></i>
+								</span>
+							</p>
+						</div>
+
+						<div class="field">
+							<p class="control has-icons-right">
+								<input class="input is-medium" type="text" v-model="user.ubicacion" placeholder="ubicacion" name="ubicacion">
+								<span class="icon is-small is-right">
+									<i class="fa fa-address-card-o"></i>
+								</span>
+							</p>
+						</div>
+
+						<div class="field">
+							<p class="control has-icons-right">
+								<input class="input is-medium" type="text" v-model="user.descripcion" placeholder="descripcion" name="descripcion">
+								<span class="icon is-small is-right">
+									<i class="fa fa-address-card-o"></i>
+								</span>
+							</p>
+						</div>
+							<!--<input type="hidden" name="tra_id" v-model="user.trabajador" value="{{Auth::user()->trabajador->id}}">-->
+							<input type="hidden" name="tra_id" v-model="user.trabajador" value="1">
+
+					</form>
+		    </section>
+		    <footer class="modal-card-foot">
+		      <button form="form2" class="button is-success" >Crear Trabajo</button>
+		      <button class="button" v-on:click="cerrar_tra">Cancelar</button>
+		    </footer>
+		  </div>
+		</div>
+
+	</div>
+<!--FIN CREAR_TRABAJO-->
+
     <nav class="navbar is-light" >
       <div class="navbar-brand ">
         <div class="navbar-item">
@@ -125,7 +184,7 @@
 
           <div class="navbar-end">
 
-            <a class="navbar-item">
+            <a class="navbar-item" v-on:click="crear_tra">
               Publicar Trabajo
             </a>
 

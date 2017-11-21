@@ -15,4 +15,9 @@ class Trabajo extends Model
     {
       return $this->hasMany('App\Calificacion');
     }
+
+    public function trabajador()
+    {
+      return $this->belongsTo('App\Trabajador');
+    }
 }

@@ -22,6 +22,12 @@ Route::resources([
     'trabajadores' => 'TrabajadorController'
 ]);
 
+
+//Trabajos
+
+Route::resources([
+    'trabajos' => 'TrabajoController'
+]);
 //Route::apiResource('trabajadores', 'TrabajadorController');
 // FINAL
 

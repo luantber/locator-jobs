@@ -74,16 +74,5 @@ class RegisterController extends Controller
 
 
     }
-    public function create2(Request $request)
-    {
-      $user = new User;
-      $user->nombre= $request->name;
-      $user->email=$request->email;
-      $user->telefono='454395';
-      $user->foto='foto8';
-      $user->password=bcrypt($request->password);
-      $user->monto=123;
-
-      dd('ya creo');
-    }
+    
 }
