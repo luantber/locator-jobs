@@ -36,8 +36,8 @@ return [
     ],
 
     'google' => [
-        'client_id' => 669759590228-p27me0bmtone420f037snqbaue17oon9.apps.googleusercontent.com,//env('GOOGLE_ID'),         // Your GitHub Client ID
-        'client_secret' => sSaqaS6NBTR4CJJCqQvLLFSI,//env('GOOGLE_SECRET'), // Your GitHub Client Secret
+        'client_id' => '669759590228-p27me0bmtone420f037snqbaue17oon9.apps.googleusercontent.com',//env('GOOGLE_ID'),         // Your GitHub Client ID
+        'client_secret' => 'sSaqaS6NBTR4CJJCqQvLLFSI',//env('GOOGLE_SECRET'), // Your GitHub Client Secret
         'redirect' => 'http://localhost:8000/login/google/callback/' //env('GOOGLE_REDIRECT') //'http://localhost:8000/login/google/callback/'
     ],
 
