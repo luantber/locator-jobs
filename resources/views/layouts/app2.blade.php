@@ -64,28 +64,37 @@
 
 
           <div class="columns" style="margin-top: -1.5rem;">
-            <div class="column is-primary" style="padding: 0.65rem;" >
-            <div v-on:click="logear('{{ csrf_token() }}')" class="notification is-primary has-text-weight-bold has-text-centered">
-              Iniciar Sesión
-            </div>
+            <div class="column">
+              <div class="field is-grouped is-grouped-centered">
+                <p class="control">
+                  <a class="button is-primary has-text-weight-bold has-text-centered" type="submit">
+                    Submit</a>
+                  </p>
+                </div>
             </div>
         </div>
+      </form>
 
-
-        <div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
-          <input class="notification is-primary has-text-weight-bold has-text-centered" type="submit" value="Incia Sesion 2 ">
+      <div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
           <div class="column">
           ¿Olvidaste tu contraseña?
           </div>
+      </div>
+
+        <div class="columns has-text-centered has-text-primary" style="border-top-style: dotted;">
+          <div class="column">
+          O ingresa con Google o Facebook<br>
+           <a href="{{asset('login/google')}}"><img src="{{asset('img/btnm.png')}}" alt="" width="45%"></a>
+          <img src="{{asset('img/btn2m.png')}}" alt="" width="45%">
+          </div>
         </div>
-        </form>
 
-        <p>No tienes cuenta ? <a href="">Regístrate</a></p>
-
+          <p>No tienes cuenta ? <a href="">Regístrate</a></p>
       </div>
     </div>
 
   </div>
+
 
   <!--
   FIN LOGIN
