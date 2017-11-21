@@ -2,10 +2,13 @@
 <html>
 <head>
 	<meta charset="utf-8">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+		<script src="{{ asset('js/sweetalert.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('css/fonts-awesome.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/bulma.css')}}">
