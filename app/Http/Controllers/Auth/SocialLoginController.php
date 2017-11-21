@@ -47,7 +47,7 @@ class SocialLoginController extends Controller
 
         Auth::login($usuario, true);
 
-        return redirect('index');
+        return redirect('/');
 
 
 
