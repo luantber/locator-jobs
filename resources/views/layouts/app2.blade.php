@@ -29,7 +29,7 @@
     <div class="modal-content">
       <div class="box">
 
-        <form method="post" action="login">
+        <form method="post" action="login" id="form1">
         <i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
         {{ csrf_field() }}
         <h1 class="title is-size-4">Inicia sesión para continuar</h1>
@@ -70,8 +70,8 @@
             <div class="column">
               <div class="field is-grouped is-grouped-centered">
                 <p class="control">
-                  <a class="button is-primary has-text-weight-bold has-text-centered" type="submit">
-                    Submit</a>
+                  <button  form="form1" class="button is-primary has-text-weight-bold has-text-centered" type="submit">
+                    Entrar</button>
                   </p>
                 </div>
             </div>
