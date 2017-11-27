@@ -22,145 +22,7 @@
 <body>
 
   <div id="aplicacion">
-
-<!-- LOGIN -->
-  <div class="modal" v-bind:class="login">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-
-        <form method="post" action="login" id="form1">
-        <i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
-        {{ csrf_field() }}
-        <h1 class="title is-size-4">Inicia sesión para continuar</h1>
-
-        <div class="field">
-          <p class="control has-icons-right">
-            <input class="input is-medium" v-model="user.email" type="email" placeholder="Email" name="email">
-
-            <span class="icon is-small is-right">
-              <i class="fa fa-envelope"></i>
-            </span>
-          </p>
-        </div>
-
-        <div class="field">
-          <p class="control has-icons-right">
-            <input class="input is-medium" type="password" v-model="user.password" placeholder="Password" name="password">
-            <span class="icon is-small is-right">
-              <i class="fa fa-lock"></i>
-            </span>
-          </p>
-        </div>
-
-          <nav class="level">
-            <div class="level-left">
-            <label class="checkbox">
-            <input type="checkbox">
-            Recuerdame
-            </label>
-            </div>
-            <div class="level-right">
-              <a href="">Mostrar Contraseña</a>
-            </div>
-          </nav>log
-
-
-          <div class="columns" style="margin-top: -1.5rem;">
-            <div class="column">
-              <div class="field is-grouped is-grouped-centered">
-                <p class="control">
-                  <button  form="form1" class="button is-primary has-text-weight-bold has-text-centered" type="submit">
-                    Entrar</button>
-                  </p>
-                </div>
-            </div>
-        </div>
-      </form>
-
-      <div class="columns has-text-centered has-text-primary" style="margin-top: -1.5rem;">
-          <div class="column">
-          ¿Olvidaste tu contraseña?
-          </div>
-      </div>
-
-        <div class="columns has-text-centered has-text-primary" style="border-top-style: dotted;">
-          <div class="column">
-          O ingresa con Google o Facebook<br>
-           <a href="{{asset('login/google')}}"><img src="{{asset('img/btnm.png')}}" alt="" width="45%"></a>
-          <img src="{{asset('img/btn2m.png')}}" alt="" width="45%">
-          </div>
-        </div>
-
-          <p>No tienes cuenta ? <a href="">Regístrate</a></p>
-      </div>
-    </div>
-
-  </div>
-
-
-  <!--
-  FIN LOGIN
-  -->
-
-<!--INICIO CREAR_TRABAJO-->
-	<div id="crear_tra" >
-		<div class="modal" v-bind:class="crear">
-		  <div class="modal-background"></div>
-		  <div class="modal-card">
-		    <header class="modal-card-head">
-		      <p class="modal-card-title">Crear Trabajo</p>
-		      <button class="delete" aria-label="close" v-on:click="cerrar_tra"></button>
-		    </header>
-		    <section class="modal-card-body">
-		      <!-- Content ... -->
-					<div class="box">
-
-						<form method="post" id="form2" action="trabajos">
-						{{ csrf_field() }}
-
-						<div class="field">
-							<p class="control has-icons-right">
-								<input class="input is-medium" v-model="trabajo.nombre" type="text" placeholder="Nombre" name="nombre">
-
-								<span class="icon is-small is-right">
-									<i class="fa fa-user"></i>
-								</span>
-							</p>
-						</div>
-
-						<div class="field">
-							<p class="control has-icons-right">
-								<input class="input is-medium" type="text" v-model="user.ubicacion" placeholder="ubicacion" name="ubicacion">
-								<span class="icon is-small is-right">
-									<i class="fa fa-address-card-o"></i>
-								</span>
-							</p>
-						</div>
-
-						<div class="field">
-							<p class="control has-icons-right">
-								<input class="input is-medium" type="text" v-model="user.descripcion" placeholder="descripcion" name="descripcion">
-								<span class="icon is-small is-right">
-									<i class="fa fa-address-card-o"></i>
-								</span>
-							</p>
-						</div>
-							<!--<input type="hidden" name="tra_id" v-model="user.trabajador" value="{{Auth::user()->trabajador->id}}">-->
-							<input type="hidden" name="tra_id" v-model="user.trabajador" value="1">
-
-					</form>
-		    </section>
-		    <footer class="modal-card-foot">
-		      <button form="form2" class="button is-success" >Crear Trabajo</button>
-		      <button class="button" v-on:click="cerrar_tra">Cancelar</button>
-		    </footer>
-		  </div>
-		</div>
-
-	</div>
-<!--FIN CREAR_TRABAJO-->
-
+		<div id="login"></div>
     <nav class="navbar is-light" >
       <div class="navbar-brand ">
         <div class="navbar-item">
@@ -230,9 +92,21 @@
         </div>
     </nav>
   </div>
+	<script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('js/vue.js')}}"></script>
-<script src="{{asset('jsa/main.js')}}"></script>
+	<script type="text/javascript">
+	var app =  new Vue({
+		el: '#aplicacion',
+		methods:{
+			iniciar: function(){
+				console.log("HOO");
+				$( "#login" ).load("{{asset('login')}}");
+			}
+		}
+	});
+	</script>
+
+
 
     @yield('content')
 

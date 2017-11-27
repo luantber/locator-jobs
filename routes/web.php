@@ -10,14 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//index
+Route::get('/',function(){
+  return view('index');
+});
+
+//Auth Google
+Route::get('login',function(){
+  return view('auth.login');
+});
+
 Route::get('login/google', 'Auth\SocialLoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
-
-Route::get('asdf','TrabajoController@index');
+//Auth
+Auth::routes();
 
 // TRABAJADORES
-
 Route::resources([
     'trabajadores' => 'TrabajadorController'
 ]);
@@ -30,25 +39,3 @@ Route::resources([
 ]);
 //Route::apiResource('trabajadores', 'TrabajadorController');
 // FINAL
-
-
-
-
-
-Route::get('/',function(){
-	return view('index');
-});
-
-Route::get('/loogin',function(){
-	return view('login');
-});
-
-Route::post('login2',function(Request $request){
-	dd($request->email);
-});
-
-
-
-Auth::routes();
-//Route::post('/register2','RegisterController@create2');
-Route::get('/home', 'HomeController@index')->name('home');
