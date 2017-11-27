@@ -20,7 +20,15 @@ class TrabajadorController extends Controller
     }
     public function store(Request $request)
     {
-//      $nuevo = new Trabajador
+      $nuevo = new Trabajador;
+      $nuevo->user_id=$request->user_id;
+      $nuevo->dni=$request->dni;
+      $nuevo->descripcion=$request->descr;
+      $nuevo->save();
+      
+      return redirect("trabajos/create");
+
+
     }
     public function show(Trabajador $trabajador)
     {
