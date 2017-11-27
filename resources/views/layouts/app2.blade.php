@@ -46,7 +46,7 @@
 
           <div class="navbar-end">
 
-            <a class="navbar-item" v-on:click="crear_tra">
+            <a class="navbar-item">
               Publicar Trabajo
             </a>
 

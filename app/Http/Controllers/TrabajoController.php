@@ -25,7 +25,7 @@ class TrabajoController extends Controller
      */
      public function create()
      {
-
+       return view('trabajos.crear');
      }
 
     /**
@@ -44,7 +44,7 @@ class TrabajoController extends Controller
         $trabajo->descripcion=$request->descripcion;
         $trabajo->trabajador_id=1;
         $trabajo->save();
-        return redirect("/")
+        return redirect("/");
     }
 
     /**
