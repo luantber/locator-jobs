@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Trabajo;
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class TrabajoController extends Controller
@@ -25,6 +26,7 @@ class TrabajoController extends Controller
      */
      public function create()
      {
+       //dd(Auth::user()->trabajador);
        return view('trabajos.crear');
      }
 
