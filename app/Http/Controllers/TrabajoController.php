@@ -44,7 +44,7 @@ class TrabajoController extends Controller
         $trabajo->nombre=$request->nombre;
         $trabajo->ubicacion=$request->ubicacion;
         $trabajo->descripcion=$request->descripcion;
-        $trabajo->trabajador_id=1;
+        $trabajo->trabajador_id=$request->tra_id;
         $trabajo->save();
         return redirect("/");
     }

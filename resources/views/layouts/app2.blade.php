@@ -46,7 +46,7 @@
 
           <div class="navbar-end">
 
-            <a class="navbar-item">
+            <a class="navbar-item" href="/trabajos/create">
               Publicar Trabajo
             </a>
 
