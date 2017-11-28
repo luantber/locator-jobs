@@ -1,2 +1,0 @@
-# locator-jobs
-Locator Jobs
