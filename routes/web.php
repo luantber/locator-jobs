@@ -31,7 +31,6 @@ Route::resources([
     'trabajadores' => 'TrabajadorController'
 ]);
 
-
 //Trabajos
 
 Route::resources([

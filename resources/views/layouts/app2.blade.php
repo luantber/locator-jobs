@@ -39,14 +39,13 @@
                   <i class="fa fa-suitcase" aria-hidden="true"></i>
                 </span>
               </div>
-
             </div>
           </div>
 
 
           <div class="navbar-end">
 
-            <a class="navbar-item" href="/trabajos/create">
+            <a class="navbar-item" href="{{asset('trabajos/create')}}">
               Publicar Trabajo
             </a>
 
