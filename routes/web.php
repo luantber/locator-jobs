@@ -12,7 +12,8 @@
 */
 //index
 Route::get('/',function(){
-  return view('index');
+  $trabajos=App\Trabajo::all();
+  return view('index',["trabajos"=>$trabajos]);
 });
 
 //Auth Google
