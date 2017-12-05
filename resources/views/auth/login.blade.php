@@ -8,7 +8,13 @@
       <div class="box">
 
         <form method="post" action="login" id="form1">
+      @if(isset($closable))
+        
+        <a href="{{asset('/')}}"><i class="fa fa-arrow-left is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i></a>
+        
+      @else
         <i v-on:click="cerrarLogin" class="fa fa-times is-size-4" style="padding-bottom: 10px" aria-hidden="true"></i>
+      @endif
         {{ csrf_field() }}
         <h1 class="title is-size-4">Inicia sesión para continuar</h1>
 

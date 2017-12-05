@@ -68,7 +68,7 @@
             </div>
           </div>
           @else
-          <div class="navbar-item has-dropdown is-active">
+          <div v-bind:class="navLogin"  @mouseover="mouseOver" @mouseleave="mouseLeave" >
             <a class="navbar-link">
               {{ Auth::user()->nombre }}
             </a>
@@ -96,11 +96,24 @@
 	<script type="text/javascript">
 	var app =  new Vue({
 		el: '#aplicacion',
+    data:{
+      navLogin: "navbar-item has-dropdown"
+    },
 		methods:{
 			iniciar: function(){
 				console.log("HOO");
 				$( "#login" ).load("{{asset('login')}}");
-			}
+			},
+
+      mouseLeave: function(){
+        this.navLogin = "navbar-item has-dropdown";
+        //console.log("leave");
+      },  
+
+      mouseOver: function(){
+        this.navLogin = "navbar-item has-dropdown is-active";
+        //console.log("over");
+      }
 		}
 	});
 	</script>
