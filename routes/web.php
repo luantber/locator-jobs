@@ -21,6 +21,7 @@ Route::get('login',function(){
   return view('auth.login');
 });
 
+
 Route::get('login/google', 'Auth\SocialLoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
 
@@ -37,5 +38,7 @@ Route::resources([
 Route::resources([
     'trabajos' => 'TrabajoController'
 ]);
-//Route::apiResource('trabajadores', 'TrabajadorController');
-// FINAL
+// SOLO PARA VISTAS
+Route::get ('template',function (){
+  return view('template');
+});
