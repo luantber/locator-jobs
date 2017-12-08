@@ -10,7 +10,7 @@
     <title></title>
   </head>
   <body>
-    <nav class="nav bg-dark ">
+    <nav class="navbar "  style="background-color: #000000;">
       <a class=" nav-link text-white" href="#">Locator Jobs </a>
       <a class="nav-link active" href="#">
         <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
@@ -20,9 +20,59 @@
       <a class="nav-link active" href="#">
         <input type="text"  class="form-control " name="" value="" placeholder="ciudad ... ">
     </a>
-      <a class="nav-link text-white" href="#">Link</a>
+      <a class="nav-link text-white  ml-auto" href="#">Iniciar Sesión</a>
 
     </nav>
+    @yield('body')
+
+
+  <footer style="background-color:#4d4d4d ;">
+    <br>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-2">
+          <div class="btn-group">
+            <button type="button" style="background-color:#ffffff;" class="btn  dropdown-toggle" data-toggle="dropdown" >Seleccionar </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col text-white">
+          Moneda
+       </div>
+       <div class="col text-white">
+         Mapa del sitio
+       </div>
+
+      </div>
+      <br>
+      <div class="row">
+
+        <div class="col-2">
+          <div class="btn-group">
+            <button type="button" style="background-color:#ffffff;" class="btn dropdown-toggle" data-toggle="dropdown" >Seleccionar </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col text-white">
+          Idioma
+        </div>
+        <div class="col text-white">
+          Mapa del sitio
+        </div>
+      </div>
+      <br>
+      <p class="text-white">Universidad Nacional de San Agustin @ Todos los derechos reservados</p>
+
+  </div>
+  </footer>
+
 
   </body>
 </html>
