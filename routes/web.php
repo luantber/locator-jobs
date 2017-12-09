@@ -42,3 +42,6 @@ Route::resources([
 Route::get ('template',function (){
   return view('template');
 });
+Route::get('index',function (){
+  return view('index');
+});
