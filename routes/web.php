@@ -39,8 +39,8 @@ Route::resources([
     'trabajos' => 'TrabajoController'
 ]);
 // SOLO PARA VISTAS
-Route::get ('template',function (){
-  return view('template');
+Route::get ('busqueda',function (){
+  return view('busqueda');
 });
 Route::get('index',function (){
   return view('index');
