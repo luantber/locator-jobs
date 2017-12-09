@@ -109,6 +109,14 @@
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
        <div class="container-fluid mt-2"> 
 
+       <div class="row">
+       		<div class="col">
+       			<i class="material-icons">favorite</i>
+       		</div>
+       </div>
+
+       
+
        <strong> Solicitudes: </strong>
 
        	<div class="row">
