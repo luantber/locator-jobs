@@ -25,7 +25,7 @@
     </nav>
     @yield('body')
 
-  <footer class="fixed-bottom" style="background-color:#4d4d4d ;">
+  <footer style="background-color:#4d4d4d ;">
     <br>
     <div class="container">
       <div class="row">

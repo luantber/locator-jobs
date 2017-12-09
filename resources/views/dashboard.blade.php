@@ -74,10 +74,14 @@
 
 				  <div class="form-group">
 				  	<label>Galería</label>
+				  	<br>
+				  	<br>
+				  	<br>
 				  </div>
 
 				  <button type="submit" class="btn btn-primary">Guardar	</button>
-				  
+				  <br>
+				  <br>
 				</form>
         	</div>
 
