@@ -1,5 +1,5 @@
 <?php
-
+use App\Trabajo;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +13,17 @@
 //index
 Route::get('/',function(){
   $trabajos=App\Trabajo::all();
+    
   return view('index',["trabajos"=>$trabajos]);
+});
+
+Route::get('/mapa', function () {
+  $items = Trabajo::distance(10,'45.05,7.6667')->get();  //0.35 es el radio
+  //return $items;
+  return view('trabajos.map')->with(['items'=>$items,'origin'=>'45.05,7.6667']);
+
+  //return $items;
+    
 });
 
 //Auth Google

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Trabajo;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,17 +40,30 @@ class DatabaseSeeder extends Seeder
         		'nombre' => 'tag'.$i,
 
         		]);
-        }
-
+		}
+		/*
+		$ubicaciones=array(
+		'45.3681,7.7681',
+		 '44.9181,7.4855',
+	'45.3154,7.3026',
+	 '45.4339,7.9517');
         for ($i=1; $i <4 ; $i++) { 
-        	DB::table('trabajos')->insert([
+			
+        	DB::table('trabajos')->insert(array(
         		'nombre'=> 'trabajo'.$i,
-        		'ubicacion' => 'ubicacion'.$i,
+        		'location' => $ubicaciones[$i],
         		'descripcion'=> 'descripcion'.$i,
-        		'trabajador_id'=> $i,
+        		'trabajador_id'=> $i
+				));
 
-        		]);
-        }
+			//Trabajo::create(array('nombre' => 'trabajo'.$i, 'location' => $ubicaciones[$i],'descripcion'=>'descripcion'.$i,'trabajador_id'=>$i));
+		}*/
+		
+		Trabajo::create(array('nombre' => 'trabajo1', 'location' => '45.4599,7.7774','descripcion'=>'lorensadasdasdada','trabajador_id'=>1));
+		Trabajo::create(array('nombre' => 'trabajo2', 'location' => '45.0793,7.3967','descripcion'=>'lorensadasdasdada2','trabajador_id'=>2));
+		Trabajo::create(array('nombre' => 'trabajo3', 'location' => '45.4181,7.6697','descripcion'=>'lorensadasdasdada3','trabajador_id'=>3));
+
+
 
         for ($i=1; $i <6 ; $i++) { 
         	DB::table('calificacions')->insert([
