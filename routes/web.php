@@ -46,6 +46,10 @@ Route::get('index',function (){
   return view('index');
 });
 
+Route::get('logiin',function (){
+  return view('login');
+});
+
 Route::get('dashboard',function(){
 	return view('dashboard');
 });

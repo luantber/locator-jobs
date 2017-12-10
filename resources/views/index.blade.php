@@ -116,7 +116,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              
+
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
@@ -127,9 +127,9 @@
             <div class="col">
               <font size=2 > Estrellas </font>
               <div class="">
-                <i class="material-icons">grade</i>
-                <i class="material-icons">grade</i>
-                <i class="material-icons">grade</i>
+                <i class="material-icons">star_half</i>
+                <i class="material-icons">star_border</i>
+                <i class="material-icons">star_border</i>
               </div>
 
             </div>
@@ -189,7 +189,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              
+
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
@@ -226,7 +226,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              
+
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>

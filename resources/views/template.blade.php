@@ -22,8 +22,8 @@
       <a class="nav-link active" href="#">
         <input type="text"  class="form-control " name="" value="" placeholder="ciudad ... ">
     </a>
-      <a class="nav-link text-white  ml-auto" href="#">Iniciar Sesión</a>
-
+      <a class="nav-link text-white  ml-auto" data-toggle="modal" id="ini"data-target="#exampleModal" href="#">Iniciar Sesión</a>
+      @include('login')
     </nav>
 
     
