@@ -37,7 +37,7 @@
   </ul> 
  
   <div class="tab-content" id="myTabContent"> 
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> 
       <div class="container-fluid mt-2"> 
         <!--  DATOS GENERALES -->
         <div class="row" >
@@ -106,12 +106,18 @@
       </div> 
     </div> 
  
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
        <div class="container-fluid mt-2"> 
 
        <div class="row">
-       		<div class="col">
-       			<i class="material-icons">favorite</i>
+       		<div class="col-4 text-center">
+       			<i class="material-icons">favorite</i> 32
+       		</div>
+       		<div class="col-4 text-center">
+       			<i class="material-icons">favorite</i> 32
+       		</div>
+       		<div class="col-4 text-center">
+       			<i class="material-icons">favorite</i> 32
        		</div>
        </div>
 
@@ -119,7 +125,7 @@
 
        <strong> Solicitudes: </strong>
 
-       	<div class="row">
+       	<div class="row" style="border:solid" >
         	<div class="col-1">
         		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
         	</div>
@@ -131,9 +137,9 @@
         		consequat. 
         	</div>
 
-        	<div class="col pt-4"> Aceptar </div>
-        	<div class="col pt-4"> Rechazar </div>
-        	<div class="col pt-4"> <a href="">Mensaje</a> </div>
+        	<div class="col pt-4"> <a href=""><i class="material-icons">done</i></a> </div>
+        	<div class="col pt-4">  <a href=""><i class="material-icons">clear</i></a> </div>
+        	<div class="col pt-4"> <a href=""><i class="material-icons"8>mail</i></a> </div>
         </div>
 
         <div class="row">
@@ -148,9 +154,9 @@
         		consequat. 
         	</div>
 
-        	<div class="col pt-4"> Aceptar </div>
-        	<div class="col pt-4"> Rechazar </div>
-        	<div class="col pt-4"> <a href="">Mensaje</a> </div>
+        	<div class="col pt-4"> <a href=""><i class="material-icons">done</i></a> </div>
+        	<div class="col pt-4">  <a href=""><i class="material-icons">clear</i></a> </div>
+        	<div class="col pt-4"> <a href=""><i class="material-icons"8>mail</i></a> </div>
         </div>
 
        	<strong> Comentarios: </strong>

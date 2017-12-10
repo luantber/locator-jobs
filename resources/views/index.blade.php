@@ -30,7 +30,7 @@
 
 
 <!-- TAGS MAS POPULARES !! !-->
-<div class="container-fluid pt-1" >
+<div class="container pt-3" >
 
   <h4> <strong> Tags Populares</strong></h4>
   <p>Descubre los sitios mas solicitados de la semana </p>
@@ -66,7 +66,7 @@
 </div>
   <!--CIUDADES ! -->
   <div class="pt-2" style="background-color:#e8e8e8;">
-    <div class="container-fluid">
+    <div class="container">
 
     <h4> <strong>Ciudades</strong> </h4>
     <p>Cada ciudad te ofrece algo distinto</p>
@@ -100,7 +100,7 @@
   </div>
 
   <!--NUESTROS EXPERTOS ! -->
-<div class="container-fluid pt-2">
+<div class="container pt-2">
   <h4> <strong> Nuestros Expertos </strong></h4>
   <p>Te recomendamos a nuestros profesionales</p>
 
@@ -108,7 +108,7 @@
 
     <div class="col-3">
 
-      <div class="card" style="width: 20rem; background-color:#e8e8e8; ">
+      <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
         <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="row">
@@ -116,7 +116,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              <br>
+              
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
@@ -145,7 +145,7 @@
     </div>
     <div class="col-3">
 
-      <div class="card" style="width: 20rem; background-color:#e8e8e8; ">
+      <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
         <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="row">
@@ -153,7 +153,6 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              <br>
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
@@ -182,7 +181,7 @@
     </div>
     <div class="col-3">
 
-      <div class="card" style="width: 20rem; background-color:#e8e8e8; ">
+      <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
         <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="row">
@@ -190,7 +189,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              <br>
+              
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
@@ -219,7 +218,7 @@
     </div>
     <div class="col-3">
 
-      <div class="card" style="width: 20rem; background-color:#e8e8e8; ">
+      <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
         <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
         <div class="card-body">
           <div class="row">
@@ -227,7 +226,7 @@
               <img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_100,q_100,w_100/v1512781323/tag1.jpg" alt="Card image cap">
             </div>
             <div class="col">
-              <br>
+              
               <h5 class="card-title"><strong> Juan Perez</strong></h5>
               <p class="card-text">S/.45.00</p>
             </div>
