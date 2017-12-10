@@ -3,9 +3,9 @@
 @section('body')
 <div style="background-color:#03A694" >
 
-<div class="container">
+<div  style="padding: 0.2cm;">
 <div class="row">
-	<div class="col">
+	<div class="col-1">
 		<img src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,w_20/v1512941963/filter2_lvxl9a.png" alt="">
 	</div>
 	<div class="col">
@@ -29,7 +29,8 @@
 </div>
 </div>
 
-
+<!--AQUÍ CMIENZA EL MAPA -->
+<div style="padding: 0.5cm;">
 
 <div class="row">
 	<div class="col-4">
@@ -245,6 +246,8 @@
 
 
 </div>
+</div>
+
 
 <!--
 
