@@ -1,7 +1,14 @@
 @extends('template') 
  
 @section('body') 
- 
+
+@if(Auth::check())
+
+	@if(!Auth::user()->trabajador)
+	
+		@include('registrarTrabajador')
+	@else
+
  
 <div class="container-fluid"> 
  
@@ -124,8 +131,9 @@
        
 
        <strong> Solicitudes: </strong>
-
-       	<div class="row" style="border:solid" >
+       
+       <div class="card">
+       	<div class="row card-body"  >
         	<div class="col-1">
         		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
         	</div>
@@ -141,51 +149,27 @@
         	<div class="col pt-4">  <a href=""><i class="material-icons">clear</i></a> </div>
         	<div class="col pt-4"> <a href=""><i class="material-icons"8>mail</i></a> </div>
         </div>
-
-        <div class="row">
-        	<div class="col-1">
-        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
-        	</div>
-        	<div class="col-8">
-        		<strong>Luis Antonio Bernal</strong><br>
-        		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        		consequat. 
-        	</div>
-
-        	<div class="col pt-4"> <a href=""><i class="material-icons">done</i></a> </div>
-        	<div class="col pt-4">  <a href=""><i class="material-icons">clear</i></a> </div>
-        	<div class="col pt-4"> <a href=""><i class="material-icons"8>mail</i></a> </div>
-        </div>
+       </div>
+       
 
        	<strong> Comentarios: </strong>
 
-        <div class="row">
-        	<div class="col-1">
-        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
-        	</div>
-        	<div class="col">
-        		<strong>Luis Antonio Bernal</strong><br>
-        		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        		consequat. 
-        	</div>
-        </div>
-
-        <div class="row">
-        	<div class="col-1">
-        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
-        	</div>
-        	<div class="col">
-        		<strong>Juanito Perez Jarra</strong><br>
-        		Duis aute irure dolor in reprehenderit in voluptate velit esse
-        		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        	</div>
-        </div>
-
+       	<div class="mb-3">
+       		<div class="card ">
+       			<div class="row card-body"  >
+	        	<div class="col-1">
+	        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
+	        	</div>
+        		<div class="col-11">
+        			<strong>Luis Antonio Bernal</strong><br>
+        			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	        		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	        		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	        		consequat. 
+        		</div>
+	        </div>
+	       </div>
+	     </div>
 
       </div> 
     </div>  
@@ -207,5 +191,9 @@
  
  
 </script> 
+
+
+@endif
+@endif
 
 @endsection

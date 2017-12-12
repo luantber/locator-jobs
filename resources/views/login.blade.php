@@ -24,9 +24,9 @@
           <p class="text-center"> </p>
             <div class="row">
               <div class="col offset-md-1">
-                  <button type="button" class="btn btn-light" >
+                  <a href="{{asset('login/google/index')}}"><button type="button" class="btn btn-light" >
                     <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,h_15,w_15/v1512939138/google_tvnada.png" alt="Generic placeholder image">
-                    Google</button>
+                    Google</button></a>
 
               </div>
               <div class="col">

@@ -11,30 +11,74 @@
      <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab" rel="stylesheet"> 
 
 
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/js/gijgo.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
     <title></title>
   </head>
-  <body>
-    <nav class="navbar "  style="background-color: #000000;">
-      <a class=" nav-link text-white" href="#">Locator Jobs </a>
-      <a class="nav-link active" href="#">
-        <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
-    </a>
 
-      <a class="nav-link text-white" href="#">en</a>
-      <a class="nav-link active" href="#">
-        <input type="text"  class="form-control " name="" value="" placeholder="ciudad ... ">
-    </a>
-      <a class="nav-link text-white  ml-auto" data-toggle="modal" id="ini"data-target="#exampleModal" href="#">Iniciar Sesión</a>
+  <body>
+
+  
+    <nav class="navbar "  style="background-color: #000000;">
+      
+      <div class="d-flex flex-row justify-content-start">
+        <a class=" nav-link text-white" href="#">Locator Jobs </a>
+        <a class="nav-link active" href="#">
+          <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
+        </a>  
+        <a class="nav-link text-white" href="#">en</a>  
+        <a class="nav-link active" href="#">
+          <input type="text"  class="form-control " name="" value="" placeholder="  ciudad ... ">
+        </a> 
+      </div>
+
+      <div class="d-flex flex-row justify-content-end">
+          
+      @if(!Auth::check())
+      <div class=" form-inline ml-auto">
+
+          <a href="{{ asset('login/google/dashboard')}}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
+     
+        <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal" href="#">Iniciar Sesión</a>      
+
+      </div>
+
+        
+
       @include('login')
+
+      @else
+
+      <div class="form-inline">
+        <a href="{{ asset('dashboard') }}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
+      </div>
+
+      <div class="dropdown nav-item ml-auto">
+        <a class="nav-link text-white ml-auto dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{Auth::user()->nombre}}
+        </a>
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">                   Logout 
+          </a>
+ 
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
+              {{ csrf_field() }} 
+          </form> 
+        </div>
+      </div>
+      
+      
+      @endif
+      </div>
     </nav>
 
-    
+
     @yield('body')
     
 
-  <footer style="background-color:#4d4d4d ;">
+  <footer   style="background-color:#4d4d4d ;">
     <br>
     <div class="container">
       <div class="row">
@@ -56,6 +100,7 @@
        </div>
 
       </div>
+
       <br>
       <div class="row">
 
@@ -75,12 +120,11 @@
           Mapa del sitio
         </div>
       </div>
+
       <br>
       <p class="text-white">Universidad Nacional de San Agustin @ Todos los derechos reservados</p>
-
   </div>
+
   </footer>
-
-
   </body>
 </html>

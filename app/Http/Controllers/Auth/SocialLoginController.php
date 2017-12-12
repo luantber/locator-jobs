@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Socialite;
+use Session;
 use App\User;
 
 class SocialLoginController extends Controller
@@ -15,8 +16,9 @@ class SocialLoginController extends Controller
      *
      * @return Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($link)
     {
+        Session::flash('url',$link);
         return Socialite::driver('google')->redirect();
     }
 
@@ -47,16 +49,11 @@ class SocialLoginController extends Controller
 
         Auth::login($usuario, true);
 
-        return redirect('/');
+        if (Session::get('url')){
+            return redirect( Session::get('url') );
+        }
 
+        dd(Session::get('url'));
 
-
-
-
-
-
-        //Auth::login($user, true);
-        // $user->token;
-        //return redirect('/');
     }
 }
