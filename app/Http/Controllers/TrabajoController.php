@@ -17,7 +17,9 @@ class TrabajoController extends Controller
     public function index()
     {
         
-        return view('dashboard');
+        $trabajos = Auth::user()->trabajador->trabajos;
+        //dd($trabajos);
+        return view('dashboard', ['trabajos' => $trabajos]);
     }
 
     /**

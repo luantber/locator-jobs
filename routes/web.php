@@ -34,6 +34,9 @@ Route::get('login/google/{link}', 'Auth\SocialLoginController@redirectToProvider
 //Auth
 Auth::routes();
 
+//Dashboard
+Route::get('dashboard', 'TrabajoController@index');
+
 
 
 Route::get('mapa', function () {

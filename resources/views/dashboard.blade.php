@@ -5,7 +5,7 @@
 @if(Auth::check())
 
 	@if(!Auth::user()->trabajador)
-	
+
 		@include('registrarTrabajador')
 	@else
 
@@ -16,13 +16,16 @@
  
   <div class="col-2" > 
    
-    <div class="list-group"> 
+    <div class="list-group">
+
+    @if($trabajos)
       <a href="#" class="list-group-item list-group-item-action active"> 
         Trabajo 1 
       </a>       
       <a href="#" class="list-group-item list-group-item-action">Trabajo 2</a> 
       <a href="#" class="list-group-item list-group-item-action">Trabajo 3</a> 
       <a href="#" class="list-group-item list-group-item-action">Trabajo 4</a> 
+    @endif
       <a href="#" class="list-group-item list-group-item-action disabled">Crear Nuevo</a> 
     </div> 
    
@@ -44,7 +47,7 @@
   </ul> 
  
   <div class="tab-content" id="myTabContent"> 
-    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab"> 
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
       <div class="container-fluid mt-2"> 
         <!--  DATOS GENERALES -->
         <div class="row" >
@@ -113,7 +116,7 @@
       </div> 
     </div> 
  
-    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
        <div class="container-fluid mt-2"> 
 
        <div class="row">
