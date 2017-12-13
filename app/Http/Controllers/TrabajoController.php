@@ -72,6 +72,7 @@ class TrabajoController extends Controller
     public function edit(Trabajo $trabajo)
     {
         //
+
     }
 
     /**
@@ -83,7 +84,11 @@ class TrabajoController extends Controller
      */
     public function update(Request $request, Trabajo $trabajo)
     {
-        //
+        $trabajo->nombre=$request->nombre;
+        $trabajo->ubicacion=$request->ubicacion;
+        $trabajo->descripcion=$request->descripcion;
+        $trabajo->save();
+
     }
 
     /**

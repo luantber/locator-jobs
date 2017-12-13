@@ -18,7 +18,7 @@
    
     <div class="list-group">
 
-    @if($trabajos)
+    @if(Auth::user()->trabajos)
       <a href="#" class="list-group-item list-group-item-action active"> 
         Trabajo 1 
       </a>       
@@ -101,10 +101,40 @@
         		<script>
 			      var map;
 			      function initMap() {
-			        map = new google.maps.Map(document.getElementById('map'), {
-			          center: {lat: -34.397, lng: 150.644},
-			          zoom: 8
-			        });
+						if (navigator.geolocation)
+            {
+                navigator.geolocation.getCurrentPosition(showCurrentLocation);
+            }
+            else
+            {
+               alert("Geolocation API not supported.");
+            }
+
+            function showCurrentLocation(position)
+            {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                var coords = new google.maps.LatLng(latitude, longitude);
+
+                var mapOptions = {
+                zoom: 15,
+                center: coords,
+                mapTypeControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            //create the map, and place it in the HTML map div
+            map = new google.maps.Map(
+            document.getElementById("map"), mapOptions
+            );
+
+            //place the initial marker
+            var marker = new google.maps.Marker({
+            position: coords,
+            map: map,
+            title: "Current location!"
+            });
+            }
 			      }	
 			    </script>
 			    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=initMap">

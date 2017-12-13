@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
       Esta información no será publicada:
-        <form method="post" action="{{route('trabajadores.store')}}">
+        <form method="post" action="/trabajadores">
         {{ csrf_field() }}
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">DNI</label>
