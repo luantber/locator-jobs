@@ -1,4 +1,5 @@
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <div class="modal fade" id="myModal" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -37,14 +38,14 @@
 
 <script type="text/javascript">
    
-   /*
+   
       $('#myModal').modal({
         keyboard: false,
         backdrop: 'static'
       });
 
       $('#myModal').modal('show');
-  */
+  
    
 
 </script>

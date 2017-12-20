@@ -13,11 +13,11 @@
         	<div class="col-6">
         		<form action="{{asset('trabajos')}}" method="post">
           {{csrf_field()}}
-          <input type="hidden" name="location" id="loc"> </input>
+          <input type="hidden" name="location" id="loc" required> </input>
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
 				    <div class="col-10">
-				      <input  class="form-control" id="inputEmail3" placeholder="Trabajo .. " name="nombre">
+				      <input  class="form-control" id="inputEmail3" name="nombre" required>
 				    </div>
 				  </div>
 
@@ -58,10 +58,10 @@
 
         	<div class="col-6">
         		<label>Ubicación</label>
-        		<div id="map" class="mb-5" style="height: 72%; width: 100%"></div>
+        		<div id="map" class="mb-5" style="height: 72%; width: 100%"> Cargando . . .</div>
         		<script>
 
-            function initMap(){
+            
 
 
             if (navigator.geolocation)
@@ -99,6 +99,8 @@
               draggable:true
               });
 
+            $("#loc").val(latitude + "," + longitude);
+
             google.maps.event.addListener(marker, "dragend", function(event) { 
               var lat = event.latLng.lat(); 
               var lng = event.latLng.lng(); 
@@ -110,11 +112,10 @@
 
             }
 
-          }
+          
         </script>
-			    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=initMap">
-    			</script>
-l
+			    
+
         	</div>
         </div>
 			

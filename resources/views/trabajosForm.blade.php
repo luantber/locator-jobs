@@ -28,8 +28,7 @@
 
 				  <div class="form-group">
 				    <label for="exampleFormControlTextarea1">Descripción</label>
-				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
-                {{$t->descripcion}}
+				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">{{$t->descripcion}}
             </textarea>
 				  </div>
 
@@ -67,16 +66,26 @@
         		<div id="map" class="mb-5" style="height: 72%; width: 100%"></div>
         		<script>
 			      var map;
-			      function initMap() {
-			        map = new google.maps.Map(document.getElementById('map'), {
-			          center: {lat: -34.397, lng: 150.644},
-			          zoom: 8
-			        });
-			      }	
-			    </script>
-			    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=initMap">
-    			</script>
+            var xy = "{{ $t->location }}";
 
+              var coords = new google.maps.LatLng(parseFloat(xy.split(",")[0]), parseFloat(xy.split(",")[1]));
+
+			        map = new google.maps.Map(document.getElementById('map'), {
+			          center: coords,
+			          zoom: 15
+			        });
+
+              var marker = new google.maps.Marker({
+              position: coords,
+              map: map,
+              title: "Current location!",
+              draggable:true
+              });
+            
+
+
+			    </script>
+			    
         	</div>
         </div>
 			

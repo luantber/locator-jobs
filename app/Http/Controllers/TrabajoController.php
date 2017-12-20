@@ -39,7 +39,7 @@ class TrabajoController extends Controller
     {
         
         $t = Trabajo::find($id);
-        dd($t);
+        //dd($t->location);
         return view('trabajosForm', ['t' => $t]);
     }
 
@@ -71,7 +71,7 @@ class TrabajoController extends Controller
         $trabajo->nombre=$request->nombre;
         $trabajo->location=$request->location;
         $trabajo->descripcion=$request->descripcion;
-        $trabajo->trabajador_id=Auth::user()->id;
+        $trabajo->trabajador_id=Auth::user()->trabajador->id;
         $trabajo->save();
 
         

@@ -20,17 +20,17 @@ class TrabajadorController extends Controller
     }
     public function store(Request $request)
     {
+
       $nuevo = new Trabajador;
-      $nuevo->user_id=Auth::user()->id;
+      $nuevo->user_id = Auth::user()->id;
       $nuevo->dni=$request->dni;
       $nuevo->descripcion=$request->descr;
 
       $nuevo->save();
 
       return redirect("dashboard");
-
-
     }
+
     public function show(Trabajador $trabajador)
     {
       //

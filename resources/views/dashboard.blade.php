@@ -21,7 +21,7 @@
     @if(!$trabajos->isEmpty())
 
       @foreach ($trabajos as $t)
-        <a href="#" class="list-group-item list-group-item-action" onclick="abrir({{$t->id}});return false;"> 
+        <a href="#" class="list-group-item list-group-item-action" id="a{{$t->id}}" onclick="abrir({{$t->id}});return false;"> 
         {{$t->nombre}}
         </a>
       @endforeach
@@ -47,16 +47,46 @@
  
 </div> 
  
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=cargo">
+</script>
+
+
 <script>
+
+var trabajos = [ 
+
+@foreach ($trabajos as $t) 
+  
+  {{$t->id}},
+
+@endforeach
+
+];
+
+function cargo(){
+
 	$("#nuevo").click(function(){
 		$("#contenedor").load("{{route('trabajos.create')}}"); 
 	});
 
+}
+
   function abrir(id){
     $("#contenedor").load("{{asset('trabajo')}}"+"/"+id);
+    $("#a"+id).addClass("active");
+
+    for (var i = 0; i < trabajos.length; i++) {
+      if( trabajos[i] != id ){
+          $("#a"+trabajos[i]).removeClass("active");
+      }
+    }
+
   }
+  
+  if(trabajos.length!=0) abrir(trabajos[0]);
 	
 </script> 
+
 
 
 @endif
