@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="exampleModal">
+<div class="modal fade" id="exampleModal" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

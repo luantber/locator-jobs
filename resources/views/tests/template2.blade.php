@@ -53,7 +53,7 @@
 
   </style>
 
-<!--
+
   	<nav class="navbar d-flex align-items-center text-light"  id="barra">
   		<div class="d-flex justify-content-end">
   			<h4>Locator Jobs</h4>
@@ -68,7 +68,7 @@
   		</div>
 
   	</nav>
--->
+
   <style type="text/css">
 
   	body{

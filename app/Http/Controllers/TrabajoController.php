@@ -16,10 +16,18 @@ class TrabajoController extends Controller
      */
     public function index()
     {
+
+        $trabajos  = [];
         
-        $trabajos = Auth::user()->trabajador->trabajos;
-        //dd($trabajos);
-        return view('dashboard', ['trabajos' => $trabajos]);
+        if(Auth::check()){
+            if(Auth::user()->trabajador){
+                $trabajos = Auth::user()->trabajador->trabajos;
+                //dd($trabajos);
+                return view('dashboard', ['trabajos' => $trabajos]);        
+            }
+            return view('dashboard', ['trabajos' => $trabajos]);  
+        }
+        return view('dashboard', ['trabajos' => $trabajos]);  
     }
 
     /**
@@ -31,7 +39,7 @@ class TrabajoController extends Controller
     {
         
         $t = Trabajo::find($id);
-        //dd($t);
+        dd($t);
         return view('trabajosForm', ['t' => $t]);
     }
 

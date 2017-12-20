@@ -28,7 +28,9 @@
 
 				  <div class="form-group">
 				    <label for="exampleFormControlTextarea1">Descripción</label>
-				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea value="{{$t->descripcion}}">
+				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+                {{$t->descripcion}}
+            </textarea>
 				  </div>
 
 				  <div class="form-group row">
