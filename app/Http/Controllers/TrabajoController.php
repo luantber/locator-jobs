@@ -23,6 +23,21 @@ class TrabajoController extends Controller
     }
 
     /**
+     * Muestra el trabajo solicitado
+     *
+     */
+
+    public function index2($id)
+    {
+        
+        $t = Trabajo::find($id);
+        dd($t);
+        return view('trabajosForm', ['trabajos' => $trabajos]);
+    }
+
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -30,7 +45,7 @@ class TrabajoController extends Controller
      public function create()
      {
        //dd(Auth::user()->trabajador);
-       return view('trabajos.crear');
+       return view('trabajosFormNew');
      }
 
     /**

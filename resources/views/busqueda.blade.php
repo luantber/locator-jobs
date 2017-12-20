@@ -254,7 +254,7 @@
 -->
 
 
-        <script src="http://maps.google.com/maps/api/js?sensor=false">
+        <script src="http://maps.google.com/maps/api/js">
         </script>
         <script>
             if (navigator.geolocation)
@@ -273,23 +273,23 @@
                 var coords = new google.maps.LatLng(latitude, longitude);
 
                 var mapOptions = {
-                zoom: 15,
-                center: coords,
-                mapTypeControl: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
+	                zoom: 15,
+	                center: coords,
+	                mapTypeControl: true,
+	                mapTypeId: google.maps.MapTypeId.ROADMAP
+            	};
 
             //create the map, and place it in the HTML map div
             map = new google.maps.Map(
-            document.getElementById("mapPlaceholder"), mapOptions
+            	document.getElementById("mapPlaceholder"), mapOptions
             );
 
             //place the initial marker
             var marker = new google.maps.Marker({
-            position: coords,
-            map: map,
-            title: "Current location!"
-            });
+	            position: coords,
+	            map: map,
+	            title: "Current location!"
+	            });
             }
         </script>
 

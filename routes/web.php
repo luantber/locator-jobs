@@ -36,6 +36,8 @@ Auth::routes();
 
 //Dashboard
 Route::get('dashboard', 'TrabajoController@index');
+Route::get('trabajo/{id}', 'TrabajoController@index2');
+
 
 
 
@@ -50,9 +52,6 @@ Route::get('mapa', function () {
 
 
 
-
-
-
 // TRABAJADORES
 // TRABAJOS
 Route::resources([
@@ -63,8 +62,4 @@ Route::resources([
 // SOLO PARA VISTAS
 Route::get ('busqueda',function (){
   return view('busqueda');
-});
-
-Route::get('dashboard',function(){
-	return view('dashboard');
 });

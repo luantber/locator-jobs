@@ -18,7 +18,7 @@
    
     <div class="list-group">
 
-    @if(Auth::user()->trabajos)
+    @if(!$trabajos->isEmpty())
       <a href="#" class="list-group-item list-group-item-action active"> 
         Trabajo 1 
       </a>       
@@ -26,34 +26,20 @@
       <a href="#" class="list-group-item list-group-item-action">Trabajo 3</a> 
       <a href="#" class="list-group-item list-group-item-action">Trabajo 4</a> 
     @endif
-      <a href="#" class="list-group-item list-group-item-action disabled">Crear Nuevo</a> 
+      <a href="#" class="list-group-item list-group-item-action text-primary" id="nuevo"><div class="d-flex">Crear Nuevo <i class="material-icons">add</i></div></a> 
     </div> 
    
   </div> 
  
  
-  <div class="col-10"> 
-   
-  <ul class="nav nav-tabs" id="myTab" role="tablist"> 
-    <li class="nav-item"> 
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a> 
-    </li> 
- 
-    <li class="nav-item"> 
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Administrar</a> 
-    </li> 
- 
-     
-  </ul> 
- 
-  <div class="tab-content" id="myTabContent"> 
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
-      <div class="container-fluid mt-2"> 
-        <!--  DATOS GENERALES -->
-        <div class="row" >
-        	<div class="col-6">
-        		<form >
+	<div class="col-10" id="contenedor">
+		
+		<h4 class="d-flex justify-content-center mt-2">Aún no has creado ningún trabajo</h4>
+   		<div >
+   			<img src="https://cdn.dribbble.com/users/310943/screenshots/2792692/empty-state-illustrations.gif" width="650px" class="rounded mx-auto d-block" alt="Empty State">
+   		</div>
 
+	</div> 
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
 				    <div class="col-10">
@@ -146,83 +132,15 @@
       </div> 
     </div> 
  
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
-       <div class="container-fluid mt-2"> 
-
-       <div class="row">
-       		<div class="col-4 text-center">
-       			<i class="material-icons">favorite</i> 32
-       		</div>
-       		<div class="col-4 text-center">
-       			<i class="material-icons">favorite</i> 32
-       		</div>
-       		<div class="col-4 text-center">
-       			<i class="material-icons">favorite</i> 32
-       		</div>
-       </div>
-
-       
-
-       <strong> Solicitudes: </strong>
-       
-       <div class="card">
-       	<div class="row card-body"  >
-        	<div class="col-1">
-        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
-        	</div>
-        	<div class="col-8">
-        		<strong>Luis Antonio Bernal</strong><br>
-        		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        		consequat. 
-        	</div>
-
-        	<div class="col pt-4"> <a href=""><i class="material-icons">done</i></a> </div>
-        	<div class="col pt-4">  <a href=""><i class="material-icons">clear</i></a> </div>
-        	<div class="col pt-4"> <a href=""><i class="material-icons"8>mail</i></a> </div>
-        </div>
-       </div>
-       
-
-       	<strong> Comentarios: </strong>
-
-       	<div class="mb-3">
-       		<div class="card ">
-       			<div class="row card-body"  >
-	        	<div class="col-1">
-	        		<img src="img/ernesto.jpg" alt="..." class="rounded-circle" style="width: 70px; height: 65px;">
-	        	</div>
-        		<div class="col-11">
-        			<strong>Luis Antonio Bernal</strong><br>
-        			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	        		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	        		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	        		consequat. 
-        		</div>
-	        </div>
-	       </div>
-	     </div>
-
-      </div> 
-    </div>  
-   
-  </div> 
-   
 </div> 
  
 </div> 
  
-</div> 
- 
- 
-<script type="text/javascript"> 
-  $('#myTab a').on('click', function (e) { 
-    e.preventDefault() 
-    $(this).tab('show') 
-  }); 
- 
- 
+<script>
+	$("#nuevo").click(function(){
+		$("#contenedor").load("{{route('trabajos.create')}}"); 
+	});
+	
 </script> 
 
 
