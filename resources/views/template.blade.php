@@ -15,23 +15,22 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     <title></title>
   </head>
 
   <body>
 
   
-    <nav class="navbar "  style="background-color: #000000;">
+    <nav class="navbar " style="background-color: #000000;">
       
       <div class="d-flex flex-row justify-content-start">
-        <a class=" nav-link text-white" href="#">Locator Jobs </a>
+         <a class="navbar-brand" href="#"> <img src="img/logo2.png"
+          height="30" alt=""></a>
         <a class="nav-link active" href="#">
           <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
         </a>  
-        <a class="nav-link text-white" href="#">en</a>  
-        <a class="nav-link active" href="#">
-          <input type="text"  class="form-control " name="" value="" placeholder="  ciudad ... ">
-        </a> 
+        
       </div>
 
       <div class="d-flex flex-row justify-content-end">

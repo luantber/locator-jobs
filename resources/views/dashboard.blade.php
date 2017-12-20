@@ -19,12 +19,14 @@
     <div class="list-group">
 
     @if(!$trabajos->isEmpty())
-      <a href="#" class="list-group-item list-group-item-action active"> 
-        Trabajo 1 
-      </a>       
-      <a href="#" class="list-group-item list-group-item-action">Trabajo 2</a> 
-      <a href="#" class="list-group-item list-group-item-action">Trabajo 3</a> 
-      <a href="#" class="list-group-item list-group-item-action">Trabajo 4</a> 
+
+      @foreach ($trabajos as $t)
+        <a href="#" class="list-group-item list-group-item-action" onclick="abrir({{$t->id}});return false;"> 
+        {{$t->nombre}}
+        </a>
+      @endforeach
+      
+     
     @endif
       <a href="#" class="list-group-item list-group-item-action text-primary" id="nuevo"><div class="d-flex">Crear Nuevo <i class="material-icons">add</i></div></a> 
     </div> 
@@ -49,6 +51,10 @@
 	$("#nuevo").click(function(){
 		$("#contenedor").load("{{route('trabajos.create')}}"); 
 	});
+
+  function abrir(id){
+    $("#contenedor").load("{{asset('trabajo')}}"+"/"+id);
+  }
 	
 </script> 
 

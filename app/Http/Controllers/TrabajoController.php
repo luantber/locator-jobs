@@ -31,8 +31,8 @@ class TrabajoController extends Controller
     {
         
         $t = Trabajo::find($id);
-        dd($t);
-        return view('trabajosForm', ['trabajos' => $trabajos]);
+        //dd($t);
+        return view('trabajosForm', ['t' => $t]);
     }
 
 
@@ -57,14 +57,17 @@ class TrabajoController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
         //return dd($request);
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
-        $trabajo->ubicacion=$request->ubicacion;
+        $trabajo->location=$request->location;
         $trabajo->descripcion=$request->descripcion;
-        $trabajo->trabajador_id=$request->tra_id;
+        $trabajo->trabajador_id=Auth::user()->id;
         $trabajo->save();
-        return redirect("/");
+
+        
+        return redirect("dashboard");
     }
 
     /**

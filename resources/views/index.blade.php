@@ -1,6 +1,9 @@
 @extends('template')
 
 @section('body')
+
+
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -36,6 +39,15 @@
   <p>Descubre los sitios mas solicitados de la semana </p>
   <div class="row">
 
+    <style type="text/css">
+      .card-img-top{
+        box-shadow: 5px 3px 8px #BCB7EB;
+      }
+
+      .card{
+       box-shadow: 5px 3px 8px #BCB7EB; 
+      }
+    </style>
 
     <div class="col">
         <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">

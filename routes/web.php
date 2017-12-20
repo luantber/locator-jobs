@@ -50,8 +50,6 @@ Route::get('mapa', function () {
     
 });
 
-
-
 // TRABAJADORES
 // TRABAJOS
 Route::resources([
@@ -62,4 +60,8 @@ Route::resources([
 // SOLO PARA VISTAS
 Route::get ('busqueda',function (){
   return view('busqueda');
+});
+
+Route::get('test',function (){
+  return view('tests.template2');
 });

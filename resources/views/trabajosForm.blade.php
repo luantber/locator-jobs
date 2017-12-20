@@ -22,13 +22,13 @@
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
 				    <div class="col-10">
-				      <input type="email" class="form-control" id="inputEmail3" placeholder="Trabajo 1">
+				      <input type="email" class="form-control" id="inputEmail3" placeholder="Trabajo 1" value="{{$t->nombre}}">
 				    </div>
 				  </div>
 
 				  <div class="form-group">
 				    <label for="exampleFormControlTextarea1">Descripción</label>
-				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea value="{{$t->descripcion}}">
 				  </div>
 
 				  <div class="form-group row">

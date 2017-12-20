@@ -254,9 +254,12 @@
 -->
 
 
-        <script src="http://maps.google.com/maps/api/js">
-        </script>
+      
         <script>
+        function initMap(){
+
+        	console.log("here");
+
             if (navigator.geolocation)
             {
                 navigator.geolocation.getCurrentPosition(showCurrentLocation);
@@ -283,6 +286,7 @@
             map = new google.maps.Map(
             	document.getElementById("mapPlaceholder"), mapOptions
             );
+            console.log("here");
 
             //place the initial marker
             var marker = new google.maps.Marker({
@@ -291,12 +295,16 @@
 	            title: "Current location!"
 	            });
             }
+        }
         </script>
+        <script async defer
+	    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=initMap">
+	    </script>
 
     <style> #mapPlaceholder {
         height: 530px;
         width: 500px;
-				</style>
+	</style>
 
 
 @endsection
