@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Trabajo;
 use App\User;
+use App\Foto;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -18,16 +19,14 @@ class TrabajoController extends Controller
     {
 
         $trabajos  = [];
-        
-        if(Auth::check()){
-            if(Auth::user()->trabajador){
-                $trabajos = Auth::user()->trabajador->trabajos;
-                //dd($trabajos);
-                return view('dashboard', ['trabajos' => $trabajos]);        
-            }
-            return view('dashboard', ['trabajos' => $trabajos]);  
+
+        if(Auth::user()->trabajador){
+            $trabajos = Auth::user()->trabajador->trabajos;
+            //dd($trabajos);
+            return view('dashboard.dashboard', ['trabajos' => $trabajos]);        
         }
-        return view('dashboard', ['trabajos' => $trabajos]);  
+        return view('dashboard.dashboard', ['trabajos' => $trabajos]);
+
     }
 
     /**
@@ -37,10 +36,12 @@ class TrabajoController extends Controller
 
     public function index2($id)
     {
-        
+
         $t = Trabajo::find($id);
         //dd($t->location);
-        return view('trabajosForm', ['t' => $t]);
+
+        //dd($t);
+        return view('dashboard.trabajosForm', ['t' => $t]);
     }
 
 
@@ -53,7 +54,7 @@ class TrabajoController extends Controller
      public function create()
      {
        //dd(Auth::user()->trabajador);
-       return view('trabajosFormNew');
+       return view('dashboard.trabajosFormNew');
      }
 
     /**
@@ -62,11 +63,16 @@ class TrabajoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function store(Request $request)
     {
         //
         //dd($request);
         //return dd($request);
+
+
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
         $trabajo->location=$request->location;
@@ -74,7 +80,22 @@ class TrabajoController extends Controller
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
         $trabajo->save();
 
+        $fun =  function ($val){
+            return (array)$val;
+        };
+       
+        if(!is_null($request->fotos)){
+            $fs = json_decode($request->fotos);
+            $fsa = array_map($fun , $fs);
+
+
+            //dd($fs);
+            //print_r($fsa);
+            //dd($fsa);
+            $comment = $trabajo->fotos()->createMany($fsa);
+        }
         
+
         return redirect("dashboard");
     }
 

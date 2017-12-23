@@ -13,10 +13,10 @@ class CreateFotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('fotos', function (Blueprint $table) {
+        Schema::create('fotos_trabajos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('url');
-
+            $table->string('miniatura');
             $table->integer('trabajo_id')->unsigned();
             $table->foreign('trabajo_id')->references('id')->on('trabajos');
             $table->timestamps();

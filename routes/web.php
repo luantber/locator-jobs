@@ -14,7 +14,7 @@ use App\Trabajo;
 /*
 Route::get('/',function(){
   $trabajos=App\Trabajo::all();
-    
+
   return view('index',["trabajos"=>$trabajos]);
 });
 */
@@ -35,7 +35,7 @@ Route::get('login/google/{link}', 'Auth\SocialLoginController@redirectToProvider
 Auth::routes();
 
 //Dashboard
-Route::get('dashboard', 'TrabajoController@index');
+Route::get('dashboard', 'TrabajoController@index')->middleware('auth');
 Route::get('trabajo/{id}', 'TrabajoController@index2');
 
 
@@ -47,7 +47,7 @@ Route::get('mapa', function () {
   return view('trabajos.map')->with(['items'=>$items,'origin'=>'45.05,7.6667']);
 
   //return $items;
-    
+
 });
 
 // TRABAJADORES

@@ -13,7 +13,11 @@
         	<div class="col-6">
         		<form action="{{asset('trabajos')}}" method="post">
           {{csrf_field()}}
+
+          <!-- Datos Ocultos --> 
           <input type="hidden" name="location" id="loc" required> </input>
+          <input type="hidden" name="fotos" id="fotosForm" required> </input>
+
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
 				    <div class="col-10">
@@ -43,10 +47,47 @@
 				  </div>
 
 				  <div class="form-group">
-				  	<label>Galería</label>
-				  	<br>
-				  	<br>
-				  	<br>
+
+            <button id="galeriaBoton" type="button" class="btn btn-secondary">Subir Fotos</button> 
+
+            <div id="galeriaContainer"></div>
+
+				 
+            <script src="http://widget.cloudinary.com/global/all.js" type="text/javascript"></script>   
+
+          <script type="text/javascript">  
+ 
+            $('#galeriaBoton').cloudinary_upload_widget(
+              { 
+               cloud_name: 'luisbch9', 
+                  upload_preset: 'bsi9wjf9',
+                  //multiple: true,
+                  // theme: 'white',
+                  //folder: 'locator',
+                  //inline_container : '#galeriaContainer'
+              },
+              function(error, result) { 
+                console.log("Errorcito: ",error); 
+                //console.log("resultado" ,result);
+
+                if(error == null && result.length >= 1){
+
+                  var fotos = new Array();
+                  result.map(function(x){
+                      fotos.push({url: x.url , miniatura: x.thumbnail_url});
+                  });
+
+
+                   $("#fotosForm").val(JSON.stringify(fotos));
+                   console.log(JSON.stringify(fotos));
+                   console.log("Subidos")
+                }
+
+              });
+
+          </script>
+
+
 				  </div>
 
 				  <button type="submit" class="btn btn-primary">Guardar	</button>

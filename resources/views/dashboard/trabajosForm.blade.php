@@ -50,9 +50,21 @@
 
 				  <div class="form-group">
 				  	<label>Galería</label>
-				  	<br>
-				  	<br>
-				  	<br>
+
+            <div class="d-flex">
+
+            @foreach ($t->fotos as $f)
+                
+            <img src="{{$f->url}}" class="img-fluid img-thumbnail">
+            @endforeach
+
+
+            </div>
+            
+				  	
+          
+            
+           
 				  </div>
 
 				  <button type="submit" class="btn btn-primary">Guardar	</button>
