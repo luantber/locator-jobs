@@ -23,7 +23,7 @@ class CreateTrabajosTable extends Migration
             $table->foreign('trabajador_id')->references('id')->on('trabajadors');
             $table->timestamps();
         });
-        DB::statement('ALTER TABLE trabajos ADD SPATIAL INDEX (location)');
+        //DB::statement('ALTER TABLE trabajos ADD SPATIAL INDEX (location)');
     }
 
     /**
