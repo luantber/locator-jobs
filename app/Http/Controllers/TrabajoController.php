@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Trabajo;
+use App\Trabajador;
 use App\User;
 use App\Foto;
 use Auth;
@@ -24,7 +25,7 @@ class TrabajoController extends Controller
         if(Auth::user()->trabajador){
             $trabajos = Auth::user()->trabajador->trabajos;
             //dd($trabajos);
-            return view('dashboard.dashboard', ['trabajos' => $trabajos]);        
+            return view('dashboard.dashboard', ['trabajos' => $trabajos]);
         }
         return view('dashboard.dashboard', ['trabajos' => $trabajos]);
 
@@ -89,7 +90,7 @@ class TrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    
+
 
     public function store(Request $request)
     {
@@ -108,7 +109,7 @@ class TrabajoController extends Controller
         $fun =  function ($val){
             return (array)$val;
         };
-       
+
         if(!is_null($request->fotos)){
             $fs = json_decode($request->fotos);
             $fsa = array_map($fun , $fs);
@@ -119,7 +120,7 @@ class TrabajoController extends Controller
             //dd($fsa);
             $comment = $trabajo->fotos()->createMany($fsa);
         }
-        
+
 
         return redirect("dashboard");
     }
@@ -132,7 +133,19 @@ class TrabajoController extends Controller
      */
     public function show(Trabajo $trabajo)
     {
-        return view('trabajos.mostrar',['trabajo'=>$trabajo]);
+//      dd($trabajo->trabajador_id->descripcion);
+        $trabajador = Trabajador::find($trabajo->trabajador_id);
+        $user = User::find($trabajador->user_id);
+        $fotos = DB::table('fotos_trabajos')
+                ->where('trabajo_id', $trabajo->id)
+                ->get();
+
+
+
+            //    dd(sizeof($fotos));
+
+        //dd($trabajador->user_id);
+        return view('trabajos.mostrar',['trabajo'=>$trabajo, 'trabajador'=> $trabajador,'user'=>$user,'fotos'=>$fotos]);
     }
 
     /**

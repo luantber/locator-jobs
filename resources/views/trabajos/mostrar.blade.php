@@ -1,4 +1,9 @@
-@extends("template") @section("body")
+@extends('template')
+
+@section('body')
+
+
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -7,17 +12,21 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778606/trabajo3.jpg"
-			 alt="First slide">
+			<script type="text/javascript">
+				var original = "{{$fotos[0]->url}}";
+				var split = original.split("d/");
+				var rs = split[0]+"d/c_fill,h_255,w_1116/"+split[1];
+
+				console.log(rs);
+			</script>
+		<img width="1116" height="255" class="d-block w-100" src="{{$fotos[0]->url}}" alt="First slide">
 		</div>
+		@for ($i = 1; $i < sizeof($fotos); $i++)
 		<div class="carousel-item">
-			<img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778689/trabajo2.jpg"
-			 alt="Second slide">
+			<img width="1116" height="255"class="d-block w-100" src="{{$fotos[$i]->url}}" >
 		</div>
-		<div class="carousel-item">
-			<img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778685/trabajo1.png"
-			 alt="Third slide">
-		</div>
+		@endfor
+
 	</div>
 	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -29,30 +38,27 @@
 	</a>
 </div>
 
+
+
+
 <div class="row">
-	<div class="col-sm-4">
-		<div class="  text-black" style="width: 95%; height: auto; background-color:#AEAEAE ;">
-			<div class="text-center">
-				<br>
-				<img src="http://res.cloudinary.com/dkhcofaia/image/upload/w_150,h_150,z_0.9,c_thumb,g_face/tito3_a6npf0.jpg" class="rounded-circle"
-				 alt="...">
+	<div class="col-sm-4"  style="background-color:#AEAEAE ;">
+		<br>
+		<br>
+			<div class="media">
+
+		  	<img class="mr-3 rounded-circle" src="{{$user->foto}}" alt="Generic placeholder image" >
+		  	<div class="media-body">
+		    	<h5 class="mt-0">{{$user->nombre}}</h5>
+		     {{$trabajador->descripcion}}
+		  	</div>
 			</div>
-			<div class="card-body">
-				<div class="text-center">
-					<h4 class="card-title">Nombre</h4>
-					<p class="card-text"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci, excepturi. Nobis, saepe? Quibusdam, adipisci? Voluptates
-						doloribus neque laudantium placeat cumque quae earum assumenda dolorum, suscipit ea quasi vero aperiam blanditiis!
-					</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
-		</div>
+
 	</div>
 	<div class="col-sm-4">
 		<br>
-		<h4>Nombre del trabajo</h4>
-		<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione commodi accusantium ab, cum ullam consequuntur maxime?
-			Tempora, error, exercitationem eligendi aliquam mollitia, id fugit recusandae omnis in atque reprehenderit placeat? </p>
+		<h4>{{$trabajo->nombre}}</h4>
+		<p>{{$trabajo->descripcion}} </p>
 	</div>
 	<div class="col-sm-4">
 		<div class="card m-3 px-4 py-3">
@@ -115,12 +121,13 @@
 	</div>
 </div>
 
-
+<!--
+*/
 <script>
 	$("#inicio,#fin").datepicker({
      uiLibrary: 'bootstrap4'
   });
 
 </script>
-
+-->
 @endsection
