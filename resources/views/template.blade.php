@@ -5,11 +5,11 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab" rel="stylesheet">
 
 
 
@@ -21,32 +21,30 @@
 
   <body>
 
-  
+
     <nav class="navbar " style="background-color: #000000;">
-      
+
       <div class="d-flex flex-row justify-content-start">
          <a class="navbar-brand" href="#"> <img src="img/logo2.png"
           height="30" alt=""></a>
         <a class="nav-link active" href="#">
           <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
-        </a>  
-        
+        </a>
+
       </div>
 
       <div class="d-flex flex-row justify-content-end">
-          
+
       @if(!Auth::check())
       <div class=" form-inline ml-auto">
 
           <a href="{{ asset('login/google/dashboard')}}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
-     
-        <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal" href="#">Iniciar Sesión</a>      
 
+        <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal" href="#">Iniciar Sesión</a>
+        <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal2" href="#">Registrarme</a>
       </div>
-
-        
-
       @include('login')
+      @include('auth.register')
 
       @else
 
@@ -61,23 +59,23 @@
         <div class="dropdown-menu " aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Perfil</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">                   Logout 
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">                   Logout
           </a>
- 
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> 
-              {{ csrf_field() }} 
-          </form> 
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              {{ csrf_field() }}
+          </form>
         </div>
       </div>
-      
-      
+
+
       @endif
       </div>
     </nav>
 
 
     @yield('body')
-    
+
 
   <footer   style="background-color:#4d4d4d ;">
     <br>

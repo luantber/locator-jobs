@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post" >
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Email</label>
             <input type="text" class="form-control" id="recipient-name">

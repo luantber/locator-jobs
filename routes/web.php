@@ -39,7 +39,9 @@ Route::get('dashboard', 'TrabajoController@index')->middleware('auth');
 Route::get('trabajo/{id}', 'TrabajoController@index2');
 
 
+// registro
 
+Route::post('registro', 'registroController@registro');
 
 Route::get('mapa', function () {
   $items = Trabajo::distance(10,'45.05,7.6667')->get();  //0.35 es el radio
@@ -65,3 +67,7 @@ Route::get ('busqueda',function (){
 Route::get('test',function (){
   return view('tests.template2');
 });
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+

@@ -1,77 +1,89 @@
-@extends('template')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+  <div class="modal fade" id="exampleModal2" >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form method="post" action="{{asset('registro')}}">
+            {{ csrf_field() }}
+            <div class="form-group row">
+              <label  class="col-sm-3 col-form-label">Nombre</label>
+              <div class="col-sm-9">
+                <input type="text" id="nombre"  name="nombre"class="form-control" placeholder="nombre ">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-3 col-form-label">email</label>
+              <div class="col-sm-9">
+                <input type="email" id="email" name="email" class="form-control" placeholder="email">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-3 col-form-label">Contraseña</label>
+              <div class="col-sm-9">
+                <input type="password"  id="contrasena" name="contrasena"class="form-control" placeholder="Contraseña">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label  class="col-sm-3 col-form-label">Contraseña</label>
+              <div class="col-sm-9">
+                <input type="password" class="form-control" placeholder="Repita // por ahora no disponible">
+              </div>
+            </div>
+            <meta name="csrf-token"  id="valor1" content="{{ csrf_token() }}">
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{asset('register2')}}">
-                        {{ csrf_field() }}
+            <div class="col-md-2 offset-md-4">
+              <button type="submit"   class="btn btn-primary">Registrarme</button>
+            </div>
+            <p class="text-center"> </p>
+              <div class="row">
+                <div class="col offset-md-1">
+                    <a href="{{asset('login/google/index')}}"><button type="button" class="btn btn-light" >
+                      <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,h_15,w_15/v1512939138/google_tvnada.png" alt="Generic placeholder image">
+                      Google</button></a>
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Name</label>
+                </div>
+                <div class="col">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                    <button type="submit" class="btn btn-light">
+                      <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,w_15/v1512939142/faceboook2_cogyux.png" alt="Generic placeholder image">
+                      Facebbook</button>
 
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
+        </form>
+      </div>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+
+
+
+
+<script type="text/javascript">
+/*
+  function registrar(nombre,email,contrasena) {
+    var datos  = {
+      "nombre":nombre,
+      "email":email,
+      "contrasena": contrasena,
+      'X-CSRF-TOKEN': $('#valor1').val(),
+    };
+    $.ajax({
+        method: "POST",
+        url:{{asset('register')}}
+//        data: $('#formulario').serialize()
+        data: datos,
+        success: function () {
+//          $("#exampleModal2").html( <h1> FUNCIONO </h1> );
+          console.log("funciono");
+        }
+
+    });
+  }*/
+</script>
