@@ -107,7 +107,7 @@ class TrabajoController extends Controller
      */
     public function show(Trabajo $trabajo)
     {
-        return view('Trabajos.mostrar',['trabajo'=>$trabajo]);
+        return view('trabajos.mostrar',['trabajo'=>$trabajo]);
     }
 
     /**
