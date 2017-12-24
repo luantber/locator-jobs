@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Trabajo;
 use App\User;
 use App\Foto;
@@ -27,6 +28,30 @@ class TrabajoController extends Controller
         }
         return view('dashboard.dashboard', ['trabajos' => $trabajos]);
 
+    }
+
+
+    public function getTrabajo(Request $request)
+    {
+        //$trabajos= DB::table('trabajos')->select(DB::raw('id, nombre, asText(location), descripcion'))
+        //->where('nombre','like','%asd%')
+        //->where()
+        //->get();
+        $trabajos= Trabajo::distance(0.02,$request->pos)->where('nombre','like','%'.$request->nombre.'%')->get();
+    }
+
+    public function busqueda(Request $request)
+    {
+        //return $request->pos;
+        if ($request->pos)
+        {
+            $trabajos= Trabajo::distance(0.02,$request->pos)->where('nombre','like','%'.$request->data.'%')->get();
+            return view('busqueda',["data"=>$request->data,'origen'=>$request->pos,"trabajos"=>$trabajos]);
+        }
+        else
+        {
+            return view('busqueda');
+        }
     }
 
     /**

@@ -27,10 +27,14 @@
       <div class="d-flex flex-row justify-content-start">
          <a class="navbar-brand" href="#"> <img src="img/logo2.png"
           height="30" alt=""></a>
-        <a class="nav-link active" href="#">
-          <input type="text"  class="form-control " name="" value="" placeholder="buscar servicios ... ">
-        </a>
 
+      <form action="/buscar" id="bus-form" method="POST">
+        {{csrf_field()}}
+        <input type="text"  id="bus" class="form-control " name="data" placeholder="Buscar Servicios ... ">
+        <input type="hidden" >
+
+      </form>  
+        
       </div>
 
       <div class="d-flex flex-row justify-content-end">
@@ -125,5 +129,30 @@
   </div>
 
   </footer>
+
+  <script>
+      var pos;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      });
+    }
+
+      $("#bus").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+          //alert("asd");
+          pos=pos.toString().slice(1,-1)
+          $("<input>").attr("type", "hidden").attr("name", "pos").attr("id","pos").val(pos).appendTo('#bus-form');
+          alert($("#pos").val());
+          $("#bus-form").submit();
+        } 
+        });
+        
+  
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc">
+  </script>
+
   </body>
 </html>

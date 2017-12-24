@@ -14,8 +14,8 @@
     <script>
       function initMap() {
         var mapOptions = {
-                        zoom: 10,
-                        center: new google.maps.LatLng({{$items[0]->location}})
+                        zoom: 15,
+                        center: new google.maps.LatLng({{$origin}})
                     };
         var map = new google.maps.Map(document.getElementById('map'), mapOptions);
               @foreach($items as $item)

@@ -44,9 +44,9 @@ Route::get('trabajo/{id}', 'TrabajoController@index2');
 Route::post('registro', 'registroController@registro');
 
 Route::get('mapa', function () {
-  $items = Trabajo::distance(10,'45.05,7.6667')->get();  //0.35 es el radio
+  $items = Trabajo::distance(0.02,'-16.405782,-71.484242')->get();  //0.35 es el radio
   //return $items;
-  return view('trabajos.map')->with(['items'=>$items,'origin'=>'45.05,7.6667']);
+  return view('trabajos.map')->with(['items'=>$items,'origin'=>'-16.405782, -71.484242']);
 
   //return $items;
 
@@ -60,6 +60,8 @@ Route::resources([
 ]);
 
 // SOLO PARA VISTAS
+
+Route::post('buscar', 'TrabajoController@busqueda');
 Route::get ('busqueda',function (){
   return view('busqueda');
 });
