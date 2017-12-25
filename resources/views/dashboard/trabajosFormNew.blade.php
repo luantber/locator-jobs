@@ -1,4 +1,6 @@
-   
+
+
+
   <ul class="nav nav-tabs" id="myTab" role="tablist"> 
     <li class="nav-item"> 
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a> 
@@ -53,7 +55,7 @@
             <div id="galeriaContainer"></div>
 
 				 
-            <script src="http://widget.cloudinary.com/global/all.js" type="text/javascript"></script>   
+            
 
           <script type="text/javascript">  
  

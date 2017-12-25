@@ -26,7 +26,7 @@
     <nav class="navbar " style="background-color: #000000;">
 
       <div class="d-flex flex-row justify-content-start">
-     <a class="navbar-brand" href="#"> <img src="img/logo2.png"
+     <a class="navbar-brand" href="#"> <img src="{{asset('img/logo2.png')}}"
           height="30" alt=""></a>
 
       <form action="/buscar" id="bus-form" method="POST">

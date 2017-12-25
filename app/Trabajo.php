@@ -25,7 +25,7 @@ class Trabajo extends Model
 
     public function fotos()
     {
-      return $this->hasMany("App\TrabajoFoto");
+      return $this->hasMany("App\FotosTrabajo");
     }
 
     protected $geofields = array('location');

@@ -9,7 +9,8 @@
 		@include('registrarTrabajador')
 	@else
 
- 
+
+    <script src="{{asset('js/cloud.js')}}"></script>
 <div class="container-fluid"> 
  
 <div class="row pt-2"> 
