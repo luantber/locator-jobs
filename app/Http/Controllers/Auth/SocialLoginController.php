@@ -16,7 +16,7 @@ class SocialLoginController extends Controller
      *
      * @return Response
      */
-    public function redirectToProvider($link)
+    public function redirectToProviderG($link)
     {
         Session::flash('url',$link);
         return Socialite::driver('google')->redirect();
@@ -27,11 +27,53 @@ class SocialLoginController extends Controller
      *
      * @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallbackG()
     {
         $user = Socialite::driver('google')->user();
 
         //dd($user);
+        //User::find(1);
+
+        $usuario = User::where('email', $user->email)->first();
+
+        if(!$usuario){
+          $usuario = new User;
+          $usuario->email = $user->email;
+          $usuario->nombre = $user->name;
+          $usuario->password = bcrypt(str_random(10));
+          $usuario->monto = 0;
+          $usuario->foto = $user->avatar;
+          $usuario->telefono = 0;
+          $usuario->save();
+        }
+
+        Auth::login($usuario, true);
+
+        if (Session::get('url')){
+            return redirect( Session::get('url') );
+        }
+
+        dd(Session::get('url'));
+
+    }
+
+        
+    public function redirectToProviderF($link)
+    {
+        Session::flash('url',$link);
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallbackF()
+    {
+        $user = Socialite::driver('facebook')->user();
+
+        dd($user);
         //User::find(1);
 
         $usuario = User::where('email', $user->email)->first();

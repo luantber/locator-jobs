@@ -41,4 +41,13 @@ return [
         'redirect' => 'http://localhost:8000/login/google/callback/' //env('GOOGLE_REDIRECT') //'http://localhost:8000/login/google/callback/'
     ],
 
+
+    'facebook' => [
+        'client_id' => '729759483888074',
+        'client_secret' => '0ea3c548033264093d61434c3e1be592',
+        'redirect' => 'http://localhost:8000/login/facebook/callback/' 
+    ],
+
+
+
 ];

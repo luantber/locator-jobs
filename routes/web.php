@@ -28,9 +28,10 @@ Route::get('/',function (){
 });
 
 //Auth Google
-Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallback');
-Route::get('login/google/{link}', 'Auth\SocialLoginController@redirectToProvider');
-
+Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallbackG');
+Route::get('login/google/{link}', 'Auth\SocialLoginController@redirectToProviderG');
+Route::get('login/facebook/callback', 'Auth\SocialLoginController@handleProviderCallbackF');
+Route::get('login/facebook/{link}', 'Auth\SocialLoginController@redirectToProviderF');
 //Auth
 Auth::routes();
 

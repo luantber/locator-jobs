@@ -14,7 +14,7 @@
             <div class="form-group row">
               <label  class="col-sm-3 col-form-label">Nombre</label>
               <div class="col-sm-9">
-                <input type="text" id="nombre"  name="nombre"class="form-control" placeholder="nombre ">
+                <input type="text" id="nombre"  name="nombre" class="form-control" placeholder="nombre ">
               </div>
             </div>
             <div class="form-group row">
@@ -50,10 +50,11 @@
                 </div>
                 <div class="col">
 
-                    <button type="submit" class="btn btn-light">
+                    <a href="{{asset('login/facebook/index')}}">
+                    <button type="button" class="btn btn-light">
                       <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,w_15/v1512939142/faceboook2_cogyux.png" alt="Generic placeholder image">
                       Facebbook</button>
-
+                    </a>
                 </div>
             </div>
         </form>
