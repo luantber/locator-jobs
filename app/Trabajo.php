@@ -28,6 +28,10 @@ class Trabajo extends Model
       return $this->hasMany("App\FotosTrabajo");
     }
 
+    public function contratos(){
+        return $this->hasMany("App\Contrato");
+    }
+
     protected $geofields = array('location');
     public function setLocationAttribute($value) {
         $this->attributes['location'] = DB::raw("POINT($value)");

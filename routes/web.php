@@ -38,10 +38,10 @@ Auth::routes();
 //Dashboard
 Route::get('dashboard', 'TrabajoController@index')->middleware('auth');
 Route::get('trabajo/{id}', 'TrabajoController@index2');
-
+Route::post('trabajos/{id}/contrato', 'TrabajoController@contrato');
+Route::get('contrato/{id}', 'ContratoController@show');
 
 // registro
-
 Route::post('registro', 'registroController@registro');
 
 Route::get('mapa', function () {

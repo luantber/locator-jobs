@@ -72,7 +72,11 @@
 				
 					<div class="dropdown-divider"></div>
 
-				<form class="px-4 py-3">
+				<form class="px-4 py-3" method="post" 
+
+				action="{{ asset('trabajos/' . $trabajo->id . '/contrato') }}">
+				
+				{{ csrf_field() }}
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
@@ -103,6 +107,7 @@
 
 					</div>
 
+					<!--
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
@@ -116,11 +121,11 @@
 							</div>
 						</div>
 					</div>
-
+					-->
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group">
-								<button type="submit" class="btn btn-primary form-control form-control-lg p-2"><b>Reservar</b></button>
+								<button type="submit" class="btn btn-primary form-control form-control-lg p-2"><b>Negociar</b></button>
 							</div>
                 <small ><p class="text-center">No se hará ningún cargo ahora</p></small>
 						</div>

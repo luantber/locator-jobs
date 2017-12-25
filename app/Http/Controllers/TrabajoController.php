@@ -17,6 +17,13 @@ class TrabajoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function contrato(Request $request , $id )
+    {
+        dd($request, $id);
+    }
+
+
     public function index()
     {
 
@@ -135,6 +142,8 @@ class TrabajoController extends Controller
     {
 //      dd($trabajo->trabajador_id->descripcion);
         $trabajador = Trabajador::find($trabajo->trabajador_id);
+
+
         $user = User::find($trabajador->user_id);
         $fotos = DB::table('fotos_trabajos')
                 ->where('trabajo_id', $trabajo->id)
