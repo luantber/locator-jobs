@@ -73,7 +73,7 @@ class SocialLoginController extends Controller
     {
         $user = Socialite::driver('facebook')->user();
 
-        dd($user);
+        //dd($user);
         //User::find(1);
 
         $usuario = User::where('email', $user->email)->first();

@@ -31,11 +31,11 @@
               </div>
               <div class="col">
 
-                  <a href="{{asset('login/facebook/index')}}">
-                  <button  class="btn btn-light">
-                    <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,w_15/v1512939142/faceboook2_cogyux.png" alt="Generic placeholder image">
-                    Facebbook</button>
-                  </a>
+                   <a href="{{asset('login/facebook/index')}}">
+                    <button type="button" class="btn btn-light">
+                      <img class="mr-3" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,w_15/v1512939142/faceboook2_cogyux.png" alt="Generic placeholder image">
+                      Facebbook</button>
+                    </a>
 
               </div>
           </div>
