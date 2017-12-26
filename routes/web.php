@@ -38,8 +38,13 @@ Auth::routes();
 //Dashboard
 Route::get('dashboard', 'TrabajoController@index')->middleware('auth');
 Route::get('trabajo/{id}', 'TrabajoController@index2');
-Route::post('trabajos/{id}/contrato', 'TrabajoController@contrato');
+Route::post('trabajos/{id}/contrato', 'ContratoController@contratar');
 Route::get('contrato/{id}', 'ContratoController@show');
+Route::get('contra','ContratoController@contratar');
+
+//Mensajes
+Route::post('mensaje','ContratoController@mensaje');
+Route::get('mensaje','ContratoController@mensaje');
 
 // registro
 Route::post('registro', 'registroController@registro');

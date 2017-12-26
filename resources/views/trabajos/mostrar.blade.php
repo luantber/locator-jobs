@@ -75,7 +75,7 @@
 				<form class="px-4 py-3" method="post" 
 
 				action="{{ asset('trabajos/' . $trabajo->id . '/contrato') }}">
-				
+
 				{{ csrf_field() }}
 					<div class="row">
 						<div class="col-sm-6">
@@ -95,18 +95,21 @@
 
 					</div>
 
+					<!--
 					<div class="col-12 my-2">
 						<div class="d-flex flex-row justify-content-between">
 
-							<div> <div id="cantidadD">15</div> días</div>
-							<div>x S/. <div id="costo">25.00</div> =</div>
-							<div class="font-weight-bold">S/. <div id="total">450.00</div> </div>
+							<div class="d-flex flex-row"> <div id="cantidadD">15</div> días</div>
+
+							<div class="d-flex flex-row">x S/. <div id="costo">25.00</div> =</div>
+
+							<div class="d-flex flex-row font-weight-bold">S/. <div id="total">450.00</div> </div>
  
 							
 						</div>
 
 					</div>
-
+					-->
 					<!--
 					<div class="row">
 						<div class="col-sm-12">

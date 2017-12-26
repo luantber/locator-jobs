@@ -18,12 +18,7 @@ class TrabajoController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function contrato(Request $request , $id )
-    {
-        dd($request, $id);
-    }
-
-
+  
     public function index()
     {
 

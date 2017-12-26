@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' =>  'pusher',//, env('BROADCAST_DRIVER', 'pusher'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,8 +28,16 @@ return [
     |
     */
 
+  /*  
+key = "4c5e4c6266995483ae0e"
+secret = "46fd3a296c47a7baa66b"
+cluster = "us2"
+
+*/
+
     'connections' => [
 
+    /*
         'pusher' => [
             'driver' => 'pusher',
             'key' => env('PUSHER_APP_KEY'),
@@ -38,6 +46,19 @@ return [
             'options' => [
                 //
             ],
+    */
+
+        'pusher' => [
+            'driver' => 'pusher',
+            'key' => '4c5e4c6266995483ae0e',
+            'secret' => '46fd3a296c47a7baa66b',
+            'app_id' => '450093',
+            'options' => [
+                'cluster' => "us2",
+                'encrypted' => true
+
+            ],
+
         ],
 
         'redis' => [
