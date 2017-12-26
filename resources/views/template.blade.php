@@ -26,9 +26,9 @@
 		<meta name="keywords" content="timeline, vertical, layout, style, component, web development, template, responsive" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
+		<link rel="stylesheet" type="text/css" href="{{asset('css/default.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{asset('css/component.css')}}" />
+		<script src="{{asset('js/modernizr.custom.js')}}"></script>
 
 
 

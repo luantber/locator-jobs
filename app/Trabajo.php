@@ -8,6 +8,7 @@ class Trabajo extends Model
 {
 
   protected $guarded = [];
+  
     public function tags()
     {
       return $this->belongsToMany('App\Tag');
