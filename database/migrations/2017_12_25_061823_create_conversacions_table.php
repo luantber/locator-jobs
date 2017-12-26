@@ -21,6 +21,12 @@ class CreateConversacionsTable extends Migration
 
             $table->string("mensaje");
 
+            $table->integer('de')->unsigned();
+            $table->foreign('de')->references('id')->on('users');
+            $table->integer('para')->unsigned();
+            $table->foreign('para')->references('id')->on('users');
+
+
             $table->timestamps();
         });
     }

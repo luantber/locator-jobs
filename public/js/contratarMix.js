@@ -776,13 +776,13 @@ const app = new Vue({
     el: '#app'
 });
 */
+console.log("Iniciando Listening");
 
 Echo.private('mensaje').listen('Mensaje', function (e) {
-    console.log(e.mensaje);
-    console.log("Recibido");
+  console.log(e);
+  app.mensajes.unshift(e.mensaje);
+  console.log("rec");
 });
-
-console.log("Holi Boli");
 
 /***/ }),
 /* 9 */

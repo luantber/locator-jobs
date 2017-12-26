@@ -17,6 +17,14 @@ class Conversacion extends Model
     	return $this->belongsTo('App\Contrato');
     }
 
+    public function de(){
+    	return $this->hasOne('App\User');
+    }
+
+    public function para(){
+    	return $this->hasOne('App\User');
+    }
+
 
   
 }

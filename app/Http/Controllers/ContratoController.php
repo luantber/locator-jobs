@@ -7,15 +7,19 @@ use App\Events\Mensaje;
 use App\Providers\BroadcastServiceProvider;
 use App\Contrato;
 use App\Trabajo;
+use App\Conversacion;
+
 use Auth;
 class ContratoController extends Controller
-{
+{   
+
+
     public function show($id)
     {
     	$contrato = Contrato::find($id);
-        dd($contrato->conversaciones);
-        
-        return view('trabajos.contrato',['contrato'=> $contrato     ]);
+        //dd($contrato->conversaciones);
+
+        return view('trabajos.contrato',['contrato'=> $contrato , 'conversaciones'=>$contrato->conversaciones    ]);
     }
 
     public function contratar(Request $request)
@@ -39,7 +43,27 @@ class ContratoController extends Controller
 
     public function mensaje(Request $request)	
     {
-    	event(new Mensaje('Hi there Pusher!'));
-        return true;
+        $c = new Conversacion;
+        $c->contrato_id = $request->contrato;
+        $c->mensaje  =  $request->mensaje;
+        $c->de = Auth::id();
+
+        $ct = Contrato::find($request->contrato);
+
+        $c->para = $ct->trabajador_id == Auth::id() ? $ct->user_id : $ct->trabajador_id;
+
+        $c->save();
+
+        
+    	event(new Mensaje($c));
+
+        return [true];
+    }
+
+
+    public function getmensajes(Request $request){
+        $c = Contrato::find($request->contrato);
+        //dd($c->conversaciones[0]);
+        return $c->conversaciones;
     }
 }

@@ -43,7 +43,8 @@ Route::post('contratar','ContratoController@contratar');
 
 //Mensajes
 Route::post('mensaje','ContratoController@mensaje');
-Route::get('mensaje','ContratoController@mensaje');
+Route::post('getmensajes','ContratoController@getmensajes');
+//Route::get('mensaje','ContratoController@mensaje');
 
 // linea del tiempo
 Route::get('linea','TrabajoController@linea');
