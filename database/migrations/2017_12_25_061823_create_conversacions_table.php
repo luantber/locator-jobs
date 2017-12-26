@@ -16,8 +16,8 @@ class CreateConversacionsTable extends Migration
         Schema::create('conversacions', function (Blueprint $table) {
             $table->increments('id');
             
-            $table->integer('trabajo_id')->unsigned();
-            $table->foreign('trabajo_id')->references('id')->on('trabajos');
+            $table->integer('contrato_id')->unsigned();
+            $table->foreign('contrato_id')->references('id')->on('contratos');
 
             $table->string("mensaje");
 

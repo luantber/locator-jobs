@@ -11,5 +11,7 @@ class Contrato extends Model
       return $this->belongsTo('App\Trabajo');
     }
 
-    //public function 
+    public function conversaciones(){
+    	return $this->hasMany('App\Conversacion');
+    }
 }

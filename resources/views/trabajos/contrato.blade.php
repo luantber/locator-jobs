@@ -11,9 +11,25 @@
 				    Propuesta
 				  </div>
 				  <div class="card-body">
-				    <h4 class="card-title">Soldado de Partes</h4>
-				    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-				    <a href="#" class="btn btn-primary">Go somewhere</a>
+				    <h4 class="card-title">{{ $contrato->trabajo->nombre}}</h4>
+				    <p class="card-text">{{ $contrato->trabajo->descripcion}}</p>
+
+				    <div class="mt-1 mb-3">
+						<div class="d-flex flex-row justify-content-between">
+
+							<div class="d-flex flex-row"> <div id="cantidadD">15</div> días</div>
+
+							<div class="d-flex flex-row">x S/. <div id="costo">25.00</div> =</div>
+
+							<div class="d-flex flex-row font-weight-bold">S/. <div id="total">450.00</div> </div>
+ 
+							
+						</div>
+
+					</div>
+
+				    <a href="#" class="btn btn-primary">Contratar</a>
+
 				  </div>
 				</div>
 
@@ -34,6 +50,11 @@
 		
 					</form>	
 		
+			@foreach($contrato->conversacion as $c)
+
+
+			@endforeach
+
 				<div class="my-2">
 					<img src="{{Auth::user()->foto}}" alt="{{Auth::user()->foto}}" class="rounded-circle float-left mx-2 my-2">				
 					<div class="card">

@@ -13,6 +13,8 @@ class ContratoController extends Controller
     public function show($id)
     {
     	$contrato = Contrato::find($id);
+        dd($contrato->conversaciones);
+        
         return view('trabajos.contrato',['contrato'=> $contrato     ]);
     }
 
