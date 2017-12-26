@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Trabajo;
 use App\Trabajador;
+use App\Contrato;
 use App\User;
 use App\Foto;
 use Auth;
@@ -17,7 +18,8 @@ class TrabajoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
+
+
     public function index()
     {
         $trabajos  = [];
@@ -105,6 +107,7 @@ class TrabajoController extends Controller
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
         $trabajo->save();
 
+
         $fun =  function ($val){
             return (array)$val;
         };
@@ -186,5 +189,25 @@ class TrabajoController extends Controller
     public function destroy(Trabajo $trabajo)
     {
         //
+    }
+
+
+    public function linea()
+    {
+      //trabajos publicados
+      $trabajador =  Auth::user()->trabajador;
+      $trabajs = DB::table('trabajos')
+              ->where('trabajador_id', $trabajador->id)
+              ->get();
+      //trabajos realizados
+/*      $trabajadorR = Auth::user()->trabajador;
+      $trabajosR = DB::table('contratos')
+              ->where('trabajador_id', $trabajador->id)
+              ->get();
+
+*/
+
+      dd($trabajs);
+      return view('linea');
     }
 }

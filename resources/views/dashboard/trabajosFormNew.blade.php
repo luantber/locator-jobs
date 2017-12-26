@@ -1,27 +1,27 @@
 
 
 
-  <ul class="nav nav-tabs" id="myTab" role="tablist"> 
-    <li class="nav-item"> 
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a> 
-    </li>     
-  </ul> 
- 
-  <div class="tab-content" id="myTabContent"> 
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> 
-      <div class="container-fluid mt-2"> 
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="container-fluid mt-2">
         <!--  DATOS GENERALES -->
         <div class="row" >
         	<div class="col-6">
         		<form action="{{asset('trabajos')}}" method="post">
           {{csrf_field()}}
 
-          <!-- Datos Ocultos --> 
+          <!-- Datos Ocultos -->
           <input type="hidden" name="location" id="loc" required> </input>
           <input type="hidden" name="fotos" id="fotosForm" required> </input>
 
 				  <div class="form-group row">
-				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
+				    <label for="inputEmail3" class="col-2 col-form-label">Nombre..</label>
 				    <div class="col-10">
 				      <input  class="form-control" id="inputEmail3" name="nombre" required>
 				    </div>
@@ -50,26 +50,26 @@
 
 				  <div class="form-group">
 
-            <button id="galeriaBoton" type="button" class="btn btn-secondary">Subir Fotos</button> 
+            <button id="galeriaBoton" type="button" class="btn btn-secondary">Subir Fotos</button>
 
             <div id="galeriaContainer"></div>
 
-				 
-            
 
-          <script type="text/javascript">  
- 
+
+
+          <script type="text/javascript">
+
             $('#galeriaBoton').cloudinary_upload_widget(
-              { 
-               cloud_name: 'luisbch9', 
+              {
+               cloud_name: 'luisbch9',
                   upload_preset: 'bsi9wjf9',
                   //multiple: true,
                   // theme: 'white',
                   //folder: 'locator',
                   //inline_container : '#galeriaContainer'
               },
-              function(error, result) { 
-                console.log("Errorcito: ",error); 
+              function(error, result) {
+                console.log("Errorcito: ",error);
                 //console.log("resultado" ,result);
 
                 if(error == null && result.length >= 1){
@@ -104,7 +104,7 @@
         		<div id="map" class="mb-5" style="height: 72%; width: 100%"> Cargando . . .</div>
         		<script>
 
-            
+
 
 
             if (navigator.geolocation)
@@ -144,40 +144,40 @@
 
             $("#loc").val(latitude + "," + longitude);
 
-            google.maps.event.addListener(marker, "dragend", function(event) { 
-              var lat = event.latLng.lat(); 
-              var lng = event.latLng.lng(); 
+            google.maps.event.addListener(marker, "dragend", function(event) {
+              var lat = event.latLng.lat();
+              var lng = event.latLng.lng();
               var punto =  lat+","+lng;
               console.log(punto);
               $("#loc").val(punto);
-            }); 
+            });
             //https://dev.mysql.com/doc/refman/5.7/en/using-spatial-indexes.html
 
             }
 
-          
+
         </script>
-			    
+
 
         	</div>
         </div>
-			
-      </div> 
-    </div> 
- 
-   
- 
-   
-  </div> 
+
+      </div>
+    </div>
 
 
-  <script type="text/javascript"> 
 
-  $('#myTab a').on('click', function (e) { 
-    e.preventDefault() 
-    $(this).tab('show') 
-  }); 
 
-  
+  </div>
+
+
+  <script type="text/javascript">
+
+  $('#myTab a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  });
+
+
 
   </script>

@@ -45,6 +45,9 @@ Route::post('contratar','ContratoController@contratar');
 Route::post('mensaje','ContratoController@mensaje');
 Route::get('mensaje','ContratoController@mensaje');
 
+// linea del tiempo
+Route::get('linea','TrabajoController@linea');
+
 
 // registro
 Route::post('registro', 'registroController@registro');
@@ -79,4 +82,3 @@ Route::get('test',function (){
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-

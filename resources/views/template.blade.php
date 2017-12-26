@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="UTF-8" />
+    <title>Locator Jobs</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
      <!--<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
@@ -17,6 +18,21 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="Blueprint: Vertical Timeline" />
+		<meta name="keywords" content="timeline, vertical, layout, style, component, web development, template, responsive" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+
+
+
+
 
     <title></title>
   </head>
@@ -53,6 +69,9 @@
       @include('auth.register')
 
       @else
+      <div class="form-inline">
+        <a href="{{ asset('dashboard') }}" class="nav-link text-white ml-auto">Linea del tiempo</a>
+      </div>
 
       <div class="form-inline">
         <a href="{{ asset('dashboard') }}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
