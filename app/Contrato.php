@@ -11,5 +11,5 @@ class Contrato extends Model
       return $this->belongsTo('App\Trabajo');
     }
 
-    public function 
+    //public function 
 }

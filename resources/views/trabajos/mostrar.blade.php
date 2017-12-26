@@ -74,9 +74,12 @@
 
 				<form class="px-4 py-3" method="post" 
 
-				action="{{ asset('trabajos/' . $trabajo->id . '/contrato') }}">
+				action="{{ asset('contratar') }}">
 
 				{{ csrf_field() }}
+
+				<input type="hidden" name="trabajo" value="{{ $trabajo->id }}">
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">

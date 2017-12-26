@@ -17,11 +17,9 @@ class TrabajoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-  
+    
     public function index()
     {
-
         $trabajos  = [];
 
         if(Auth::user()->trabajador){
@@ -30,7 +28,6 @@ class TrabajoController extends Controller
             return view('dashboard.dashboard', ['trabajos' => $trabajos]);
         }
         return view('dashboard.dashboard', ['trabajos' => $trabajos]);
-
     }
 
 
