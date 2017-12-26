@@ -26,19 +26,28 @@
 		<meta name="keywords" content="timeline, vertical, layout, style, component, web development, template, responsive" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
+
+    
 		<link rel="stylesheet" type="text/css" href="{{asset('css/default.css')}}" />
 		<link rel="stylesheet" type="text/css" href="{{asset('css/component.css')}}" />
 		<script src="{{asset('js/modernizr.custom.js')}}"></script>
 
-
+    
 
 
 
     <title></title>
   </head>
 
+  
   <body>
 
+  <style type="text/css">
+    
+    body{
+      background-color: #e6e6e6;
+    }
+  </style>
 
     <nav class="navbar " style="background-color: #000000;">
 
