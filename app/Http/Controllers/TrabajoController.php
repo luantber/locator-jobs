@@ -194,20 +194,79 @@ class TrabajoController extends Controller
 
     public function linea()
     {
-      //trabajos publicados
+       return view('linea.linea');
+    }
+
+
+    public function lineaP()
+    {
       $trabajador =  Auth::user()->trabajador;
-      $trabajs = DB::table('trabajos')
+      //dd($trabajador->trabajos);
+      $n = $trabajador->trabajos;
+      //dd($n[0]->fotos[0]);
+      $trabajosP = DB::table('trabajos')
               ->where('trabajador_id', $trabajador->id)
+              ->orderBy('created_at', 'desc')
               ->get();
-      //trabajos realizados
-/*      $trabajadorR = Auth::user()->trabajador;
-      $trabajosR = DB::table('contratos')
+//              dd($trabajosP[0]->created_at);
+      $fechas=array();
+      $fechas2 = array();
+      foreach ($trabajosP as $trabajo) {
+        array_push($fechas,$trabajo->created_at);
+      }
+      foreach ($fechas as $fecha) {
+        $porciones = explode(" ",$fecha);
+        $porciones[1] = substr($porciones[1], 0, -3);
+        array_push($fechas2,$porciones);
+      }
+      return view('linea.lineaP',["trabajador"=>$trabajador,"trabajos"=>$trabajosP,"fechas"=>$fechas2,"fotos"=>$n]);
+
+    }
+    public function lineaC()
+    {
+      //trabajos Contratados
+      $userC = Auth::user();
+      $trabajosC = DB::table('contratos')
+              ->where('user_id', $userC->id)
+              ->orderBy('created_at', 'desc')
+              ->get();
+      $fechas=array();
+      $fechas2 = array();
+      foreach ($trabajosC as $trabajo) {
+        array_push($fechas,$trabajo->created_at);
+      }
+      foreach ($fechas as $fecha) {
+        $porciones = explode(" ",$fecha);
+        $porciones[1] = substr($porciones[1], 0, -3);
+        array_push($fechas2,$porciones);
+      }
+
+      if (sizeof($trabajosC)!=0) {
+        return view('linea.lineaC',["user"=>$userC,"trabajos"=>$trabajosC,"fechas"=>$fechas2,"bool"=>true]);
+      }
+      else {
+        return view('linea.lineaC',['bool'=>false]);
+      }
+    }
+    public function lineaR()
+    {
+      $trabajador =  Auth::user()->trabajador;
+
+      $contratosR = DB::table('contratos')
               ->where('trabajador_id', $trabajador->id)
+              ->orderBy('created_at', 'desc')
               ->get();
+      $fechas=array();
+      $fechas2 = array();
+      foreach ($contratosR as $contrato) {
+        array_push($fechas,$trabajo->created_at);
+      }
+      foreach ($fechas as $fecha) {
+        $porciones = explode(" ",$fecha);
+        $porciones[1] = substr($porciones[1], 0, -3);
+        array_push($fechas2,$porciones);
+      }
 
-*/
-
-      dd($trabajs);
-      return view('linea');
+      return view('linea.lineaR');
     }
 }

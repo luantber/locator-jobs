@@ -79,7 +79,7 @@
 
       @else
       <div class="form-inline">
-        <a href="{{ asset('dashboard') }}" class="nav-link text-white ml-auto">Linea del tiempo</a>
+        <a href="{{ asset('linea') }}" class="nav-link text-white ml-auto">Linea del tiempo</a>
       </div>
 
       <div class="form-inline">

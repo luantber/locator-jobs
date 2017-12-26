@@ -49,8 +49,12 @@ Route::post('getmensajes','ContratoController@getmensajes');
 // linea del tiempo
 Route::get('linea','TrabajoController@linea');
 
+Route::get('publicados','TrabajoController@lineaP');
+Route::get('contratados','TrabajoController@lineaC');
+Route::get('realizados','TrabajoController@lineaR');
 
-// registro
+
+// refgistro
 Route::post('registro', 'registroController@registro');
 
 

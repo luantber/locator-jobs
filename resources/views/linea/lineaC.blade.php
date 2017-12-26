@@ -1,0 +1,32 @@
+@if ($bool)
+<ul class="cbp_tmtimeline">
+<!-- Esto es lo que vale-->
+@for ($i = 0; $i < sizeof($trabajos); $i++)
+  <li>
+
+    <time class="cbp_tmtime" ><span>{{$fechas[$i][0]}}</span> <span>{{$fechas[$i][1]}}</span></time>
+    <div class="cbp_tmicon cbp_tmicon-phone"></div>
+    <div class="cbp_tmlabel">
+      <div class="row">
+        <div class="col-10">
+          <h2>{{$trabajos[$i]->nombre}}</h2>
+          <p>{{$trabajos[$i]->descripcion}}</p>
+        </div>
+        <div class="col-2">
+          <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}"><i class="material-icons">create</i>  &nbsp;</a>
+          <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}"><i class="material-icons">exit_to_app</i> </a>
+          <br>
+          <img src="{{$fotos[$i]->fotos[0]->miniatura}}"  alt="">
+        </div>
+      </div>
+
+    </div>
+  </li>
+  @endfor
+<!-- Esto es lo que vale-->
+</ul>
+@endif
+@if(!$bool)
+
+<img src="https://cdn.dribbble.com/users/310943/screenshots/2792692/empty-state-illustrations.gif" width="650px" class="rounded mx-auto d-block" alt="Empty State">
+@endif

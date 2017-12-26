@@ -48,18 +48,16 @@
 				    </div>
 				  </div>
 
+          <label>Galería</label>
 				  <div class="form-group">
-				  	<label>Galería</label>
 
-            <div class="d-flex">
+
 
             @foreach ($t->fotos as $f)
-
-            <img src="{{$f->url}}" class="img-fluid img-thumbnail">
+            <img width="200" height=""  src="{{$f->url}}" class="img-fluid img-thumbnail">
             @endforeach
 
 
-            </div>
 
 
 
