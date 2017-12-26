@@ -31,9 +31,9 @@ class CreateContratosTable extends Migration
             $table->boolean('pagado');
             $table->boolean('terminado');
 
-            $table->dateTime('inicio')>nullable();
-            $table->dateTime('fin')>nullable();
-            
+            $table->dateTime('inicio')->nullable();
+            $table->dateTime('fin')->nullable();
+
             $table->timestamps();
         });
     }
