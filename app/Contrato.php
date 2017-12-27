@@ -10,10 +10,7 @@ class Contrato extends Model
     {
       return $this->belongsTo('App\Trabajo');
     }
-    public function trabajador()
-    {
-      return $this->belongsTo('App\Trabajador');
-    }
+
     public function user()
     {
       return $this->belongsTo('App\User');
@@ -26,7 +23,5 @@ class Contrato extends Model
     	return $this->belongsTo('App\Trabajador');
     }
 
-    public function user(){
-        return $this->belongsTo('App\User');
-    }
+    
 }

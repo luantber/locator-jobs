@@ -209,9 +209,18 @@ class TrabajoController extends Controller
     public function lineaP()
     {
       $trabajador =  Auth::user()->trabajador;
-      //dd($trabajador->trabajos);
-      $n = $trabajador->trabajos;
-      //dd($n[0]->fotos[0]);
+
+      $trabajos = $trabajador->trabajos;
+
+      $fotos =  array();
+      foreach ($trabajos as $trabajo) {
+        $new = DB::table('fotos_trabajos')
+              ->where('trabajo_id',$trabajo->id)
+              ->orderBy('created_at', 'desc')
+              ->get();
+              array_unshift($fotos,$new[0]);
+        }
+        //dd($fotos);
       $trabajosP = DB::table('trabajos')
               ->where('trabajador_id', $trabajador->id)
               ->orderBy('created_at', 'desc')
@@ -227,49 +236,70 @@ class TrabajoController extends Controller
         $porciones[1] = substr($porciones[1], 0, -3);
         array_push($fechas2,$porciones);
       }
-      return view('linea.lineaP',["trabajador"=>$trabajador,"trabajos"=>$trabajosP,"fechas"=>$fechas2,"fotos"=>$n]);
+      return view('linea.lineaP',["trabajador"=>$trabajador,"trabajos"=>$trabajosP,"fechas"=>$fechas2,"fotos"=>$fotos]);
 
     }
+
+
+
+
+
     public function lineaC()
     {
       //trabajos Contratados
-      $userC = Auth::user();
-      $trabajosC = DB::table('contratos')
-              ->where('user_id', $userC->id)
-              ->orderBy('created_at', 'desc')
-              ->get();
+      $user = Auth::user();
+      $contratos = array();
+      foreach ($user->contratos as $contrato) {
+        array_unshift($contratos,$contrato);
+      }
 
       $fechas=array();
       $fechas2 = array();
-      foreach ($trabajosC as $trabajo) {
-        array_push($fechas,$trabajo->created_at);
+      foreach ($contratos as $contrato) {
+        array_push($fechas,$contrato->created_at);
       }
       foreach ($fechas as $fecha) {
         $porciones = explode(" ",$fecha);
         $porciones[1] = substr($porciones[1], 0, -3);
         array_push($fechas2,$porciones);
       }
+      //dd($contratos[0]->costo);
+      /*
+      $trabajosC = DB::table('contratos')
+              ->where('user_id', $userC->id)
+              ->orderBy('created_at', 'desc')
+              ->get();
+    $trabajos = $userC->contratos;
+    dd($trabajos);
 
-      if (sizeof($trabajosC)!=0) {
-        return view('linea.lineaC',["user"=>$userC,"trabajos"=>$trabajosC,"fechas"=>$fechas2,"bool"=>true]);
+
+*/
+      if (sizeof($contratos)!=0) {
+        return view('linea.lineaC',['contratos'=>$contratos,'fechas'=>$fechas2,"bool"=>true]);
       }
       else {
         return view('linea.lineaC',['bool'=>false]);
       }
     }
-    public function lineaR()
-    {
+
+
+
+
+    public function lineaR(){
       $trabajador =  Auth::user()->trabajador;
-//datos como inicio fin etc
+      //datos como inicio fin etc
+
       $contratosR = DB::table('contratos')
               ->where('trabajador_id', $trabajador->id)
               ->orderBy('created_at', 'desc')
               ->get();
 
-      //Para la foto
-      //$fotos = $trabajador->contratos[0]->trabajo->fotos;
-
-
+      //para las fotos
+      $fotos =  array();
+      foreach ($trabajador->contratos as $contrato) {
+        array_unshift($fotos,$contrato->trabajo->fotos[0]);
+      }
+//      dd($fotos[0]->miniatura);
       //para el orden
       $trabajos = array();
       foreach ($contratosR as $contrato) {
@@ -278,8 +308,7 @@ class TrabajoController extends Controller
                 ->get();
         array_push($trabajos,$trabajoSolo[0]);
       }
-//      dd($trabajos);
-      //para la fecha
+
       $fechas=array();
       $fechas2 = array();
       foreach ($contratosR as $contrato) {
@@ -290,8 +319,8 @@ class TrabajoController extends Controller
         $porciones[1] = substr($porciones[1], 0, -3);
         array_push($fechas2,$porciones);
       }
-    //  dd($fechas2);
 
-      return view('linea.lineaR',["fechas"=>$fechas2,"trabajos"=>$trabajos,"contratos"=>$contratosR,'trabajador'=>$trabajador]);
+
+      return view('linea.lineaR',["fechas"=>$fechas2,"trabajos"=>$trabajos,"contratos"=>$contratosR,'trabajador'=>$trabajador,'fotos'=>$fotos]);
     }
 }
