@@ -40,9 +40,9 @@
 				<h5>Conversación:</h5>
 
 			
-					<form class="form-group row">
+					<form id="f1" class="form-group row"> 
 						<div class="col-10">
-    						<input id="mensaje" class="form-control" type="text">
+    						<input id="mensaje" class="form-control" type="text" autocomplete="off">
   						</div>
 
   						<div class="col-1">
@@ -53,6 +53,24 @@
 					</form>	
 
 					<script>
+
+					$('#f1').keypress(function (e) {
+					  if (e.which == 13) {
+				
+
+					    $.post( "{{asset('mensaje')}}", { 
+							mensaje: $("#mensaje").val(), 
+							contrato: '{{$contrato->id}}',
+							_token: '{{csrf_token()}}'
+							});
+
+						$("#mensaje").val("");
+						$("#mensaje" ).focus();
+					  return false; 
+
+					  }
+					});
+
 					$("#enviar").click(function(){
 						$.post( "{{asset('mensaje')}}", { 
 							mensaje: $("#mensaje").val(), 
@@ -67,9 +85,11 @@
 
 					<div id="app">
 						<mensaje					      
-					      v-for="(c, index) in mensajes"
-					      v-bind:key="c.id"
-					      v-bind:mensaje="c.mensaje"
+					      v-for="(m, index) in mensajes"
+					      v-bind:key="m.id"
+					      v-bind:mensaje="m.mensaje"
+					      v-bind:id_de = "m.de"
+					      v-bind:nombre = "m.de_n"
 					      v-on:remove="mensajes.splice(index, 1)"
 					    ></mensaje>
 					</div>
@@ -81,19 +101,19 @@
 
 							  	<div class="my-2">
 							  		
-									<img v-if="id == {{Auth::id()}} " src="{{Auth::user()->foto}}" alt="{{Auth::user()->foto}}" class="rounded-circle float-left mx-2 my-2"/>
+									<img v-if="id_de == {{Auth::id()}} " src="{{Auth::user()->foto}}" alt="{{Auth::user()->foto}}" class="rounded-circle float-left mx-2 my-2"/>
 
 									<img v-else src="{{Auth::user()->foto}}" alt="{{Auth::user()->foto}}" class="rounded-circle float-right mx-2 my-2"/>	
 
 									<div class="card">
 										<div class="card-body">
-											<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+											<h6 class="card-subtitle mb-2 text-muted">@{{nombre}}</h6>
 											<div>@{{mensaje}}</div>
 										</div>
 									</div>
 								</div>
 							  `,
-							props : ['mensaje', 'id']
+							props : ['mensaje', 'id_de' , 'nombre']
 							}
 
 							)

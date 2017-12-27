@@ -19,4 +19,10 @@ class Trabajador extends Model
     {
       return $this->hasMany('App\Trabajo');
     }
+
+    public function contratos(){
+      return $this->hasMany('App\Contrato');
+    }
+
+
 }

@@ -16,6 +16,10 @@ class Contrato extends Model
     }
 
     public function trabajador(){
-    	return $this->hasOne('App\Trabajor');
+    	return $this->belongsTo('App\Trabajador');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User');
     }
 }

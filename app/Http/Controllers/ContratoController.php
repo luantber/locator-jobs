@@ -47,11 +47,14 @@ class ContratoController extends Controller
         $c->contrato_id = $request->contrato;
         $c->mensaje  =  $request->mensaje;
         $c->de = Auth::id();
+        $c->de_n = Auth::user()->nombre;
 
         $ct = Contrato::find($request->contrato);
 
         $c->para = $ct->trabajador_id == Auth::id() ? $ct->user_id : $ct->trabajador_id;
 
+        //dd($ct->trabajador);
+        $c->para_n = $ct->trabajador_id == Auth::id() ? $ct->user->nombre : $ct->trabajador->user->nombre; 
         $c->save();
 
         
