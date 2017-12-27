@@ -52,7 +52,7 @@
     <nav class="navbar " style="background-color: #2874a0;">
 
       <div class="d-flex flex-row justify-content-start">
-     <a class="navbar-brand" href="#"> <img src="{{asset('img/logo2.png')}}"
+     <a class="navbar-brand" href="#"> <img src="{{asset('img/logo3.png')}}"
           height="30" alt=""></a>
 <style media="screen">
 
@@ -64,6 +64,7 @@
       border-radius: 15px;
       margin-left: 50px;
       padding-left: 10px;
+      margin-top: 4px;
       color: #FFFFFF;
     }
 
@@ -132,11 +133,8 @@
     @yield('body')
 
 
-  <footer   style="background-color:#4d4d4d ;">
-
-      <p class="text-white">Universidad Nacional de San Agustin @ Todos los derechos reservados</p>
-
-
+  <footer   >
+      <p class="text-center"> <b> Universidad Nacional de San Agustin @ Todos los derechos reservados</b> </p>
   </footer>
 
   <script>

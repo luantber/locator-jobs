@@ -1,4 +1,4 @@
-<span class="text-center">Ordenado por fecha de creación</span>
+<span style="color:#0f3952;" class="text-center">Ordenado por fecha de creación</span>
 <ul class="cbp_tmtimeline">
 <!-- Esto es lo que vale-->
 @for  ($i = 0; $i < sizeof($trabajos); $i++)

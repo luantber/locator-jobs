@@ -1,4 +1,4 @@
-<span class="text-center">Ordenado por fecha de creación</span>
+<span style="color:#0f3952;" class="text-center">Ordenado por fecha de creación</span>
 <ul class="cbp_tmtimeline">
 <!-- Esto es lo que vale-->
 @for ($i = 0; $i < sizeof($trabajos); $i++)
@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-10">
           <h2>{{$trabajos[$i]->nombre}}</h2>
-          <p>{{$trabajos[$i]->descripcion}}</p>
+        <b>  <p>{{$trabajos[$i]->descripcion}}</p></b>
         </div>
         <div class="col-2">
           <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}"><i class="material-icons">create</i></a>
