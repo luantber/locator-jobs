@@ -263,10 +263,9 @@
 -->
 
 
-      
-        <script>
 
-		$(document).ready(function(){
+<script>
+	$(document).ready(function(){
 			//var map;
 			initMap();
 		});
@@ -287,8 +286,14 @@
             function showCurrentLocation(position)
             {
                 var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                var coords = new google.maps.LatLng({{$origen}});
+								var longitude = position.coords.longitude;
+								@if(isset($origen))
+									var coords = new google.maps.LatLng({{$origen}});
+									
+								@else
+									var coords = new google.maps.LatLng(latitude,longitude);
+								
+								@endif
 
                 var mapOptions = {
 	                zoom: 15,
@@ -310,29 +315,33 @@
 	            map: map,
 	            title: "Current location!"
 				});
-			@foreach($trabajos as $trabajo)
-				var position{{$trabajo->id}}=new google.maps.LatLng({{$trabajo->location}});
-				var marker{{$trabajo->id}} = new google.maps.Marker({
-					position: position{{$trabajo->id}},
-					map: map,
-					title: "{{$trabajo->nombre}}"
-					});
-			@endforeach
+			
+			@if (isset($trabajos))
+				@foreach($trabajos as $trabajo)
+					var position{{$trabajo->id}}=new google.maps.LatLng({{$trabajo->location}});
+					var marker{{$trabajo->id}} = new google.maps.Marker({
+						position: position{{$trabajo->id}},
+						map: map,
+						title: "{{$trabajo->nombre}}"
+						});
+				@endforeach
+			@endif
 			}
 			
 			
 			
         }
-		</script>
-		<!--
-        	<script async defer
+</script>
+<!--
+    	<script async defer
 	    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=initMap">
 	    </script>-->
 
-    <style> #mapPlaceholder {
-        height: 530px;
-        width: 500px;
-	</style>
+<style>
+		#mapPlaceholder {
+		height: 530px;
+		width: 500px;
+</style>
 
 
 @endsection
