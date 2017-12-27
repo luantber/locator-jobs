@@ -38,14 +38,15 @@ return [
     'google' => [
         'client_id' => '669759590228-p27me0bmtone420f037snqbaue17oon9.apps.googleusercontent.com',//env('GOOGLE_ID'),         // Your GitHub Client ID
         'client_secret' => 'sSaqaS6NBTR4CJJCqQvLLFSI',//env('GOOGLE_SECRET'), // Your GitHub Client Secret
-        'redirect' => 'http://localhost:8000/login/google/callback/' //env('GOOGLE_REDIRECT') //'http://localhost:8000/login/google/callback/'
+        'redirect' => env('GOOGLE_REDIRECT')  ////'http://localhost:8000/login/google/callback/'
     ],
 
 
     'facebook' => [
         'client_id' => '126193704734942',
         'client_secret' => '6cef6ad34ad93049c2a5dec7a32781f7',
-        'redirect' => 'http://localhost:8000/login/facebook/callback/' 
+        'redirect' => env('FACEBOOK_REDIRECT')   //http://localhost:8000/login/facebook/callback/
+
     ],
 
 
