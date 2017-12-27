@@ -104,6 +104,7 @@ class TrabajoController extends Controller
         
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
+        $trabajo->costo=$request->costo;
         $trabajo->location=$request->location;
         $trabajo->descripcion=$request->descripcion;
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
@@ -324,3 +325,4 @@ class TrabajoController extends Controller
       return view('linea.lineaR',["fechas"=>$fechas2,"trabajos"=>$trabajos,"contratos"=>$contratosR,'trabajador'=>$trabajador,'fotos'=>$fotos]);
     }
 }
+

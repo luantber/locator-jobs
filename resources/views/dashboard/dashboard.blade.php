@@ -1,5 +1,15 @@
 @extends('template') 
  
+@section('scripts')
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tag-editor/1.0.20/jquery.tag-editor.min.css" /> 
+   
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tag-editor/1.0.20/jquery.tag-editor.min.js"></script> 
+
+@endsection
+
 @section('body') 
 
 @if(Auth::check())

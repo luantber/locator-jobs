@@ -41,18 +41,11 @@
 
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
-				    <div class="col-3">
+				    <div class="col-4">
 				      <input class="form-control" id="inputEmail3"  name="costo">
 				    </div>
-				    <label for="inputEmail3" class="col-2 col-form-label">por</label>
-
-				    <div col-s3>
-					    <select class="form-control" name="tipo">
-					      <option>Hora</option>
-					      <option>Jornal</option>
-					      <option>Servicio</option>
-					    </select>
-				    </div>
+				    
+				    
 				  </div>
 
 				  <div class="form-group">
