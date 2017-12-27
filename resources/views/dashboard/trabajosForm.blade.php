@@ -35,17 +35,11 @@
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
 				    <div class="col-3">
-				      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+				      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" value="{{$t->costo}}">
 				    </div>
-				    <label for="inputEmail3" class="col-2 col-form-label">por</label>
+				    
 
-				    <div col-s3>
-					    <select class="form-control">
-					      <option>Hora</option>
-					      <option>Jornal</option>
-					      <option>Servicio</option>
-					    </select>
-				    </div>
+				    
 				  </div>
 
           <label>Galería</label>
