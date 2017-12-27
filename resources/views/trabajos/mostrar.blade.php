@@ -84,7 +84,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label for="inicio">Desde: </label>
-								<input id="inicio" name="inicio" />
+								<input id="inicio" name="inicio" required />
 							</div>
 						</div>
 
@@ -92,7 +92,7 @@
 
 							<div class="form-group">
 								<label for="fin">Fin: </label>
-								<input id="fin" name="fin" />
+								<input id="fin" name="fin"  required />
 							</div>
 						</div>
 
@@ -149,6 +149,7 @@
 	var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
 	var inicioP  = $('#inicio').datepicker({
 	    uiLibrary: 'bootstrap4',
+	    format: 'yyyy-mm-dd',
 	    minDate: today,
 	    maxDate: function () {
 	        return $('#fin').val();
@@ -168,6 +169,7 @@
 
 	var finP = $('#fin').datepicker({
 	    uiLibrary: 'bootstrap4',
+	    format: 'yyyy-mm-dd',
 	    minDate: function () {
 	        return $('#inicio').val();
 	    },
@@ -178,6 +180,7 @@
 
         }
 	});
+
 
 
 </script>

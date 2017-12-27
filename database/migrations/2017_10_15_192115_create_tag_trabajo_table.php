@@ -15,7 +15,7 @@ class CreateTagTrabajoTable extends Migration
     {
         Schema::create('tag_trabajo', function (Blueprint $table) {
             //$table->increments('id');
-
+            
             $table->integer('tag_id')->unsigned();
             $table->foreign('tag_id')->references('id')->on('tags');
 

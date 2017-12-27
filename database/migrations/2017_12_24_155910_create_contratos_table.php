@@ -23,6 +23,8 @@ class CreateContratosTable extends Migration
             $table->foreign('trabajador_id')->references('id')->on('trabajadors');
 
             $table->integer('costo')->unsigned();
+            $table->integer('total')->unsigned();
+            $table->integer('dias')->unsigned();
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
@@ -31,8 +33,8 @@ class CreateContratosTable extends Migration
             $table->boolean('pagado');
             $table->boolean('terminado');
 
-            $table->dateTime('inicio')->nullable();
-            $table->dateTime('fin')->nullable();
+            $table->date('inicio')->nullable();
+            $table->date('fin')->nullable();
 
             $table->timestamps();
         });

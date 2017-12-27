@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Events\Mensaje;
+use App\Events\UpdateContrato;
+
 use App\Providers\BroadcastServiceProvider;
 use App\Contrato;
 use App\Trabajo;
@@ -25,18 +28,26 @@ class ContratoController extends Controller
     public function contratar(Request $request)
     {
 
-        $t = Trabajo::find($request->trabajo);
-        //dd($t);
-        $c = new Contrato;
-        $c->trabajo_id = $t->id;
-        $c->trabajador_id  = $t->trabajador_id;
-        $c->user_id = Auth::id();
-        $c->costo = 0;
-        $c->contratado = false;
-        $c->pagado = false;
-        $c->terminado = false;
-        $c->save();
 
+        $t = Trabajo::find($request->trabajo);
+        $c = new Contrato;
+
+        if($t->contratos()->where('user_id', Auth::id() )->get()->isEmpty()){
+
+            $c->trabajo_id = $t->id;
+            $c->trabajador_id  = $t->trabajador_id;
+            $c->user_id = Auth::id();
+            $c->costo = $t->costo;
+            $c->contratado = false;
+            $c->pagado = false;
+            $c->terminado = false;
+            $c->inicio =$request->inicio;
+            $c->fin= $request->fin;
+            $c->save();
+        }
+        else{
+            $c = $t->contratos()->where('user_id', Auth::id() )->get()->first();
+        }
 
         return redirect(asset('contratos/'.$c->id));
     }
@@ -68,5 +79,19 @@ class ContratoController extends Controller
         $c = Contrato::find($request->contrato);
         //dd($c->conversaciones[0]);
         return $c->conversaciones;
+    }
+
+    public function update(Request $request)
+    {
+        $c = Contrato::find($request->contrato);
+        $c->inicio = $request->inicio;
+        $c->fin = $request->fin;
+        $c->costo = $request->costo;
+        $c->total = $request->total;
+        $c->dias = $request->dias;
+        $c->save();
+
+        event(new UpdateContrato($c));
+        return [true];
     }
 }

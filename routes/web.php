@@ -39,6 +39,7 @@ Route::get('trabajo/{id}', 'TrabajoController@index2');
 //Contratos
 Route::get('contratos/{id}', 'ContratoController@show');
 Route::post('contratar','ContratoController@contratar');
+Route::post('contrato/update','ContratoController@update');
 
 
 //Mensajes

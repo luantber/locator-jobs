@@ -18,6 +18,7 @@ class CreateTrabajosTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->point('location');
+            $table->integer('costo')->unsigned();
             $table->string('descripcion');
             $table->integer('trabajador_id')->unsigned();
             $table->foreign('trabajador_id')->references('id')->on('trabajadors');
