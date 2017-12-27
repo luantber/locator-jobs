@@ -42,8 +42,6 @@ class User extends Authenticatable
       return $this->hasMany('App\Contrato');
     }
 
-    public function contratos(){
-        return $this->hasMany('App\Contrato');
-    }
+    
 
 }

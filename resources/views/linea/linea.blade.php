@@ -14,7 +14,7 @@
 			</header>
 
 			<div class="main" id="main">
-@include('linea.lineaR')
+
 
 		</div>
 
