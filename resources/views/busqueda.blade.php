@@ -41,9 +41,13 @@
 
 <div class="row">
 	<div class="col-4">
-<div class="col" id= "mapPlaceholder"></div>
+		<div class="col" id= "mapPlaceholder"></div>
 	</div>
+
+	@foreach($trabajos->chunk(2) as $trab)
 	<div class="col">
+		@foreach($trab as $t)
+
 
 		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
 			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
@@ -54,12 +58,12 @@
 					</div>
 					<div class="col">
 
-						<h6><strong> Juan Perez</strong></h6>
-						<p class="card-text">S/.45.00</p>
+						<h6><strong> {{$t->nombre}}</strong></h6>
+						<p class="card-text">S/.{{$t->costo}}</p>
 					</div>
 				</div>
 
-				<FONT SIZE=3>Breve descipción aqui...</font>
+				<dd class="text-truncate"><FONT SIZE=3>{{$t->descripcion}}</font></dd>
 				<div class="row">
 					<div class="col">
 						<font size=2 > Estrellas </font>
@@ -79,179 +83,11 @@
 			</div>
 		</div>
 		<br>
-		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
-			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-4">
-						<img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_50,q_100,w_50/v1512781323/tag1.jpg" alt="Card image cap">
-					</div>
-					<div class="col">
-
-						<h6><strong> Juan Perez1</strong></h6>
-						<p class="card-text">S/.45.00</p>
-					</div>
-				</div>
-
-				<FONT SIZE=3>Breve descipción aqui...</font>
-				<div class="row">
-					<div class="col">
-						<font size=2 > Estrellas </font>
-						<div class="">
-							<i class="material-icons">star_half</i>
-							<i class="material-icons">star_border</i>
-							<i class="material-icons">star_border</i>
-						</div>
-
-					</div>
-					<div class="col">
-						<font size=2 style=""> Calificaciones</font>
-						<p class="text-center">12</p>
-					</div>
-				</div>
-			</div>
-		</div>
+		@endforeach
+		
 	</div>
-
+	@endforeach
 	
-	<div class="col">
-
-		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
-			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-4">
-						<img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_50,q_100,w_50/v1512781323/tag1.jpg" alt="Card image cap">
-					</div>
-					<div class="col">
-
-						<h6><strong> Juan Perez</strong></h6>
-						<p class="card-text">S/.45.00</p>
-					</div>
-				</div>
-
-				<FONT SIZE=3>Breve descipción aqui...</font>
-				<div class="row">
-					<div class="col">
-						<font size=2 > Estrellas </font>
-						<div class="">
-							<i class="material-icons">star_half</i>
-							<i class="material-icons">star_border</i>
-							<i class="material-icons">star_border</i>
-						</div>
-
-					</div>
-					<div class="col">
-						<font size=2 style=""> Calificaciones</font>
-						<p class="text-center">12</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<br>
-		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
-			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-4">
-						<img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_50,q_100,w_50/v1512781323/tag1.jpg" alt="Card image cap">
-					</div>
-					<div class="col">
-
-						<h6><strong> Juan Perez</strong></h6>
-						<p class="card-text">S/.45.00</p>
-					</div>
-				</div>
-
-				<FONT SIZE=3>Breve descipción aqui...</font>
-				<div class="row">
-					<div class="col">
-						<font size=2 > Estrellas </font>
-						<div class="">
-							<i class="material-icons">star_half</i>
-							<i class="material-icons">star_border</i>
-							<i class="material-icons">star_border</i>
-						</div>
-
-					</div>
-					<div class="col">
-						<font size=2 style=""> Calificaciones</font>
-						<p class="text-center">12</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col">
-
-		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
-			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-4">
-						<img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_50,q_100,w_50/v1512781323/tag1.jpg" alt="Card image cap">
-					</div>
-					<div class="col">
-
-						<h6><strong> Juan Perez</strong></h6>
-						<p class="card-text">S/.45.00</p>
-					</div>
-				</div>
-
-				<FONT SIZE=3>Breve descipción aqui...</font>
-				<div class="row">
-					<div class="col">
-						<font size=2 > Estrellas </font>
-						<div class="">
-							<i class="material-icons">star_half</i>
-							<i class="material-icons">star_border</i>
-							<i class="material-icons">star_border</i>
-						</div>
-
-					</div>
-					<div class="col">
-						<font size=2 style=""> Calificaciones</font>
-						<p class="text-center">12</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-		<br>
-		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
-			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-4">
-						<img class=" rounded-circle"  src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_50,q_100,w_50/v1512781323/tag1.jpg" alt="Card image cap">
-					</div>
-					<div class="col">
-
-						<h6><strong> Juan Perez</strong></h6>
-						<p class="card-text">S/.45.00</p>
-					</div>
-				</div>
-
-				<FONT SIZE=3>Breve descipción aqui...</font>
-				<div class="row">
-					<div class="col">
-						<font size=2 > Estrellas </font>
-						<div class="">
-							<i class="material-icons">star_half</i>
-							<i class="material-icons">star_border</i>
-							<i class="material-icons">star_border</i>
-						</div>
-
-					</div>
-					<div class="col">
-						<font size=2 style=""> Calificaciones</font>
-						<p class="text-center">12</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 </div>

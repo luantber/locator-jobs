@@ -139,11 +139,14 @@
 
   <script>
       var pos;
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+      $(document).ready(function(){
+        
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+        });
+      }
       });
-    }
 
       $("#bus").on('keyup', function (e) {
         if (e.keyCode == 13) {

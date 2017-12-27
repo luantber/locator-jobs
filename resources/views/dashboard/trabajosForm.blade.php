@@ -73,6 +73,7 @@
             var xy = "{{ $t->location }}";
 
               var coords = new google.maps.LatLng(parseFloat(xy.split(",")[0]), parseFloat(xy.split(",")[1]));
+              //var coords = new google.maps.LatLng("{{$t->location}}"));
 
 			        map = new google.maps.Map(document.getElementById('map'), {
 			          center: coords,
@@ -82,7 +83,7 @@
               var marker = new google.maps.Marker({
               position: coords,
               map: map,
-              title: "Current location!",
+              title: "{{$t->nombre}}",
               draggable:true
               });
 
