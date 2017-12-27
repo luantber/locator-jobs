@@ -21,6 +21,14 @@
 <script type="text/javascript">
 
 
+$(document).ready(function () {
+	$("#main").load('{{asset('publicados')}}');
+	$("#r").removeClass("active");
+	$("#p").addClass("active");
+	$("#c").removeClass("active");
+});
+
+
 $(document).ready(function(){
 	$("#p").click(function (event) {
 		$("#main").load('{{asset('publicados')}}');

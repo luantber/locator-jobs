@@ -18,7 +18,7 @@
         </div>
         <div class="col-2">
           <a href="{{asset('trabajos/'.$contratos[$i]->trabajo->id)}}"><i class="material-icons">create</i>  &nbsp;</a>
-          <a href="{{asset('trabajos/'.$contratos[$i]->trabajo->id)}}"><i class="material-icons">exit_to_app</i> </a>
+          <a href="{{asset('trabajos/'.$contratos[$i]->trabajo->id)}}" target="_blank"><i class="material-icons">exit_to_app</i> </a>
           <br><br>
           <img src="{{$contratos[$i]->trabajo->fotos[0]->miniatura}}"  alt="">
           <br>

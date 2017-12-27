@@ -99,9 +99,9 @@ class TrabajoController extends Controller
         //
         //dd($request);
         //return dd(explode(',',$request->tags));-
-        
-        
-        
+
+
+
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
         $trabajo->costo=$request->costo;
@@ -109,7 +109,7 @@ class TrabajoController extends Controller
         $trabajo->descripcion=$request->descripcion;
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
         $trabajo->save();
-        
+
         $tags=explode(',',$request->tags);
         $tag_temp=null;
         foreach($tags as $tag){
@@ -197,7 +197,8 @@ class TrabajoController extends Controller
      */
     public function destroy(Trabajo $trabajo)
     {
-        //
+//      $trabajo->delete();
+        return ["Eliminado"];
     }
 
 
@@ -325,4 +326,3 @@ class TrabajoController extends Controller
       return view('linea.lineaR',["fechas"=>$fechas2,"trabajos"=>$trabajos,"contratos"=>$contratosR,'trabajador'=>$trabajador,'fotos'=>$fotos]);
     }
 }
-

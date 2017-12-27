@@ -20,8 +20,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.7.0/combined/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
     @yield('scripts')
-    
-    
+
+
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,37 +30,55 @@
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
 
-    
+
 		<link rel="stylesheet" type="text/css" href="{{asset('css/default.css')}}" />
 		<link rel="stylesheet" type="text/css" href="{{asset('css/component.css')}}" />
 		<script src="{{asset('js/modernizr.custom.js')}}"></script>
 
-    
+
 
 
 
     <title></title>
   </head>
 
-  
+
   <body>
 
   <style type="text/css">
-    
-    body{
-      background-color: #e6e6e6;
-    }
+
   </style>
 
-    <nav class="navbar " style="background-color: #000000;">
+    <nav class="navbar " style="background-color: #2874a0;">
 
       <div class="d-flex flex-row justify-content-start">
      <a class="navbar-brand" href="#"> <img src="{{asset('img/logo2.png')}}"
           height="30" alt=""></a>
+<style media="screen">
 
+    #searchbar{
+      background-color: #60a3d1;
+      border: none;
+      width: 380px;
+      height: 35px;
+      border-radius: 15px;
+      margin-left: 50px;
+      padding-left: 10px;
+      color: #FFFFFF;
+    }
+
+    #searchbar::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #FFFFFF;
+  }
+
+  #searchbar::-moz-placeholder { /* Firefox 19+ */
+      color: #FFFFFF;
+  }
+
+</style>
       <form action="/buscar" id="bus-form" method="POST">
         {{csrf_field()}}
-        <input type="text"  id="bus" class="form-control " name="data" placeholder="Buscar Servicios ... ">
+        <input type="" name="" id="searchbar" placeholder="Busca servicios o negocios ...">
         <input type="hidden" >
 
       </form>
@@ -115,51 +133,9 @@
 
 
   <footer   style="background-color:#4d4d4d ;">
-    <br>
-    <div class="container">
-      <div class="row">
 
-        <div class="col-2">
-          <div class="btn-group">
-            <button type="button" style="background-color:#ffffff;" class="btn  dropdown-toggle" data-toggle="dropdown" >Seleccionar </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col text-white">
-          Moneda
-       </div>
-       <div class="col text-white">
-         Mapa del sitio
-       </div>
-
-      </div>
-
-      <br>
-      <div class="row">
-
-        <div class="col-2">
-          <div class="btn-group">
-            <button type="button" style="background-color:#ffffff;" class="btn dropdown-toggle" data-toggle="dropdown" >Seleccionar </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col text-white">
-          Idioma
-        </div>
-        <div class="col text-white">
-          Mapa del sitio
-        </div>
-      </div>
-
-      <br>
       <p class="text-white">Universidad Nacional de San Agustin @ Todos los derechos reservados</p>
-  </div>
+
 
   </footer>
 
