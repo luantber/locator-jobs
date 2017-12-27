@@ -230,6 +230,7 @@ class TrabajoController extends Controller
               ->where('user_id', $userC->id)
               ->orderBy('created_at', 'desc')
               ->get();
+
       $fechas=array();
       $fechas2 = array();
       foreach ($trabajosC as $trabajo) {
@@ -251,22 +252,38 @@ class TrabajoController extends Controller
     public function lineaR()
     {
       $trabajador =  Auth::user()->trabajador;
-
+//datos como inicio fin etc
       $contratosR = DB::table('contratos')
               ->where('trabajador_id', $trabajador->id)
               ->orderBy('created_at', 'desc')
               ->get();
+
+      //Para la foto
+      //$fotos = $trabajador->contratos[0]->trabajo->fotos;
+
+
+      //para el orden
+      $trabajos = array();
+      foreach ($contratosR as $contrato) {
+        $trabajoSolo = DB::table('trabajos')
+                ->where('id', $contrato->trabajo_id)
+                ->get();
+        array_push($trabajos,$trabajoSolo[0]);
+      }
+//      dd($trabajos);
+      //para la fecha
       $fechas=array();
       $fechas2 = array();
       foreach ($contratosR as $contrato) {
-        array_push($fechas,$trabajo->created_at);
+        array_push($fechas,$contrato->created_at);
       }
       foreach ($fechas as $fecha) {
         $porciones = explode(" ",$fecha);
         $porciones[1] = substr($porciones[1], 0, -3);
         array_push($fechas2,$porciones);
       }
+    //  dd($fechas2);
 
-      return view('linea.lineaR');
+      return view('linea.lineaR',["fechas"=>$fechas2,"trabajos"=>$trabajos,"contratos"=>$contratosR,'trabajador'=>$trabajador]);
     }
 }
