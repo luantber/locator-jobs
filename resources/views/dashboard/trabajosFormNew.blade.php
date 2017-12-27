@@ -31,6 +31,13 @@
 				    <label for="exampleFormControlTextarea1">Descripción</label>
 				    <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea >
 				  </div>
+        
+				  <div class="form-group row">
+				    <label for="tags" class="col-2 col-form-label">Tags</label>
+				    <div class="col-10">
+              <input type="text" name="tags" id="tags" class="form-control">
+				    </div>
+				  </div>
 
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
@@ -58,6 +65,17 @@
 
 
           <script type="text/javascript">
+            
+              $("#tags").tagEditor({
+                maxTags: 5,
+                maxLength:8,
+                autocomplete:  {
+                  delay: 0, // show suggestions immediately
+                  position: { collision: 'flip' }, // automatic menu position up/down
+                  source: ['Comida','Rico','Delicia','qwe','asd','zxc','iop']
+              },
+                placeholder: "Ingresa tus etiquetas"
+              });
 
             $('#galeriaBoton').cloudinary_upload_widget(
               {

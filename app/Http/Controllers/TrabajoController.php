@@ -10,6 +10,7 @@ use App\User;
 use App\Foto;
 use Auth;
 use Illuminate\Http\Request;
+use App\Tag;
 
 class TrabajoController extends Controller
 {
@@ -97,16 +98,23 @@ class TrabajoController extends Controller
     {
         //
         //dd($request);
-        //return dd($request);
-
-
+        //return dd(explode(',',$request->tags));-
+        
+        
+        
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
         $trabajo->location=$request->location;
         $trabajo->descripcion=$request->descripcion;
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
         $trabajo->save();
-
+        
+        $tags=explode(',',$request->tags);
+        $tag_temp=null;
+        foreach($tags as $tag){
+            $tag_temp=Tag::firstOrCreate(['nombre'=>$tag]);
+            $trabajo->tags()->save($tag_temp);
+        }
 
         $fun =  function ($val){
             return (array)$val;
