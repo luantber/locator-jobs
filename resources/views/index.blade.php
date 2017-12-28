@@ -117,31 +117,18 @@
       }
     </style>
 
-    <div class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
-        <p class=" text-center">Gasfitería</p>
+    @foreach($tags->chunk(12) as $tag)
+    <div class="row">
+      @foreach($tag as $ta)
+      <div class="col-1 text-center">
+          <h5><a href="#" class="badge badge-pill badge-primary">{{$ta->nombre}}</a></h5>
+      </div>
+        @endforeach
     </div>
-    <div class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,h_150,q_100,w_249/v1512781333/tag3.jpg" alt="Card image cap">
-        <p class="text-center">Construcción</p>
-    </div>
-    <div class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781326/tag2.jpg" alt="Card image cap">
-        <p class="text-center">Gasfitería</p>
-    </div>
-    <div class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
-        <p class="text-center">Gasfitería</p>
-    </div>
-    <div class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
-        <p class="text-center">Gasfitería</p>
-    </div>
-    <div< class="col">
-        <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
-        <p class="text-center">Gasfitería</p>
-    </div>
+    @endforeach
 
+    <a href="#" class="nlink">Mas...</a>
+    
   </div>
 </div>
   <!--CIUDADES ! -->

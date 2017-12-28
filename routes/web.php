@@ -24,7 +24,8 @@ Route::get('/',function(){
 Route::get('index',function (){return view('index');});
 Route::get('/',function (){
   $trabajos= Trabajo::paginate(12);
-  return view('index',['trabajos'=>$trabajos]);
+  $tags= Tag::take(24)->get();
+  return view('index',['trabajos'=>$trabajos,'tags'=>$tags]);
 });
 
 
@@ -98,5 +99,10 @@ Route::get('test',function (){
   return view('tests.template2');
 });
 
+
+Route::get('/tags',function(){
+  $tags=Tag::paginate(24);
+  return view('tags',['tags'=>$tags]);
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
