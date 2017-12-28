@@ -1,5 +1,6 @@
 <?php
 use App\Trabajo;
+use App\Tag;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,10 @@ Route::get('/',function(){
 
 //Index
 Route::get('index',function (){return view('index');});
-Route::get('/',function (){return view('index');});
+Route::get('/',function (){
+  $trabajos= Trabajo::paginate(12);
+  return view('index',['trabajos'=>$trabajos]);
+});
 
 //Social AUTHS
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallbackG');

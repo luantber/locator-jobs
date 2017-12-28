@@ -60,21 +60,27 @@ class TrabajoController extends Controller
                     print($t);
                 }
             }
-            return;*/  
+            return;*/
             return view('busqueda',["data"=>$request->data,'origen'=>$request->pos,"trabajos"=>$trabajos,'trabs'=>$trabs]);
         }
         else
         {
             $trabajos=Trabajo::where('nombre','like','%'.$request->data.'%')->get();
-            $trabs=$trabajos->chunk(2)->toArray();
+            //$trabs=$trabajos->chunk(2);
             
             /*
-            foreach($trabs as $trab){
+            foreach($trabajos->chunk(2) as $trab){
                 foreach($trab as $t){
-                    print($t->nombre);
+                    if (isset($t->fotos))
+                    {
+                        print($t->fotos);
+                    }
+                    else
+                        print("asd");
                 }
             }
-            return;*/   
+
+            return;*/
             return view('busqueda',["data"=>$request->data,'trabajos'=>$trabajos,'trabs'=>$trabajos]);
         }
     }

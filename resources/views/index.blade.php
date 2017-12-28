@@ -32,6 +32,74 @@
 </div>
 
 
+
+<div class="pt-3" style="background-color:#e8e8e8;">
+  <div class="container">
+    <h4><strong>Trabajos</strong></h4>
+    <p>Estos son nuestros trabajos disponibles</p>
+
+    @foreach($trabajos->chunk(4) as $trabajo)
+    <div class="row">
+        @foreach($trabajo as $t)
+        <div class="col-3">
+    
+          <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
+            @if($t->fotos->first())
+              <img class="card-img-top" height="100px" style="object-fit:cover;" src="{{$t->fotos->first()->url}}" alt="Card image cap">
+            @else
+              <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
+            @endif
+
+            <div class="card-body" style="padding: 10px;">
+              
+              <div class="row">
+                <div class="col">
+                  <img class="rounded-circle perfil"  src="{{$t->trabajador->user->foto}}" alt="Card image cap">
+                </div>
+                <div class="col">
+    
+                  <h5 class="card-title"><strong> {{$t->nombre}}</strong></h5>
+                  <p class="card-text">S./{{$t->costo}}</p>
+                </div>
+              </div>
+              <br>
+              <dd class="text-truncate" maxlength="5"><FONT SIZE=3>{{$t->descripcion}}</font></dd>
+              <div class="row">
+                <div class="col">
+                  <font size=2 > Estrellas </font>
+                  <div class="">
+                    <i class="material-icons">star_half</i>
+                    <i class="material-icons">star_border</i>
+                    <i class="material-icons">star_border</i>
+                  </div>
+    
+                </div>
+                <div class="col">
+                  <font size=2 style=""> Calificaciones</font>
+                  <p class="text-center">12</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        @endforeach
+    </div>
+    <br>
+    @endforeach
+    {{$trabajos->links()}}
+  </div>  
+  <br>
+</div>
+
+<script>
+  $("ul.pagination>li").addClass("page-item");
+  $("ul.pagination>li>a").addClass("page-link");
+  $("ul.pagination>li>span").addClass("page-link");
+
+</script>
+
+
 <!-- TAGS MAS POPULARES !! !-->
 <div class="container pt-3" >
 
@@ -82,30 +150,31 @@
 
     <h4> <strong>Ciudades</strong> </h4>
     <p>Cada ciudad te ofrece algo distinto</p>
-    <div class="row" >
 
-      <div class="col">
-          <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
-          <p class="card-text text-center">Gasfitería</p>
-      </div>
-      <div class="col">
-          <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,h_150,q_100,w_249/v1512781333/tag3.jpg" alt="Card image cap">
-          <p class="card-text text-center">Construcción</p>
-      </div>
-      <div class="col">
-          <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781326/tag2.jpg" alt="Card image cap">
-          <p class="card-text text-center">Gasfitería</p>
-      </div>
-      <div class="col">
-          <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
-          <p class="card-text text-center">Gasfitería</p>
-      </div>
-      <div class="col">
-          <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
-          <p class="card-text text-center">Gasfitería</p>
-      </div>
+      <div class="row" >
 
-    </div>
+        <div class="col">
+            <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781323/tag1.jpg" alt="Card image cap">
+            <p class="card-text text-center">Gasfitería</p>
+        </div>
+        <div class="col">
+            <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_scale,h_150,q_100,w_249/v1512781333/tag3.jpg" alt="Card image cap">
+            <p class="card-text text-center">Construcción</p>
+        </div>
+        <div class="col">
+            <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781326/tag2.jpg" alt="Card image cap">
+            <p class="card-text text-center">Gasfitería</p>
+        </div>
+        <div class="col">
+            <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
+            <p class="card-text text-center">Gasfitería</p>
+        </div>
+        <div class="col">
+            <img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_150,q_100,w_249/v1512781329/mecanica_automotriz_-1024x682_gnnjpv.jpg" alt="Card image cap">
+            <p class="card-text text-center">Gasfitería</p>
+        </div>
+
+      </div>
   </div>
 <br>
 

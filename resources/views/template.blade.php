@@ -52,7 +52,7 @@
     <nav class="navbar " style="background-color: #2874a0;">
 
       <div class="d-flex flex-row justify-content-start">
-     <a class="navbar-brand" href="#"> <img src="{{asset('img/logo3.png')}}"
+     <a class="navbar-brand" href="/"> <img src="{{asset('img/logo3.png')}}"
           height="30" alt=""></a>
 <style media="screen">
 
@@ -76,10 +76,20 @@
       color: #FFFFFF;
   }
 
+  img.recortar{
+    height: 130px;
+    object-fit:cover;
+  }
+  img.perfil{
+    height: 75px;
+    width: 75px;
+  }
+  
+
 </style>
       <form action="/buscar" id="bus-form" method="POST">
         {{csrf_field()}}
-        <input type="" name="" id="searchbar" placeholder="Busca servicios o negocios ...">
+        <input type="" name="data" id="searchbar" placeholder="Busca servicios o negocios ...">
         <input type="hidden" >
 
       </form>
