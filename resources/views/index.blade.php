@@ -58,7 +58,7 @@
                 </div>
                 <div class="col">
     
-                  <h5 class="card-title"><strong> {{$t->nombre}}</strong></h5>
+                  <h5 class="card-title"><strong> <a class="nlink" href="/trabajos/{{$t->id}}">{{$t->nombre}}</a></strong></h5>
                   <p class="card-text">S./{{$t->costo}}</p>
                 </div>
               </div>

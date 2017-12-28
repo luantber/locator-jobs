@@ -12,20 +12,27 @@
 	</ol>
 	<div class="carousel-inner">
 		<div class="carousel-item active">
+			
+		@if ($fotos->first())
 			<script type="text/javascript">
 				var original = "{{$fotos[0]->url}}";
 				var split = original.split("d/");
-				var rs = split[0]+"d/c_fill,h_255,w_1116/"+split[1];
+				var rs = split[0]+"d/c_fill,h_300,w_1116/"+split[1];
 
 				console.log(rs);
 			</script>
-		<img width="1116" height="255" class="d-block w-100" src="{{$fotos[0]->url}}" alt="First slide">
-		</div>
-		@for ($i = 1; $i < sizeof($fotos); $i++)
-		<div class="carousel-item">
-			<img width="1116" height="255"class="d-block w-100" src="{{$fotos[$i]->url}}" >
-		</div>
-		@endfor
+			<img width="1116" height="300" class="d-block w-100" src="{{$fotos->first()->url}}" alt="First slide">
+			</div>
+			@for ($i = 1; $i < sizeof($fotos); $i++)
+			<div class="carousel-item">
+				<img width="1116" height="300"class="d-block w-100" src="{{$fotos[$i]->url}}" >
+			</div>
+			@endfor
+		@else
+			<img width="1116" height="300" class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_300,w_1116/v1512781323/tag1.jpg" alt="Card image cap">
+			</div>
+
+		@endif
 
 	</div>
 	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

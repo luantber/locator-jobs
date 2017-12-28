@@ -62,7 +62,7 @@
 					</div>
 					<div class="col">
 
-						<h6><strong> {{$t->nombre}}</strong></h6>
+						<h6><strong> <a class="nlink" href="/trabajos/{{$t->id}}">{{$t->nombre}}</a></strong></h6>
 						<p class="card-text">S/.{{$t->costo}}</p>
 					</div>
 				</div>

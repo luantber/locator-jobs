@@ -84,6 +84,9 @@
     height: 75px;
     width: 75px;
   }
+  a.nlink{
+    color :#289bdf;
+  }
   
 
 </style>
