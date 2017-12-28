@@ -51,7 +51,7 @@
 
 		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
 			@if($t->fotos->first())
-				<img class="card-img-top" height="140" style="object-fit:cover;" src="{{$t->fotos->first()->url}}" alt="Card image cap">
+				<img class="card-img-top" height="100" style="object-fit:cover;" src="{{$t->fotos->first()->url}}" alt="Card image cap">
 			@else
 				<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
 			@endif
@@ -92,9 +92,20 @@
 	</div>
 	@endforeach
 	
-
-
 </div>
+		<div class="row text-xs-center">
+			<div class="col-5"> </div>
+			<div class="col-7">
+				{{$trabajos->links()}}
+
+			</div>
+		</div>
+		<script>
+				$("ul.pagination>li").addClass("page-item");
+				$("ul.pagination>li>a").addClass("page-link");
+				$("ul.pagination>li>span").addClass("page-link");
+			  
+		</script>
 </div>
 
 

@@ -1,6 +1,7 @@
 <?php
 use App\Trabajo;
 use App\Tag;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +26,8 @@ Route::get('/',function (){
   $trabajos= Trabajo::paginate(12);
   return view('index',['trabajos'=>$trabajos]);
 });
+
+
 
 //Social AUTHS
 Route::get('login/google/callback', 'Auth\SocialLoginController@handleProviderCallbackG');
@@ -81,7 +84,12 @@ Route::resources([
 
 // SOLO PARA VISTAS
 
-Route::post('buscar', 'TrabajoController@busqueda');
+Route::match(['get','post'],'buscar', 'TrabajoController@busqueda');
+/*Route::get('buscar{page?}',function(Request $request){
+  $trabajos=App\Trabajo::paginate();
+  //return $request->input("page");
+  return $trabajos->render();
+});*/
 Route::get ('busqueda',function (){
   return view('busqueda');
 });
