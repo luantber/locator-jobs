@@ -48,9 +48,8 @@ class TrabajoController extends Controller
         //return $request->pos;
         if ($request->pos)
         {
-            $trabajos= Trabajo::distance(0.02,$request->pos)->where('nombre','like','%'.$request->data.'%')->get();
+            $trabajos= Trabajo::distance(0.04,$request->pos)->where('nombre','like','%'.$request->data.'%')->get();
             //return $trabajos;
-            $trabajos=Trabajo::all();
             $trabs=$trabajos->chunk(2);
             //return ;
             
@@ -66,7 +65,7 @@ class TrabajoController extends Controller
         }
         else
         {
-            $trabajos=Trabajo::all();
+            $trabajos=Trabajo::where('nombre','like','%'.$request->data.'%')->get();
             $trabs=$trabajos->chunk(2)->toArray();
             
             /*
@@ -76,7 +75,7 @@ class TrabajoController extends Controller
                 }
             }
             return;*/   
-            return view('busqueda',["data"=>"pos failed",'trabajos'=>$trabajos,'trabs'=>$trabajos]);
+            return view('busqueda',["data"=>$request->data,'trabajos'=>$trabajos,'trabs'=>$trabajos]);
         }
     }
 

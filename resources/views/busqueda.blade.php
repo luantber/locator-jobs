@@ -50,7 +50,11 @@
 
 
 		<div class="card" style="width: 16rem; background-color:#e8e8e8; ">
+			@if(isset($t->fotos))
+			<img class="card-img-top" height="140" style="object-fit:cover;" src="{{$t->fotos->first()->url}}" alt="Card image cap">
+			@else
 			<img class="card-img-top" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_80,q_100,w_200/v1512781323/tag1.jpg" alt="Card image cap">
+			@endif
 			<div class="card-body">
 				<div class="row">
 					<div class="col-4">

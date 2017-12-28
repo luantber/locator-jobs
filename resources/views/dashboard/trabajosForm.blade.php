@@ -32,6 +32,15 @@
             </textarea>
 				  </div>
 
+					<div class="form-group row">
+							<label for="tagss">Tags:</label>
+							<div class="col-8" id="tagss">
+								@foreach($t->tags as $tag)
+									<a href="#" class="badge badge-pill badge-primary">{{$tag->nombre}}</a>
+								@endforeach
+							</div>
+					</div>
+
 				  <div class="form-group row">
 				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
 				    <div class="col-3">
