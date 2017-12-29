@@ -165,7 +165,7 @@ class TrabajoController extends Controller
         }
 
 
-        return redirect("dashboard");
+        return redirect("linea");
     }
 
     /**
