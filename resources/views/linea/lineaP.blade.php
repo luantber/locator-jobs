@@ -13,7 +13,7 @@
         <b>  <p>{{$trabajos[$i]->descripcion}}</p></b>
         </div>
         <div class="col-2">
-          <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}"><i class="material-icons">create</i></a>
+          <a href="#" onclick="editar({{$trabajos[$i]->id}})"><i class="material-icons">create</i></a>
           <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}" target="_blank" ><i class="material-icons">exit_to_app</i> </a>
     <!--     <a href="#" id="eliminar" onclick="eliminar({{$trabajos[$i]->id}})"><i class="material-icons">delete</i></a>-->
           <a href="#"><i class="material-icons">visibility</i></a>
@@ -28,8 +28,15 @@
   </li>
   @endfor
 <!-- Esto es lo que vale-->
+<div class=""  id="editar">
+</div>
 <script type="text/javascript">
-  console.log("hola");
+  function editar(id) {
+    var url = "{{asset('trabajos')}}"+"/"+id+"/edit";
+    $("#editar").load(url);
+    console.log(url);
+  }
+
   function eliminar(id) {
     var url = "{{asset('trabajos')}}"+"/"+id;
     $.ajax({

@@ -46,14 +46,14 @@ class TrabajoController extends Controller
     public function busqueda(Request $request)
     {
         //return $request->pos;
-        
+
         if ($request->pos)
         {
             $trabajos= Trabajo::distance(0.04,$request->pos)->where('nombre','like','%'.$request->data.'%')->paginate(6);
             //return $trabajos;
             $trabs=$trabajos->chunk(2);
             //return ;
-            
+
             //return $trabs;
             /*
             foreach($trabs as $trab){
@@ -68,7 +68,7 @@ class TrabajoController extends Controller
         {
             $trabajos=Trabajo::where('nombre','like','%'.$request->data.'%')->paginate(6);
             //$trabs=$trabajos->chunk(2);
-            
+
             /*
             foreach($trabajos->chunk(2) as $trab){
                 foreach($trab as $t){
@@ -198,7 +198,7 @@ class TrabajoController extends Controller
      */
     public function edit(Trabajo $trabajo)
     {
-        //
+        return view('trabajos.editar',["t"=>$trabajo]);
 
     }
 
