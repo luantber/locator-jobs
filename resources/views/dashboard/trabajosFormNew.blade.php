@@ -23,29 +23,29 @@
 
 				  <div class="form-group">
 				    <label for="exampleFormControlTextarea1">Descripción</label>
-				    <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea >
+				    <textarea name="descripcion" required class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea >
 				  </div>
 
 				  <div class="form-group row">
 				    <label for="tags" class="col-2 col-form-label">Tags</label>
 				    <div class="col-10">
-              <input type="text" name="tags" id="tags" class="form-control">
+              <input type="text" required name="tags" id="tags" class="form-control">
 				    </div>
 				  </div>
           <div class="form-group row">
             <label  class="col-2 col-form-label">Dirección</label>
             <div class="col-10">
-              <input  class="form-control"  name="direccion" required>
+              <input  class="form-control" required  name="direccion" required>
             </div>
           </div>
 				  <div class="form-group ">
 				    <label for="inputEmail3" class=" col-form-label">Ingrese un intervalo de costo</label>
               <div class="row">
                 <div class="col-3">
-                  <input class="form-control" id="inputEmail3"  name="costoMin" placeholder="desde ">
+                  <input class="form-control"  required id="inputEmail3"  name="costoMin" placeholder="desde ">
                 </div>
                 <div class="col-3">
-                  <input class="form-control" id="inputEmail3"  name="costoMax" placeholder="hasta">
+                  <input class="form-control" id="inputEmail3"  required name="costoMax" placeholder="hasta">
 
                 </div>
               </div>

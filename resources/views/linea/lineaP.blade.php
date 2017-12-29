@@ -12,8 +12,14 @@
         <div class="col-10">
           <h2>{{$trabajos[$i]->nombre}}</h2>
         <b>  <p>{{$trabajos[$i]->descripcion}}</p></b>
+        <div class="">
+
+          <span> <b>Desde </b>  s/{{$trabajos[$i]->costoMin}} <b> hasta</b> s/{{$trabajos[$i]->costoMax}} </span>
+        </div>
+        <span> <b>Dirección </b> {{$trabajos[$i]->direccion}}</span>
         </div>
         <div class="col-2">
+          <br>
           <a data-toggle="modal" data-target="#exampleModal{{$trabajos[$i]->id}}" href="#" onclick="editar({{$trabajos[$i]->id}})"><i class="material-icons">create</i></a>
           <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}" target="_blank" ><i class="material-icons">exit_to_app</i> </a>
     <!--     <a href="#" id="eliminar" onclick="eliminar({{$trabajos[$i]->id}})"><i class="material-icons">delete</i></a>-->
@@ -22,7 +28,14 @@
           <br>
 
           <img src="{{$fotos[$i]->miniatura}}"  alt="">
+          <br>
+          <button type="button"  id="p"class="btn btn-secondary"> <span>Administrar </span> </button>
         </div>
+      </div>
+      <div class="" id="tagss">
+        @foreach($t[$i]->tags as $tag)
+          <a href="#" class="badge badge-pill badge-dark">{{$tag->nombre}}</a>
+        @endforeach
       </div>
 
     </div>

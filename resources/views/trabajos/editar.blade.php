@@ -24,13 +24,13 @@ keyboard: true
                       {{ csrf_field() }}
         				  <div class="form-group ">
         				    <label style="color:#19608a;">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control"  value="{{$t->nombre}}">
+                    <input type="text" required name="nombre" id="nombre" class="form-control"  value="{{$t->nombre}}">
 
         				  </div>
 
         				  <div class="form-group">
         				    <label style="color:#19608a;">Descripción</label>
-        				    <textarea class="form-control" name="descripcion" rows="3">{{$t->descripcion}}
+        				    <textarea class="form-control" required name="descripcion" rows="3">{{$t->descripcion}}
                     </textarea>
         				  </div>
 
@@ -44,17 +44,17 @@ keyboard: true
         					</div>
                   <div class="form-group ">
                     <label style="color:#19608a;">Dirección</label>
-                    <input type="text" name="direccion" class="form-control"  value="{{$t->direccion}}">
+                    <input type="text" required name="direccion" class="form-control"  value="{{$t->direccion}}">
 
                   </div>
         				  <div class="form-group ">
                     <label style="color:#19608a;"class=" col-form-label">Ingrese un intervalo de costo</label>
                       <div class="row">
                         <div class="col-3">
-                          <input class="form-control" id="inputEmail3"  name="costoMin" placeholder="desde " value="{{$t->costoMin}}">
+                          <input class="form-control" required id="inputEmail3"  name="costoMin" placeholder="desde " value="{{$t->costoMin}}">
                         </div>
                         <div class="col-3">
-                          <input class="form-control" id="inputEmail3"  name="costoMax" placeholder="hasta" value="{{$t->costoMax}}">
+                          <input class="form-control" required id="inputEmail3"  name="costoMax" placeholder="hasta" value="{{$t->costoMax}}">
 
                         </div>
                       </div>

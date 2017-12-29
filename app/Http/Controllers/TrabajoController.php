@@ -251,6 +251,7 @@ class TrabajoController extends Controller
       $trabajador =  Auth::user()->trabajador;
 
       $trabajos = $trabajador->trabajos;
+    //  dd($trabajos[0]->tags);
 
       $fotos =  array();
       foreach ($trabajos as $trabajo) {
@@ -276,7 +277,7 @@ class TrabajoController extends Controller
         $porciones[1] = substr($porciones[1], 0, -3);
         array_push($fechas2,$porciones);
       }
-      return view('linea.lineaP',["trabajador"=>$trabajador,"trabajos"=>$trabajosP,"fechas"=>$fechas2,"fotos"=>$fotos]);
+      return view('linea.lineaP',["trabajador"=>$trabajador,"trabajos"=>$trabajosP,"fechas"=>$fechas2,"fotos"=>$fotos, "t"=>$trabajos]);
 
     }
 
