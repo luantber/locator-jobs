@@ -45,6 +45,13 @@
 
   <body>
 
+  <script type="text/javascript">
+
+      var start = function(){}; // esta es para iniciar cualquier otra funcion despues de cargar la api de google 
+  </script>
+
+   
+
   <style type="text/css">
 
   </style>
@@ -158,13 +165,40 @@
 
   <script>
       var pos;
-      $(document).ready(function(){
+      var error_getLocation=false;
 
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-        });
-      }
+     $(document).ready(function(){
+
+            if (navigator.geolocation) {
+
+              navigator.geolocation.getCurrentPosition(
+
+                function(position) {
+                    pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                }, 
+
+
+                function showError(error) {
+                    error_getLocation = true;
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            console.log("User denied the request for Geolocation.");
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            console.log("Location information is unavailable.");
+                            break;
+                        case error.TIMEOUT:
+                            console.log("The request to get user location timed out.");
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            console.log("An unknown error occurred.");
+                            break;
+                    }
+                    pos = new google.maps.LatLng(-12.051332, -77.039841);
+                    
+                  });
+
+          }
       });
 
       $("#bus").on('keyup', function (e) {
@@ -180,7 +214,7 @@
 
   </script>
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc">
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=start">
   </script>
 
   </body>

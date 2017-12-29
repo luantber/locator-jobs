@@ -58,8 +58,7 @@
  
 </div> 
  
- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoBFga8LNUmtcWwHs4BzlKLB-aJIhqOuc&callback=cargo">
-</script>
+
 
 
 <script>
@@ -74,13 +73,13 @@ var trabajos = [
 
 ];
 
-function cargo(){
+$(document).ready(function(){
 
 	$("#nuevo").click(function(){
 		$("#contenedor").load("{{route('trabajos.create')}}"); 
 	});
+});
 
-}
 
   function abrir(id){
     $("#contenedor").load("{{asset('trabajo')}}"+"/"+id);

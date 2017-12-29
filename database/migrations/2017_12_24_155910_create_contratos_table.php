@@ -33,6 +33,9 @@ class CreateContratosTable extends Migration
             $table->boolean('pagado');
             $table->boolean('terminado');
 
+            $table->boolean('acuerdo_user');
+            $table->boolean('acuerdo_trabajador');
+
             $table->date('inicio')->nullable();
             $table->date('fin')->nullable();
 

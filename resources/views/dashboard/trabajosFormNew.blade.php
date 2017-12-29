@@ -35,7 +35,7 @@
 				  <div class="form-group row">
 				    <label for="tags" class="col-2 col-form-label">Tags</label>
 				    <div class="col-10">
-              <input type="text" name="tags" id="tags" class="form-control">
+              <input type="text" class="form-control" name="tags" id="tags" class="form-control">
 				    </div>
 				  </div>
           <div class="form-group row">
@@ -125,34 +125,30 @@
         	</div>
 
         	<div class="col-6">
-        		<label>Ubicación</label>
+
+            <div class="form-group row">
+            <label  class="col-3 col-form-label">Ubicación</label>
+            <div class="col-5">
+              <input id="address" type="textbox" class="form-control" value="Sydney, NSW">
+            </div>
+            <div class="col-3">
+              <button id="submit" type="button"  class="btn btn-secondary"> Buscar ciudad</button>
+            </div>
+          </div>
+
+      
+
         		<div id="map" class="mb-5" style="height: 72%; width: 100%"> Cargando . . .</div>
         		<script>
 
-
-
-
-            if (navigator.geolocation)
-            {
-                navigator.geolocation.getCurrentPosition(showCurrentLocation);
-            }
-            else
-            {
-               alert("Geolocation API not supported.");
-            }
-
-            function showCurrentLocation(position)
-            {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                var coords = new google.maps.LatLng(latitude, longitude);
-
-                var mapOptions = {
-                  zoom: 15,
-                  center: coords,
-                  mapTypeControl: true,
-                  mapTypeId: google.maps.MapTypeId.ROADMAP
-              };
+              
+            
+              var mapOptions = {
+                zoom: 15,
+                center: pos,
+                mapTypeControl: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
 
             //create the map, and place it in the HTML map div
             map = new google.maps.Map(
@@ -161,13 +157,13 @@
 
             //place the initial marker
             var marker = new google.maps.Marker({
-              position: coords,
+              position: pos,
               map: map,
               title: "Current location!",
               draggable:true
               });
 
-            $("#loc").val(latitude + "," + longitude);
+            $("#loc").val( pos.lat() + "," + pos.lng());
 
             google.maps.event.addListener(marker, "dragend", function(event) {
               var lat = event.latLng.lat();
@@ -178,7 +174,7 @@
             });
             //https://dev.mysql.com/doc/refman/5.7/en/using-spatial-indexes.html
 
-            }
+            
 
 
         </script>

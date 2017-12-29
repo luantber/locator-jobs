@@ -7,7 +7,8 @@
 	<div class="row mt-2">
 
 			<div class="col-4">
-	
+			
+				
 
 				@if( $contrato->trabajo->trabajador->user->id == Auth::id () )
 
@@ -48,14 +49,25 @@
 							<div class="col-4"><input id="costo" type="number" class="form-control" value="{{$contrato->costo}}"></div>
 							<div class="col-4" id="total">120</div>
 						</div>
-
-
-
 					</div>
 
 				    <p>Los datos se actualizan automáticamente</p>
 
-				  </div>
+					    <div class="row">
+					    	<h5 class="ml-3">Estas Conforme ?</h5>
+					  	</div>
+				  	
+				  		<div>
+							<div class="form-check">
+							    <label class="form-check-label">
+							      <input type="checkbox" id="confirmar" class="form-check-input">
+							      Confirmación
+							    </label>
+							 </div>
+				  		</div>
+				  		
+					</div>	
+
 				</div>
 
 				@else
@@ -97,6 +109,10 @@
 							<div class="col-4" id="total">{{$contrato->total}}</div>
 						</div>
 
+						<div class="row">
+							<div>Cerrao</div>
+						</div>	
+
 
 					</div>
 
@@ -105,6 +121,9 @@
 				  </div>
 				</div>
 				@endif
+
+			
+
 
 			</div>
 			<div class="col-8">
@@ -266,6 +285,7 @@
 							fin: finP.value(),
 							contrato: '{{$contrato->id}}',
 							costo:$('#costo').val(),
+							id: $('#confirmar').val(),
 							dias: d/8.64e+7 +1,
 							total: (d/8.64e+7 +1 ) * $('#costo').val(),
 							_token: '{{csrf_token()}}'
