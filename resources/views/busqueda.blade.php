@@ -127,7 +127,26 @@
 
             if (navigator.geolocation)
             {
-                navigator.geolocation.getCurrentPosition(showCurrentLocation);
+                navigator.geolocation.getCurrentPosition(showCurrentLocation, 
+
+                function showError(error) {
+                    error_getLocation = true;
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            console.log("User denied the request for Geolocation.");
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            console.log("Location information is unavailable.");
+                            break;
+                        case error.TIMEOUT:
+                            console.log("The request to get user location timed out.");
+                            break;
+                        case error.UNKNOWN_ERROR:
+                            console.log("An unknown error occurred.");
+                            break;
+                    }
+                    pos = new google.maps.LatLng(-12.051332, -77.039841);
+            	});
             }
             else
             {
@@ -177,6 +196,45 @@
 						});
 				@endforeach
 			@endif
+			}
+
+
+			function fail(){
+				
+								
+				var coords = new google.maps.LatLng(latitude,longitude);
+                var mapOptions = {
+	                zoom: 15,
+	                center: coords,
+	                mapTypeControl: true,
+	                mapTypeId: google.maps.MapTypeId.ROADMAP
+            	};
+
+            //create the map, and place it in the HTML map div
+            map = new google.maps.Map(
+            	document.getElementById("mapPlaceholder"), mapOptions
+            );
+            console.log("here");
+
+			//place the initial marker
+			
+            var marker = new google.maps.Marker({
+	            position: coords,
+	            map: map,
+	            title: "Current location!"
+				});
+			
+			@if (isset($trabajos))
+				@foreach($trabajos as $trabajo)
+					var position{{$trabajo->id}}=new google.maps.LatLng({{$trabajo->location}});
+					var marker{{$trabajo->id}} = new google.maps.Marker({
+						position: position{{$trabajo->id}},
+						map: map,
+						title: "{{$trabajo->nombre}}"
+						});
+				@endforeach
+			@endif
+
 			}
 			
 			

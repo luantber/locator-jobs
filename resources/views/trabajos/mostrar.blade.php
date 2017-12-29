@@ -2,8 +2,16 @@
 
 @section('body')
 
+<style type="text/css">
+.imgC {
+        height: 280px;
+        
+        object-fit: cover;
+}
+</style>
 
 
+</style>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -21,11 +29,11 @@
 
 				console.log(rs);
 			</script>
-			<img width="1116" height="300" class="d-block w-100" src="{{$fotos->first()->url}}" alt="First slide">
+			<img width="1116" height="300" class="d-block w-100 imgC" src="{{$fotos->first()->url}}" alt="First slide">
 			</div>
 			@for ($i = 1; $i < sizeof($fotos); $i++)
 			<div class="carousel-item">
-				<img width="1116" height="300"class="d-block w-100" src="{{$fotos[$i]->url}}" >
+				<img width="1116" height="300" class="d-block w-100 imgC" src="{{$fotos[$i]->url}}" >
 			</div>
 			@endfor
 		@else
@@ -49,12 +57,12 @@
 
 
 <div class="row container-fluid">
-	<div class="col-4 pt-4 px-5"  style="background-color:#AEAEAE ;">
+	<div class="col-4 pt-4 px-5 text-white"  style="background-color:#0f3952;">
 			<div class="row "><img class="mr-3 rounded-circle mx-auto" src="{{$user->foto}}" alt="Generic placeholder image" width="100px" height="100px" ></div>
 			<div class="row"><h5 class="pt-2 mx-auto">{{$user->nombre}}</h5></div>
 			<div class="row"><p>{{$trabajador->descripcion}}</p></div>
 	</div>
-	<div class="col-4">
+	<div class="col-4 text-white">
 		<br>
 		<h4>{{$trabajo->nombre}}</h4>
 		<p>{{$trabajo->descripcion}} </p>

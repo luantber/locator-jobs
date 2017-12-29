@@ -68,7 +68,7 @@
 <style media="screen">
 
     #searchbar{
-      background-color: #60a3d14a;
+      background-color: #60a3d1;
 
       border: none;
       width: 380px;
@@ -195,7 +195,7 @@
                             break;
                     }
                     pos = new google.maps.LatLng(-12.051332, -77.039841);
-                    
+
                   });
 
           }
