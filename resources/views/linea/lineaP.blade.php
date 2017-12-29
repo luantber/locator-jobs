@@ -1,5 +1,6 @@
 <span style="color:#0f3952;" class="text-center">Ordenado por fecha de creación</span>
 <ul class="cbp_tmtimeline">
+  <div class=""  id="editar"> </div>
 <!-- Esto es lo que vale-->
 @for ($i = 0; $i < sizeof($trabajos); $i++)
   <li>
@@ -13,7 +14,7 @@
         <b>  <p>{{$trabajos[$i]->descripcion}}</p></b>
         </div>
         <div class="col-2">
-          <a href="#" onclick="editar({{$trabajos[$i]->id}})"><i class="material-icons">create</i></a>
+          <a data-toggle="modal" data-target="#exampleModal{{$trabajos[$i]->id}}" href="#" onclick="editar({{$trabajos[$i]->id}})"><i class="material-icons">create</i></a>
           <a href="{{asset('trabajos/'.$trabajos[$i]->id)}}" target="_blank" ><i class="material-icons">exit_to_app</i> </a>
     <!--     <a href="#" id="eliminar" onclick="eliminar({{$trabajos[$i]->id}})"><i class="material-icons">delete</i></a>-->
           <a href="#"><i class="material-icons">visibility</i></a>
@@ -28,8 +29,7 @@
   </li>
   @endfor
 <!-- Esto es lo que vale-->
-<div class=""  id="editar">
-</div>
+
 <script type="text/javascript">
   function editar(id) {
     var url = "{{asset('trabajos')}}"+"/"+id+"/edit";

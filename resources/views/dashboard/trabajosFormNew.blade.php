@@ -1,12 +1,6 @@
 
 
-
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a>
-    </li>
-  </ul>
-
+<h3>Datos Generales</h3>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <div class="container-fluid mt-2">
@@ -35,7 +29,7 @@
 				  <div class="form-group row">
 				    <label for="tags" class="col-2 col-form-label">Tags</label>
 				    <div class="col-10">
-              <input type="text" class="form-control" name="tags" id="tags" class="form-control">
+              <input type="text" name="tags" id="tags" class="form-control">
 				    </div>
 				  </div>
           <div class="form-group row">
@@ -76,7 +70,7 @@
                 autocomplete:  {
                   delay: 0, // show suggestions immediately
                   position: { collision: 'flip' }, // automatic menu position up/down
-                  source: ['Comida','Rico','Delicia','qwe','asd','zxc','iop']
+                  source: ['dentista','electronica','construccion','reparacion','asd','zxc','iop']
               },
                 placeholder: "Ingresa tus etiquetas"
               });
@@ -86,7 +80,7 @@
                cloud_name: 'luisbch9',
                   upload_preset: 'bsi9wjf9',
                   //multiple: true,
-                  // theme: 'white',
+                   theme: 'white',
                   //folder: 'locator',
                   //inline_container : '#galeriaContainer'
               },
@@ -135,7 +129,7 @@
             </div>
           </div>
 
-      
+
 
         		<div id="map" class="mb-5" style="height: 72%; width: 100%"> Cargando . . .</div>
         		<script>
@@ -178,7 +172,7 @@
             $('#submit').click( function() {
               geocodeAddress(geocoder, map);
             });
-          
+
 
             function geocodeAddress(geocoder, resultsMap) {
               var address = document.getElementById('address').value;
@@ -186,7 +180,7 @@
                 if (status === 'OK') {
                   resultsMap.setCenter(results[0].geometry.location);
                    marker.setPosition(results[0].geometry.location);
-                  
+
                 } else {
                   alert('Geocode was not successful for the following reason: ' + status);
                 }

@@ -215,9 +215,15 @@ class TrabajoController extends Controller
     public function update(Request $request, Trabajo $trabajo)
     {
         $trabajo->nombre=$request->nombre;
-        $trabajo->ubicacion=$request->ubicacion;
+  //      $trabajo->ubicacion=$request->ubicacion;
         $trabajo->descripcion=$request->descripcion;
+        $trabajo->direccion = $request->direccion;
+        $trabajo->costoMax = $request->costoMax;
+        $trabajo->costoMin = $request->costoMin;
         $trabajo->save();
+        //dd($trabajo);
+        return redirect ("linea");
+    //  return ["trabajo"=>$request];
 
     }
 
