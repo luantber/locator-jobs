@@ -4,10 +4,11 @@
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Datos Generales</a>
     </li>
 
+<!--
     <li class="nav-item">
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Administrar</a>
     </li>
-
+-->
 
   </ul>
 
@@ -41,15 +42,19 @@
 							</div>
 					</div>
 
-				  <div class="form-group row">
-				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
-				    <div class="col-3">
-				      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" value="{{$t->costo}}">
-				    </div>
-				    
+				  <div class="form-group ">
+            <label for="inputEmail3" class=" col-form-label">Ingrese un intervalo de costo</label>
+              <div class="row">
+                <div class="col-3">
+                  <input class="form-control" id="inputEmail3"  name="costoMin" placeholder="desde " value="{{$t->costoMin}}">
+                </div>
+                <div class="col-3">
+                  <input class="form-control" id="inputEmail3"  name="costoMax" placeholder="hasta" value="{{$t->costoMax}}">
 
-				    
-				  </div>
+                </div>
+              </div>
+          </div>
+
 
           <label>Galería</label>
 				  <div class="form-group">
@@ -105,7 +110,7 @@
 
       </div>
     </div>
-
+<!--
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
        <div class="container-fluid mt-2">
 
@@ -166,6 +171,7 @@
 
       </div>
     </div>
+    -->
 
   </div>
 

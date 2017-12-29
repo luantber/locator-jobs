@@ -55,7 +55,6 @@
 
                 </div>
               </div>
-
 				  </div>
 
 
@@ -129,7 +128,7 @@
             <div class="form-group row">
             <label  class="col-3 col-form-label">Ubicación</label>
             <div class="col-5">
-              <input id="address" type="textbox" class="form-control" value="Sydney, NSW">
+              <input id="address" type="textbox" class="form-control" placeholder="Ciudad..">
             </div>
             <div class="col-3">
               <button id="submit" type="button"  class="btn btn-secondary"> Buscar ciudad</button>
@@ -141,8 +140,8 @@
         		<div id="map" class="mb-5" style="height: 72%; width: 100%"> Cargando . . .</div>
         		<script>
 
-              
-            
+
+
               var mapOptions = {
                 zoom: 15,
                 center: pos,
@@ -174,7 +173,25 @@
             });
             //https://dev.mysql.com/doc/refman/5.7/en/using-spatial-indexes.html
 
-            
+            var geocoder = new google.maps.Geocoder();
+
+            $('#submit').click( function() {
+              geocodeAddress(geocoder, map);
+            });
+          
+
+            function geocodeAddress(geocoder, resultsMap) {
+              var address = document.getElementById('address').value;
+              geocoder.geocode({'address': address}, function(results, status) {
+                if (status === 'OK') {
+                  resultsMap.setCenter(results[0].geometry.location);
+                   marker.setPosition(results[0].geometry.location);
+                  
+                } else {
+                  alert('Geocode was not successful for the following reason: ' + status);
+                }
+              });
+            }
 
 
         </script>

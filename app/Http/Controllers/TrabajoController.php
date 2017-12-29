@@ -133,10 +133,13 @@ class TrabajoController extends Controller
 
         $trabajo= new Trabajo;
         $trabajo->nombre=$request->nombre;
-        $trabajo->costo=$request->costo;
+        $trabajo->costoMax=$request->costoMax;
+        $trabajo->costoMin=$request->costoMin;
         $trabajo->location=$request->location;
+        $trabajo->direccion=$request->direccion;
         $trabajo->descripcion=$request->descripcion;
         $trabajo->trabajador_id=Auth::user()->trabajador->id;
+        $trabajo->mostrar = true;
         $trabajo->save();
 
         $tags=explode(',',$request->tags);
