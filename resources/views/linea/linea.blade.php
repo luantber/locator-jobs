@@ -3,12 +3,15 @@
 
 
 		<div class="container">
+
 			<header class="clearfix">
-				<span style="color:#0f3952;">Mis trabajos</span>
+
+				<span style="color:#0f3952;" >Mis trabajos</span>
 				<div class="btn-group offset-md-3" role="group" aria-label="First group">
 					<button type="button"  id="p"class="btn btn-secondary"> <span>Publicados </span> </button>
 					<button type="button" id="r" class="btn btn-secondary"> <span>Realizados </span></button>
 					<button type="button" id="c" class="btn btn-secondary"> <span>Contratados </span></button>
+
 				</div>
 
 			</header>

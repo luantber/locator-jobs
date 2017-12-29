@@ -19,6 +19,7 @@
           <a href="#"><i class="material-icons">visibility</i></a>
 
           <br>
+
           <img src="{{$fotos[$i]->miniatura}}"  alt="">
         </div>
       </div>

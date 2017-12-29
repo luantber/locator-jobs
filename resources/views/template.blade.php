@@ -49,7 +49,11 @@
 
   </style>
 
-    <nav class="navbar " style="background-color: #2874a0;">
+    <nav class="navbar" style="background-color:#134969 ;">
+
+      <!--#2874a0
+      #60a3d1;
+    -->
 
       <div class="d-flex flex-row justify-content-start">
      <a class="navbar-brand" href="/"> <img src="{{asset('img/logo3.png')}}"
@@ -57,7 +61,8 @@
 <style media="screen">
 
     #searchbar{
-      background-color: #60a3d1;
+      background-color: #60a3d14a;
+
       border: none;
       width: 380px;
       height: 35px;
@@ -87,7 +92,7 @@
   a.nlink{
     color :#289bdf;
   }
-  
+
 
 </style>
       <form action="/buscar" id="bus-form" method="POST">
@@ -141,6 +146,7 @@
       @endif
       </div>
     </nav>
+    
 
 
     @yield('body')
@@ -153,7 +159,7 @@
   <script>
       var pos;
       $(document).ready(function(){
-        
+
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             pos = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);

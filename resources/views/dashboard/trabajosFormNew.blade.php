@@ -21,7 +21,7 @@
           <input type="hidden" name="fotos" id="fotosForm" required> </input>
 
 				  <div class="form-group row">
-				    <label for="inputEmail3" class="col-2 col-form-label">Nombre..</label>
+				    <label for="inputEmail3" class="col-2 col-form-label">Nombre</label>
 				    <div class="col-10">
 				      <input  class="form-control" id="inputEmail3" name="nombre" required>
 				    </div>
@@ -31,34 +31,46 @@
 				    <label for="exampleFormControlTextarea1">Descripción</label>
 				    <textarea name="descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea >
 				  </div>
-        
+
 				  <div class="form-group row">
 				    <label for="tags" class="col-2 col-form-label">Tags</label>
 				    <div class="col-10">
               <input type="text" name="tags" id="tags" class="form-control">
 				    </div>
 				  </div>
+          <div class="form-group row">
+            <label  class="col-2 col-form-label">Dirección</label>
+            <div class="col-10">
+              <input  class="form-control"  name="direccion" required>
+            </div>
+          </div>
+				  <div class="form-group ">
+				    <label for="inputEmail3" class=" col-form-label">Ingrese un intervalo de costo</label>
+              <div class="row">
+                <div class="col-3">
+                  <input class="form-control" id="inputEmail3"  name="costoMin" placeholder="desde ">
+                </div>
+                <div class="col-3">
+                  <input class="form-control" id="inputEmail3"  name="costoMax" placeholder="hasta">
 
-				  <div class="form-group row">
-				    <label for="inputEmail3" class="col-2 col-form-label">Costo</label>
-				    <div class="col-4">
-				      <input class="form-control" id="inputEmail3"  name="costo">
-				    </div>
-				    
-				    
+                </div>
+              </div>
+
 				  </div>
+
 
 				  <div class="form-group">
 
             <button id="galeriaBoton" type="button" class="btn btn-secondary">Subir Fotos</button>
 
-            <div id="galeriaContainer"></div>
+            <div id="galeriaContainer">
+            </div>
 
 
 
 
           <script type="text/javascript">
-            
+
               $("#tags").tagEditor({
                 maxTags: 5,
                 maxLength:8,
@@ -102,8 +114,10 @@
 
 
 				  </div>
+          <div class="row">
 
-				  <button type="submit" class="btn btn-primary">Guardar	</button>
+            <button type="submit" class="btn btn-secondary">Guardar	</button>
+          </div>
 				  <br>
 				  <br>
 

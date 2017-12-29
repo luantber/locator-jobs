@@ -12,13 +12,16 @@ class CreateTrabajosTable extends Migration
      * @return void
      */
     public function up()
+
     {
         Schema::create('trabajos', function (Blueprint $table) {
-
             $table->increments('id');
             $table->string('nombre');
+            $table->string('direccion',400);
             $table->point('location');
-            $table->integer('costo')->unsigned();
+            $table->boolean('mostrar');
+            $table->integer('costoMax')->unsigned();
+            $table->integer('costoMin')->unsigned();
             $table->string('descripcion',400);
             $table->integer('trabajador_id')->unsigned();
             $table->foreign('trabajador_id')->references('id')->on('trabajadors');

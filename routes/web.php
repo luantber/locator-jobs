@@ -21,13 +21,18 @@ Route::get('/',function(){
 */
 
 //Index
-Route::get('index',function (){return view('index');});
+//Route::get('index',function (){return view('index');});
+
 Route::get('/',function (){
   $trabajos= Trabajo::paginate(12);
   $tags= Tag::take(24)->get();
   return view('index',['trabajos'=>$trabajos,'tags'=>$tags]);
 });
-
+Route::get('index',function (){
+  $trabajos= Trabajo::paginate(12);
+  $tags= Tag::take(24)->get();
+  return view('index',['trabajos'=>$trabajos,'tags'=>$tags]);
+});
 
 
 //Social AUTHS

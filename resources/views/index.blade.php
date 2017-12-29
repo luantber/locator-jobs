@@ -12,14 +12,12 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778606/trabajo3.jpg" alt="First slide">
+      <img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1514499222/trabajo11_hrdwds.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778689/trabajo2.jpg" alt="Second slide">
+      <img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1514500082/freelancehead_tf3keo.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="http://res.cloudinary.com/margarcuae/image/upload/c_fill,h_255,w_1116/v1512778685/trabajo1.png" alt="Third slide">
-    </div>
+    
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,7 +40,7 @@
     <div class="row">
         @foreach($trabajo as $t)
         <div class="col-3">
-    
+
           <div class="card" style="width: 16rem; background-color:#e8e8e8; ">
             @if($t->fotos->first())
               <img class="card-img-top" height="100px" style="object-fit:cover;" src="{{$t->fotos->first()->url}}" alt="Card image cap">
@@ -51,13 +49,13 @@
             @endif
 
             <div class="card-body" style="padding: 10px;">
-              
+
               <div class="row">
                 <div class="col">
                   <img class="rounded-circle perfil"  src="{{$t->trabajador->user->foto}}" alt="Card image cap">
                 </div>
                 <div class="col">
-    
+
                   <h5 class="card-title"><strong> <a class="nlink" href="/trabajos/{{$t->id}}">{{$t->nombre}}</a></strong></h5>
                   <p class="card-text">S./{{$t->costo}}</p>
                 </div>
@@ -72,7 +70,7 @@
                     <i class="material-icons">star_border</i>
                     <i class="material-icons">star_border</i>
                   </div>
-    
+
                 </div>
                 <div class="col">
                   <font size=2 style=""> Calificaciones</font>
@@ -82,13 +80,13 @@
             </div>
           </div>
         </div>
-        
+
         @endforeach
     </div>
     <br>
     @endforeach
     {{$trabajos->links()}}
-  </div>  
+  </div>
   <br>
 </div>
 
@@ -113,7 +111,7 @@
       }
 
       .card{
-       box-shadow: 5px 3px 8px #BCB7EB; 
+       box-shadow: 5px 3px 8px #BCB7EB;
       }
     </style>
 
@@ -128,7 +126,7 @@
     @endforeach
 
     <a href="#" class="nlink">Mas...</a>
-    
+
   </div>
 </div>
   <!--CIUDADES ! -->
