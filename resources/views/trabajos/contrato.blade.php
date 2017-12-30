@@ -404,7 +404,7 @@
     channel.bind('App\\Events\\UpdateContrato', function(data) {
     	var nombre = "{{ $contrato->user->nombre }}";
     	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
-        $("acepto_user").html(nombre+" "+textos[data.update.acuerdo_user]);
+        $("#acepto_user").html(nombre+" "+textos[data.update.acuerdo_user]);
    	});
 	
 
@@ -424,7 +424,8 @@
 
     	var nombre = "{{ $contrato->trabajador->user->nombre }}";
     	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
-        $("acepto_trabajador").html(nombre+" "+textos[data.update.acuerdo_user]);
+    	console.log(textos[data.update.acuerdo_trabajador]);
+        $("#acepto_trabajador").html(nombre+" "+textos[data.update.acuerdo_trabajador]);
 
       console.log(data.update);
     });
@@ -434,9 +435,10 @@
     	var ch = this.checked ? 1 : 0;
 
 		$.post( "{{asset('contrato/update')}}", {
-				_token: '{{csrf_token()}}',
-				acuerdo_user: ch
-			});
+			_token: '{{csrf_token()}}',
+			acuerdo_user: ch,
+			contrato: '{{$contrato->id}}'
+		});
 	});
 
   </script>

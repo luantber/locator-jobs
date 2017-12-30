@@ -90,14 +90,22 @@ class ContratoController extends Controller
     public function update(Request $request)
     {
         $c = Contrato::find($request->contrato);
-        $c->inicio = $request->inicio;
-        $c->fin = $request->fin;
-        $c->costo = $request->costo;
-        $c->total = $request->total;
-        $c->dias = $request->dias;
+
+        if(!is_null($request->acuerdo_user)) {
+
+            $c->acuerdo_user  = $request->acuerdo_user;
+        }
+        else{
+            
+            $c->inicio = $request->inicio;
+            $c->fin = $request->fin;
+            $c->costo = $request->costo;
+            $c->total = $request->total;
+            $c->dias = $request->dias;
+        }
+        
 
         if(!is_null($request->acuerdo_trabajador)) $c->acuerdo_trabajador  = $request->acuerdo_trabajador;
-        if(!is_null($request->acuerdo_user)) $c->acuerdo_user  = $request->acuerdo_user;
 
         $c->save();
 
