@@ -56,16 +56,28 @@
 					    <div class="row">
 					    	<h5 class="ml-3">Estas Conforme ?</h5>
 					  	</div>
-				  	
-				  		<div>
+				  	<div class="row">
+				  		<div class="col-12">
 							<div class="form-check">
 							    <label class="form-check-label">
 							      <input type="checkbox" id="confirmar" class="form-check-input">
-							      Confirmación
+							       Acepto
 							    </label>
 							 </div>
+						
+							 <div id="acepto_user" class="pl-3">
+							 @if(!$contrato->acuerdo_user)
+							 	{{ $contrato->user->nombre }} aún no acepto.
+							 @else
+							 	{{ $contrato->user->nombre }} esta de acuerdo.
+							 @endif
+
+							 </div>
 				  		</div>
-				  		
+
+				  	
+				  	</div>
+
 					</div>	
 
 				</div>
@@ -109,9 +121,33 @@
 							<div class="col-4" id="total">{{$contrato->total}}</div>
 						</div>
 
-						<div class="row">
-							<div>Cerrao</div>
-						</div>	
+					<div class="row">
+				  		<div class="col-12">
+							<div class="form-check">
+							    <label class="form-check-label">
+							      <input type="checkbox" id="confirmar" class="form-check-input">
+							       Acepto
+							    </label>
+							 </div>
+							 
+						
+							 <div id="acepto_trabajador" class="pl-4">
+							 
+							 @if(!$contrato->acuerdo_trabajador)
+							 	{{ $contrato->trabajador->user->nombre }} aún no acepto.
+							 @else
+							 	{{ $contrato->trabajador->user->nombre}} esta de acuerdo.
+							 @endif
+
+							 </div>
+				  		
+
+				  		
+				  			<button class="btn btn-secondary ml-3 mt-2">
+				  				Contratar
+				  			</button>
+				  		</div>
+				  	</div>
 
 
 					</div>
@@ -269,10 +305,26 @@
 	</div>
 </div>
 
-@if( $contrato->trabajo->trabajador->user->id == Auth::id ()  )
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 <script>
 
-	var inicioP; var finP;
+    // Enable pusher logging - don't include this in production
+    Pusher.logToConsole = true;
+
+    var pusher = new Pusher('4c5e4c6266995483ae0e', {
+      cluster: 'us2',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe('contrato');
+</script>
+
+@if( $contrato->trabajo->trabajador->user->id == Auth::id ()  )
+<script>
+	
+	var inicioP; var finP; var ch = {{$contrato->acuerdo_trabajador}} ;
+
+
 
 	function update(){
 		var d = Math.abs(new Date(finP.value()) - new Date(inicioP.value()));
@@ -280,16 +332,19 @@
     	$('#dias').html(d/8.64e+7 +1 );
     	$('#total').html( (d/8.64e+7 +1 ) * $('#costo').val() );
 
+
     	$.post( "{{asset('contrato/update')}}", { 
-							inicio: inicioP.value(), 
-							fin: finP.value(),
-							contrato: '{{$contrato->id}}',
-							costo:$('#costo').val(),
-							id: $('#confirmar').val(),
-							dias: d/8.64e+7 +1,
-							total: (d/8.64e+7 +1 ) * $('#costo').val(),
-							_token: '{{csrf_token()}}'
-							});
+						inicio: inicioP.value(), 
+						fin: finP.value(),
+						contrato: '{{$contrato->id}}',
+						costo:$('#costo').val(),
+						
+						dias: d/8.64e+7 +1,
+						total: (d/8.64e+7 +1 ) * $('#costo').val(),
+						_token: '{{csrf_token()}}',
+						acuerdo_trabajador:ch
+
+					});
 	}
 
 	var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -339,22 +394,26 @@
 		update();
 	});
 
+	$("#confirmar").change(function(){
+		ch = this.checked ? 1 : 0;
+		console.log(ch);
+		update();
+	});
+
+    
+    channel.bind('App\\Events\\UpdateContrato', function(data) {
+    	var nombre = "{{ $contrato->user->nombre }}";
+    	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
+        $("acepto_user").html(nombre+" "+textos[data.update.acuerdo_user]);
+   	});
+	
 
 </script>
 @else
 
- <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
-  <script>
+<script type="text/javascript">
 
-    // Enable pusher logging - don't include this in production
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('4c5e4c6266995483ae0e', {
-      cluster: 'us2',
-      encrypted: true
-    });
-
-    var channel = pusher.subscribe('contrato');
+ 
     channel.bind('App\\Events\\UpdateContrato', function(data) {
       
       $("#inicio").html(data.update.inicio);
@@ -363,8 +422,23 @@
       $("#costo").html(data.update.costo);
       $("#total").html(data.update.total);
 
+    	var nombre = "{{ $contrato->trabajador->user->nombre }}";
+    	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
+        $("acepto_trabajador").html(nombre+" "+textos[data.update.acuerdo_user]);
+
       console.log(data.update);
     });
+
+    $("#confirmar").change(function(){
+
+    	var ch = this.checked ? 1 : 0;
+
+		$.post( "{{asset('contrato/update')}}", {
+				_token: '{{csrf_token()}}',
+				acuerdo_user: ch
+			});
+	});
+
   </script>
 
 

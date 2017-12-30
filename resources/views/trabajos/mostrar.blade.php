@@ -57,21 +57,63 @@
 
 
 <div class="row container-fluid">
-	<div class="col-4 pt-4 px-5 text-white"  style="background-color:#0f3952;">
+	<div class="col-3 pt-4 px-5 text-white"  style="background-color:#0f3952;">
 			<div class="row "><img class="mr-3 rounded-circle mx-auto" src="{{$user->foto}}" alt="Generic placeholder image" width="100px" height="100px" ></div>
 			<div class="row"><h5 class="pt-2 mx-auto">{{$user->nombre}}</h5></div>
 			<div class="row"><p>{{$trabajador->descripcion}}</p></div>
+
+			<br><br><br><br>
+			<br><br><br><br>
+			<br><br>
 	</div>
-	<div class="col-4 text-white">
+	<div class="col-5 pl-4" >
 		<br>
-		<h4>{{$trabajo->nombre}}</h4>
+		<h3><b>{{$trabajo->nombre}}</b></h3>
+
+		<div class="" id="tagss">
+        @foreach($trabajo->tags as $tag)
+          <a href="#" class="badge badge-pill badge-dark">{{$tag->nombre}}</a>
+        @endforeach
+      </div>
+
+
 		<p>{{$trabajo->descripcion}} </p>
+
+		
+		<label style="color:#19608a;">Ubicación</label>
+		<div id="map" class="mb-5" style="height: 60%; width: 100%; position:relative;"></div>
+		<script>
+
+			start = function(){
+				var map;
+	    		var xy = "{{ $trabajo->location }}";
+
+		      	var coords = new google.maps.LatLng(parseFloat(xy.split(",")[0]), parseFloat(xy.split(",")[1]));
+		   	        map = new google.maps.Map(document.getElementById('map'), {
+			          center: coords,
+			          zoom: 15
+			        });
+
+		      var marker = new google.maps.Marker({
+		      position: coords,
+		      map: map,
+		      title: "{{$trabajo->nombre}}",
+		      draggable:false
+		      });
+
+	
+			}
+	      	
+
+	    </script>
+
+
 	</div>
 	<div class="col-4 pr-0">
 		<div class="card my-3 px-2 py-3">
 			<div class="card-block">
 				<div class="d-flex justify-content-between align-items-center px-2">
-					<h3 class="card-title">S/.74</h3>
+					<h5> <b>Desde </b>  s/{{$trabajo->costoMin}} <b> hasta</b> s/{{$trabajo->costoMax}} </h5>
 
 						<div >
 							<i class="material-icons" style="font-size:20px;">star_half</i>
@@ -81,7 +123,7 @@
 							<i class="material-icons" style="font-size:20px;">star_border</i>	
 						</div>
 						
-						<small style="font-size:17px;">39</small>
+						
 
 				</div>
 				

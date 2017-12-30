@@ -37,12 +37,18 @@ class ContratoController extends Controller
             $c->trabajo_id = $t->id;
             $c->trabajador_id  = $t->trabajador_id;
             $c->user_id = Auth::id();
-            $c->costo = $t->costo;
+            $c->costo = (int) (($t->costoMin + $t->costoMax)/2);
             $c->contratado = false;
             $c->pagado = false;
             $c->terminado = false;
             $c->inicio =$request->inicio;
             $c->fin= $request->fin;
+
+            $c->total = 0;
+            $c->dias = 0;
+            $c->acuerdo_user = false;
+            $c->acuerdo_trabajador = false;
+
             $c->save();
         }
         else{
@@ -89,6 +95,10 @@ class ContratoController extends Controller
         $c->costo = $request->costo;
         $c->total = $request->total;
         $c->dias = $request->dias;
+
+        if(!is_null($request->acuerdo_trabajador)) $c->acuerdo_trabajador  = $request->acuerdo_trabajador;
+        if(!is_null($request->acuerdo_user)) $c->acuerdo_user  = $request->acuerdo_user;
+
         $c->save();
 
         event(new UpdateContrato($c));
