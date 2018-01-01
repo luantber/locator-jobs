@@ -1,5 +1,5 @@
 @if ($bool)
-<p style="color:#0f3952;" >Ordenado por fecha de creación</p>
+<p style="color:#0f3952;" >Ordewewewenado por fecha de creación</p>
 <ul class="cbp_tmtimeline">
 <!-- Esto es lo que vale-->
 @for ($i = 0; $i < sizeof($contratos); $i++)

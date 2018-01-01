@@ -1,3 +1,20 @@
+<?php 
+    
+
+    $c_user = collect([]);
+    $c_trabajador = collect([]);
+    if(is_null(Auth::user()->trabajador))
+      $c_user = Auth::user()->contratos;
+    else{
+
+      $c_user = Auth::user()->contratos; 
+      $c_trabajador = Auth::user()->trabajador->contratos ;
+    }
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -118,6 +135,7 @@
 
           <a href="{{ asset('login/google/dashboard')}}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
 
+
         <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal" href="#">Iniciar Sesión</a>
         <a class="nav-link text-white  " data-toggle="modal" id="ini" data-target="#exampleModal2" href="#">Registrarme</a>
       </div>
@@ -129,9 +147,37 @@
         <a href="{{ asset('linea') }}" class="nav-link text-white ml-auto">Linea del tiempo</a>
       </div>
 
+       <div class="dropdown nav-item ml-auto">
+        <a class="nav-link text-white ml-auto dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recientes
+        </a>
+
+        <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+          @for ($i = 0; $i <= 2 && $i < $c_trabajador->count() ; $i++)
+            <a class="dropdown-item" href="{{ asset( 'contratos/' .$c_trabajador[$i]->id ) }}">
+            {{ $c_trabajador[$i]->trabajo->nombre }}, 
+            
+            {{ date_format(date_create($c_trabajador[$i]->created_at),"d M")}}
+
+            </a>
+          @endfor
+
+          <div class="dropdown-divider"></div>
+           @for ($i = 0; $i <= 2 && $i < $c_user->count() ; $i++)
+            <a class="dropdown-item" href="{{ asset( 'contratos/' .$c_user[$i]->id ) }}">
+            {{ $c_user[$i]->trabajo->nombre }}, 
+             {{ date_format(date_create($c_user[$i]->created_at),"d M")}}
+            </a>
+          @endfor
+        </div>
+      </div>
+
       <div class="form-inline">
         <a href="{{ asset('dashboard') }}" class="nav-link text-white ml-auto">Publicar mi trabajo</a>
       </div>
+
+
+
 
       <div class="dropdown nav-item ml-auto">
         <a class="nav-link text-white ml-auto dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

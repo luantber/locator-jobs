@@ -60,11 +60,12 @@
 				  		<div class="col-12">
 							<div class="form-check">
 							    <label class="form-check-label">
-							      <input type="checkbox" id="confirmar" class="form-check-input">
+							      <input type="checkbox" id="confirmar" class="form-check-input" @if($contrato->acuerdo_trabajador) {{ "checked"}}@endif>
 							       Acepto
 							    </label>
 							 </div>
-						
+							
+
 							 <div id="acepto_user" class="pl-3">
 							 @if(!$contrato->acuerdo_user)
 							 	{{ $contrato->user->nombre }} aún no acepto.
@@ -125,7 +126,7 @@
 				  		<div class="col-12">
 							<div class="form-check">
 							    <label class="form-check-label">
-							      <input type="checkbox" id="confirmar" class="form-check-input">
+							      <input type="checkbox" id="confirmar" class="form-check-input" @if($contrato->acuerdo_user) {{ "checked"}}@endif>
 							       Acepto
 							    </label>
 							 </div>
@@ -136,16 +137,27 @@
 							 @if(!$contrato->acuerdo_trabajador)
 							 	{{ $contrato->trabajador->user->nombre }} aún no acepto.
 							 @else
+
 							 	{{ $contrato->trabajador->user->nombre}} esta de acuerdo.
+							 	
 							 @endif
+
 
 							 </div>
 				  		
 
-				  		
-				  			<button class="btn btn-secondary ml-3 mt-2">
+				  			
+				  			<button id="contratar" class="btn btn-secondary ml-3 mt-2">
 				  				Contratar
 				  			</button>
+
+				  			<script type="text/javascript">
+							 	@if($contrato->acuerdo_user && $contrato->acuerdo_trabajador)
+							 		$("#contratar").show();
+							 	@else
+							 		$("#contratar").hide();
+							 	@endif
+							</script>
 				  		</div>
 				  	</div>
 
@@ -403,7 +415,7 @@
     
     channel.bind('App\\Events\\UpdateContrato', function(data) {
     	var nombre = "{{ $contrato->user->nombre }}";
-    	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
+    	var textos  = ["aún no aceptó","esta de acuerdo"];
         $("#acepto_user").html(nombre+" "+textos[data.update.acuerdo_user]);
    	});
 	
@@ -423,9 +435,13 @@
       $("#total").html(data.update.total);
 
     	var nombre = "{{ $contrato->trabajador->user->nombre }}";
-    	var textos  = ["aún no aceptó el acuerdo","aceptó el acuerdo"];
+    	var textos  = ["aún no aceptó","esta de acuerdo"];
     	console.log(textos[data.update.acuerdo_trabajador]);
         $("#acepto_trabajador").html(nombre+" "+textos[data.update.acuerdo_trabajador]);
+        if(data.update.acuerdo_trabajador && data.update.acuerdo_user)
+        	$("#contratar").show();
+        else
+        	$("#contratar").hide();
 
       console.log(data.update);
     });
