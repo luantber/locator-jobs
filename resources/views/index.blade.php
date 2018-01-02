@@ -33,6 +33,7 @@
 
 <div class="pt-3" style="background-color:#e8e8e8;">
   <div class="container">
+    <h5> <p class="text-danger">{{session('mensaje')}}</p> </h5>
     <h4><strong>Trabajos</strong></h4>
     <p>Estos son nuestros trabajos disponibles</p>
 
@@ -118,10 +119,10 @@
     @foreach($tags->chunk(12) as $tag)
     <div class="row">
       @foreach($tag as $ta)
-      <div class="col-1 text-center">
-          <h5><a href="#" class="badge badge-pill badge-primary">{{$ta->nombre}}</a></h5>
-      </div>
-        @endforeach
+        <div class="col-1 text-center">
+          <h5><a href="/tags/{{$ta->nombre}}" class="badge badge-pill badge-primary">{{$ta->nombre}}</a></h5>
+        </div>
+      @endforeach
     </div>
     @endforeach
 

@@ -23,6 +23,8 @@
                 <input type="email" id="email" name="email" class="form-control" placeholder="email">
               </div>
             </div>
+
+            <!--
             <div class="form-group row">
               <label  class="col-sm-3 col-form-label">Contraseña</label>
               <div class="col-sm-9">
@@ -34,7 +36,7 @@
               <div class="col-sm-9">
                 <input type="password" class="form-control" placeholder="Repita // por ahora no disponible">
               </div>
-            </div>
+            </div>-->
             <meta name="csrf-token"  id="valor1" content="{{ csrf_token() }}">
 
             <div class="col-md-2 offset-md-4">

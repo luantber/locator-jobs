@@ -86,6 +86,19 @@ class TrabajoController extends Controller
         }
     }
 
+    public function busquedaTags($tag){
+    
+        $tag_act = Tag::where('nombre','=',$tag)->with('trabajos')->first();
+        
+        //return dd($tag_act);
+        $tags = Tag::where('nombre','like','%'.$tag.'%');
+        $trabajos=$tag_act->trabajos()->paginate(6);
+        //$trabajos=DB::table('tag_trabajo')->join('trabajos','trabajos.id','=','trabajo_id')->where('tag_id','=',16)->paginate(6);
+        //DB::table('trabajos')->join('tags')
+        //return dd($trabajos);
+        return view('busqueda', ['trabajos'=>$trabajos,'data'=>$tag]);
+    }
+
     /**
      * Muestra el trabajo solicitado
      *

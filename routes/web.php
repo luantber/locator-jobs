@@ -1,5 +1,8 @@
 <?php
-
+use App\Trabajo;
+use App\Tag;
+use Illuminate\Http\Request;
+use App\Mail\Confirmation;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,4 +103,18 @@ Route::get('/tags',function(){
   return view('tags',['tags'=>$tags]);
 });
 
+Route::get('/tags/{tag}','TrabajoController@busquedaTags');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/mail',function(){
+  Mail::to('alrus2797@gmail.com')
+    ->send(new Confirmation());
+});
+
+Route::get('/preview',function(){
+  return view('confirmation');
+});
+
+Route::get('usuarios/{email}/activar','registroController@activar');
+Route::post('/activar','registroController@activarusuario');

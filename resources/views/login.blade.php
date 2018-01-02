@@ -9,17 +9,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" >
+        <form method="post" action='login' >
+          {{csrf_field()}}
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Email</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="recipient-name" name="email">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Contraseña</label>
-            <input type="password" class="form-control" name="" value="">
+            <input type="password" class="form-control" name="password">
           </div>
           <div class="col-md-2 offset-md-4">
-            <button type="button" class="btn btn-primary">Ingresar</button>
+            <input type="submit" class="btn btn-primary">
           </div>
           <p class="text-center"> </p>
             <div class="row">
