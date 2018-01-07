@@ -1,15 +1,19 @@
 <?php 
     
+    if(Auth::check()){
 
-    $c_user = collect([]);
-    $c_trabajador = collect([]);
-    if(is_null(Auth::user()->trabajador))
-      $c_user = Auth::user()->contratos;
-    else{
+        $c_user = collect([]);
+        $c_trabajador = collect([]);
+        if(is_null(Auth::user()->trabajador))
+          $c_user = Auth::user()->contratos;
+        else{
 
-      $c_user = Auth::user()->contratos; 
-      $c_trabajador = Auth::user()->trabajador->contratos ;
+          $c_user = Auth::user()->contratos; 
+          $c_trabajador = Auth::user()->trabajador->contratos ;
+        }
+      
     }
+
 
 
  ?>
